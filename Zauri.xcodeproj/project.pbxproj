@@ -17,6 +17,12 @@
 		3AF8461E261AFA4B00BCA1AB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3AF8461D261AFA4A00BCA1AB /* GoogleService-Info.plist */; };
 		3AF84627261AFAB500BCA1AB /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF84626261AFAB500BCA1AB /* LoginView.swift */; };
 		3AF84638261B203300BCA1AB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF84637261B203300BCA1AB /* User.swift */; };
+		3AF84648261B2A6E00BCA1AB /* BottomTabsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF84647261B2A6E00BCA1AB /* BottomTabsView.swift */; };
+		3AF8464D261B2C3300BCA1AB /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF8464C261B2C3300BCA1AB /* SettingsView.swift */; };
+		3AF84652261B489900BCA1AB /* PendingMeasurementsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF84651261B489900BCA1AB /* PendingMeasurementsView.swift */; };
+		3AF8465A261B49A800BCA1AB /* PatientsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF84659261B49A800BCA1AB /* PatientsView.swift */; };
+		3AF8465F261B4A3600BCA1AB /* PatientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF8465E261B4A3600BCA1AB /* PatientView.swift */; };
+		3AF84664261B4C8A00BCA1AB /* PatientRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF84663261B4C8A00BCA1AB /* PatientRowView.swift */; };
 		B73FDCAD6425B23DF049FBDC /* Pods_ZauriTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93F3E5FACAB402A3DC9D1941 /* Pods_ZauriTests.framework */; };
 		DAC16952AD69DB42F5EA2601 /* Pods_Zauri_ZauriUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1190E059864A82C71E4DA12 /* Pods_Zauri_ZauriUITests.framework */; };
 		E4AB5E98BC40CFFB19DA9CD2 /* Pods_Zauri.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E46B81CB9985A94FE42A2156 /* Pods_Zauri.framework */; };
@@ -58,6 +64,12 @@
 		3AF8461D261AFA4A00BCA1AB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3AF84626261AFAB500BCA1AB /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		3AF84637261B203300BCA1AB /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		3AF84647261B2A6E00BCA1AB /* BottomTabsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomTabsView.swift; sourceTree = "<group>"; };
+		3AF8464C261B2C3300BCA1AB /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		3AF84651261B489900BCA1AB /* PendingMeasurementsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingMeasurementsView.swift; sourceTree = "<group>"; };
+		3AF84659261B49A800BCA1AB /* PatientsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientsView.swift; sourceTree = "<group>"; };
+		3AF8465E261B4A3600BCA1AB /* PatientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientView.swift; sourceTree = "<group>"; };
+		3AF84663261B4C8A00BCA1AB /* PatientRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientRowView.swift; sourceTree = "<group>"; };
 		7573C73FF3458AD0F151AA43 /* Pods-Zauri.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Zauri.release.xcconfig"; path = "Target Support Files/Pods-Zauri/Pods-Zauri.release.xcconfig"; sourceTree = "<group>"; };
 		93F3E5FACAB402A3DC9D1941 /* Pods_ZauriTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZauriTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC104F6A6BE52D200DD50368 /* Pods-Zauri.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Zauri.debug.xcconfig"; path = "Target Support Files/Pods-Zauri/Pods-Zauri.debug.xcconfig"; sourceTree = "<group>"; };
@@ -163,6 +175,12 @@
 			isa = PBXGroup;
 			children = (
 				3AF84626261AFAB500BCA1AB /* LoginView.swift */,
+				3AF84647261B2A6E00BCA1AB /* BottomTabsView.swift */,
+				3AF8464C261B2C3300BCA1AB /* SettingsView.swift */,
+				3AF84651261B489900BCA1AB /* PendingMeasurementsView.swift */,
+				3AF84659261B49A800BCA1AB /* PatientsView.swift */,
+				3AF8465E261B4A3600BCA1AB /* PatientView.swift */,
+				3AF84663261B4C8A00BCA1AB /* PatientRowView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -437,10 +455,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3AF8465F261B4A3600BCA1AB /* PatientView.swift in Sources */,
+				3AF84664261B4C8A00BCA1AB /* PatientRowView.swift in Sources */,
+				3AF8465A261B49A800BCA1AB /* PatientsView.swift in Sources */,
 				3AF84638261B203300BCA1AB /* User.swift in Sources */,
 				3AB62B98261AF80D00D93FD8 /* AppDelegate.swift in Sources */,
 				3AB62B9A261AF80D00D93FD8 /* SceneDelegate.swift in Sources */,
+				3AF8464D261B2C3300BCA1AB /* SettingsView.swift in Sources */,
+				3AF84652261B489900BCA1AB /* PendingMeasurementsView.swift in Sources */,
 				3AF84627261AFAB500BCA1AB /* LoginView.swift in Sources */,
+				3AF84648261B2A6E00BCA1AB /* BottomTabsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

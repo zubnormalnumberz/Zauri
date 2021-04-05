@@ -21,11 +21,7 @@ struct LoginView: View {
                 Text("Welcome to Zauri!")
                     .font(.largeTitle)
                     .fontWeight(.semibold)
-                Image("logo")
-                     .resizable()
-                     .aspectRatio(contentMode: .fill)
-                     .frame(width: 200.0, height: 200.0, alignment: .center)
-                     .clipped()
+                    .padding(.bottom, 50)
                 HStack{
                     Image(systemName: "person")
                         .foregroundColor(.white)
