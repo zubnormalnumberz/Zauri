@@ -1,0 +1,602 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3AB62B98261AF80D00D93FD8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB62B97261AF80D00D93FD8 /* AppDelegate.swift */; };
+		3AB62B9A261AF80D00D93FD8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB62B99261AF80D00D93FD8 /* SceneDelegate.swift */; };
+		3AB62B9C261AF80D00D93FD8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB62B9B261AF80D00D93FD8 /* ContentView.swift */; };
+		3AB62B9E261AF80F00D93FD8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3AB62B9D261AF80F00D93FD8 /* Assets.xcassets */; };
+		3AB62BA1261AF80F00D93FD8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3AB62BA0261AF80F00D93FD8 /* Preview Assets.xcassets */; };
+		3AB62BA4261AF80F00D93FD8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AB62BA2261AF80F00D93FD8 /* LaunchScreen.storyboard */; };
+		3AB62BAF261AF81000D93FD8 /* ZauriTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB62BAE261AF81000D93FD8 /* ZauriTests.swift */; };
+		3AB62BBA261AF81000D93FD8 /* ZauriUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB62BB9261AF81000D93FD8 /* ZauriUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3AB62BAB261AF81000D93FD8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3AB62B8C261AF80D00D93FD8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3AB62B93261AF80D00D93FD8;
+			remoteInfo = Zauri;
+		};
+		3AB62BB6261AF81000D93FD8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3AB62B8C261AF80D00D93FD8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3AB62B93261AF80D00D93FD8;
+			remoteInfo = Zauri;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		3AB62B94261AF80D00D93FD8 /* Zauri.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Zauri.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3AB62B97261AF80D00D93FD8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3AB62B99261AF80D00D93FD8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		3AB62B9B261AF80D00D93FD8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		3AB62B9D261AF80F00D93FD8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3AB62BA0261AF80F00D93FD8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		3AB62BA3261AF80F00D93FD8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3AB62BA5261AF80F00D93FD8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3AB62BAA261AF81000D93FD8 /* ZauriTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZauriTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3AB62BAE261AF81000D93FD8 /* ZauriTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZauriTests.swift; sourceTree = "<group>"; };
+		3AB62BB0261AF81000D93FD8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3AB62BB5261AF81000D93FD8 /* ZauriUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZauriUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3AB62BB9261AF81000D93FD8 /* ZauriUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZauriUITests.swift; sourceTree = "<group>"; };
+		3AB62BBB261AF81000D93FD8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3AB62B91261AF80D00D93FD8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3AB62BA7261AF81000D93FD8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3AB62BB2261AF81000D93FD8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3AB62B8B261AF80D00D93FD8 = {
+			isa = PBXGroup;
+			children = (
+				3AB62B96261AF80D00D93FD8 /* Zauri */,
+				3AB62BAD261AF81000D93FD8 /* ZauriTests */,
+				3AB62BB8261AF81000D93FD8 /* ZauriUITests */,
+				3AB62B95261AF80D00D93FD8 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3AB62B95261AF80D00D93FD8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3AB62B94261AF80D00D93FD8 /* Zauri.app */,
+				3AB62BAA261AF81000D93FD8 /* ZauriTests.xctest */,
+				3AB62BB5261AF81000D93FD8 /* ZauriUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3AB62B96261AF80D00D93FD8 /* Zauri */ = {
+			isa = PBXGroup;
+			children = (
+				3AB62B97261AF80D00D93FD8 /* AppDelegate.swift */,
+				3AB62B99261AF80D00D93FD8 /* SceneDelegate.swift */,
+				3AB62B9B261AF80D00D93FD8 /* ContentView.swift */,
+				3AB62B9D261AF80F00D93FD8 /* Assets.xcassets */,
+				3AB62BA2261AF80F00D93FD8 /* LaunchScreen.storyboard */,
+				3AB62BA5261AF80F00D93FD8 /* Info.plist */,
+				3AB62B9F261AF80F00D93FD8 /* Preview Content */,
+			);
+			path = Zauri;
+			sourceTree = "<group>";
+		};
+		3AB62B9F261AF80F00D93FD8 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				3AB62BA0261AF80F00D93FD8 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		3AB62BAD261AF81000D93FD8 /* ZauriTests */ = {
+			isa = PBXGroup;
+			children = (
+				3AB62BAE261AF81000D93FD8 /* ZauriTests.swift */,
+				3AB62BB0261AF81000D93FD8 /* Info.plist */,
+			);
+			path = ZauriTests;
+			sourceTree = "<group>";
+		};
+		3AB62BB8261AF81000D93FD8 /* ZauriUITests */ = {
+			isa = PBXGroup;
+			children = (
+				3AB62BB9261AF81000D93FD8 /* ZauriUITests.swift */,
+				3AB62BBB261AF81000D93FD8 /* Info.plist */,
+			);
+			path = ZauriUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3AB62B93261AF80D00D93FD8 /* Zauri */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3AB62BBE261AF81000D93FD8 /* Build configuration list for PBXNativeTarget "Zauri" */;
+			buildPhases = (
+				3AB62B90261AF80D00D93FD8 /* Sources */,
+				3AB62B91261AF80D00D93FD8 /* Frameworks */,
+				3AB62B92261AF80D00D93FD8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Zauri;
+			productName = Zauri;
+			productReference = 3AB62B94261AF80D00D93FD8 /* Zauri.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3AB62BA9261AF81000D93FD8 /* ZauriTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3AB62BC1261AF81000D93FD8 /* Build configuration list for PBXNativeTarget "ZauriTests" */;
+			buildPhases = (
+				3AB62BA6261AF81000D93FD8 /* Sources */,
+				3AB62BA7261AF81000D93FD8 /* Frameworks */,
+				3AB62BA8261AF81000D93FD8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3AB62BAC261AF81000D93FD8 /* PBXTargetDependency */,
+			);
+			name = ZauriTests;
+			productName = ZauriTests;
+			productReference = 3AB62BAA261AF81000D93FD8 /* ZauriTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		3AB62BB4261AF81000D93FD8 /* ZauriUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3AB62BC4261AF81000D93FD8 /* Build configuration list for PBXNativeTarget "ZauriUITests" */;
+			buildPhases = (
+				3AB62BB1261AF81000D93FD8 /* Sources */,
+				3AB62BB2261AF81000D93FD8 /* Frameworks */,
+				3AB62BB3261AF81000D93FD8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3AB62BB7261AF81000D93FD8 /* PBXTargetDependency */,
+			);
+			name = ZauriUITests;
+			productName = ZauriUITests;
+			productReference = 3AB62BB5261AF81000D93FD8 /* ZauriUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3AB62B8C261AF80D00D93FD8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1240;
+				LastUpgradeCheck = 1240;
+				TargetAttributes = {
+					3AB62B93261AF80D00D93FD8 = {
+						CreatedOnToolsVersion = 12.4;
+					};
+					3AB62BA9261AF81000D93FD8 = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = 3AB62B93261AF80D00D93FD8;
+					};
+					3AB62BB4261AF81000D93FD8 = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = 3AB62B93261AF80D00D93FD8;
+					};
+				};
+			};
+			buildConfigurationList = 3AB62B8F261AF80D00D93FD8 /* Build configuration list for PBXProject "Zauri" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3AB62B8B261AF80D00D93FD8;
+			productRefGroup = 3AB62B95261AF80D00D93FD8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3AB62B93261AF80D00D93FD8 /* Zauri */,
+				3AB62BA9261AF81000D93FD8 /* ZauriTests */,
+				3AB62BB4261AF81000D93FD8 /* ZauriUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3AB62B92261AF80D00D93FD8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3AB62BA4261AF80F00D93FD8 /* LaunchScreen.storyboard in Resources */,
+				3AB62BA1261AF80F00D93FD8 /* Preview Assets.xcassets in Resources */,
+				3AB62B9E261AF80F00D93FD8 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3AB62BA8261AF81000D93FD8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3AB62BB3261AF81000D93FD8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3AB62B90261AF80D00D93FD8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3AB62B98261AF80D00D93FD8 /* AppDelegate.swift in Sources */,
+				3AB62B9A261AF80D00D93FD8 /* SceneDelegate.swift in Sources */,
+				3AB62B9C261AF80D00D93FD8 /* ContentView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3AB62BA6261AF81000D93FD8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3AB62BAF261AF81000D93FD8 /* ZauriTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3AB62BB1261AF81000D93FD8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3AB62BBA261AF81000D93FD8 /* ZauriUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3AB62BAC261AF81000D93FD8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3AB62B93261AF80D00D93FD8 /* Zauri */;
+			targetProxy = 3AB62BAB261AF81000D93FD8 /* PBXContainerItemProxy */;
+		};
+		3AB62BB7261AF81000D93FD8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3AB62B93261AF80D00D93FD8 /* Zauri */;
+			targetProxy = 3AB62BB6261AF81000D93FD8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		3AB62BA2261AF80F00D93FD8 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3AB62BA3261AF80F00D93FD8 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3AB62BBC261AF81000D93FD8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		3AB62BBD261AF81000D93FD8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3AB62BBF261AF81000D93FD8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Zauri/Preview Content\"";
+				DEVELOPMENT_TEAM = 9CGZ98HP2U;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = Zauri/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = zubnormalnumberz.Zauri;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3AB62BC0261AF81000D93FD8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Zauri/Preview Content\"";
+				DEVELOPMENT_TEAM = 9CGZ98HP2U;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = Zauri/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = zubnormalnumberz.Zauri;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		3AB62BC2261AF81000D93FD8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9CGZ98HP2U;
+				INFOPLIST_FILE = ZauriTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = zubnormalnumberz.ZauriTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Zauri.app/Zauri";
+			};
+			name = Debug;
+		};
+		3AB62BC3261AF81000D93FD8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9CGZ98HP2U;
+				INFOPLIST_FILE = ZauriTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = zubnormalnumberz.ZauriTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Zauri.app/Zauri";
+			};
+			name = Release;
+		};
+		3AB62BC5261AF81000D93FD8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9CGZ98HP2U;
+				INFOPLIST_FILE = ZauriUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = zubnormalnumberz.ZauriUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Zauri;
+			};
+			name = Debug;
+		};
+		3AB62BC6261AF81000D93FD8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9CGZ98HP2U;
+				INFOPLIST_FILE = ZauriUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = zubnormalnumberz.ZauriUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Zauri;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3AB62B8F261AF80D00D93FD8 /* Build configuration list for PBXProject "Zauri" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3AB62BBC261AF81000D93FD8 /* Debug */,
+				3AB62BBD261AF81000D93FD8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3AB62BBE261AF81000D93FD8 /* Build configuration list for PBXNativeTarget "Zauri" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3AB62BBF261AF81000D93FD8 /* Debug */,
+				3AB62BC0261AF81000D93FD8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3AB62BC1261AF81000D93FD8 /* Build configuration list for PBXNativeTarget "ZauriTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3AB62BC2261AF81000D93FD8 /* Debug */,
+				3AB62BC3261AF81000D93FD8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3AB62BC4261AF81000D93FD8 /* Build configuration list for PBXNativeTarget "ZauriUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3AB62BC5261AF81000D93FD8 /* Debug */,
+				3AB62BC6261AF81000D93FD8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3AB62B8C261AF80D00D93FD8 /* Project object */;
+}
