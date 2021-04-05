@@ -7,6 +7,7 @@ target 'Zauri' do
 
   # Pods for Zauri
 	pod 'Firebase'
+	pod 'Introspect'
 
   target 'ZauriTests' do
     inherit! :search_paths
