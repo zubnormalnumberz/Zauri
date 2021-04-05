@@ -1,0 +1,6 @@
+framework module Pods_Zauri_ZauriUITests {
+  umbrella header "Pods-Zauri-ZauriUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -3,18 +3,23 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		3AB62B98261AF80D00D93FD8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB62B97261AF80D00D93FD8 /* AppDelegate.swift */; };
 		3AB62B9A261AF80D00D93FD8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB62B99261AF80D00D93FD8 /* SceneDelegate.swift */; };
-		3AB62B9C261AF80D00D93FD8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB62B9B261AF80D00D93FD8 /* ContentView.swift */; };
 		3AB62B9E261AF80F00D93FD8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3AB62B9D261AF80F00D93FD8 /* Assets.xcassets */; };
 		3AB62BA1261AF80F00D93FD8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3AB62BA0261AF80F00D93FD8 /* Preview Assets.xcassets */; };
 		3AB62BA4261AF80F00D93FD8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AB62BA2261AF80F00D93FD8 /* LaunchScreen.storyboard */; };
 		3AB62BAF261AF81000D93FD8 /* ZauriTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB62BAE261AF81000D93FD8 /* ZauriTests.swift */; };
 		3AB62BBA261AF81000D93FD8 /* ZauriUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB62BB9261AF81000D93FD8 /* ZauriUITests.swift */; };
+		3AF8461E261AFA4B00BCA1AB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3AF8461D261AFA4A00BCA1AB /* GoogleService-Info.plist */; };
+		3AF84627261AFAB500BCA1AB /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF84626261AFAB500BCA1AB /* LoginView.swift */; };
+		3AF84638261B203300BCA1AB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF84637261B203300BCA1AB /* User.swift */; };
+		B73FDCAD6425B23DF049FBDC /* Pods_ZauriTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93F3E5FACAB402A3DC9D1941 /* Pods_ZauriTests.framework */; };
+		DAC16952AD69DB42F5EA2601 /* Pods_Zauri_ZauriUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1190E059864A82C71E4DA12 /* Pods_Zauri_ZauriUITests.framework */; };
+		E4AB5E98BC40CFFB19DA9CD2 /* Pods_Zauri.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E46B81CB9985A94FE42A2156 /* Pods_Zauri.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,10 +40,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		00D0C224B986C0659B6B34E5 /* Pods-ZauriTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZauriTests.release.xcconfig"; path = "Target Support Files/Pods-ZauriTests/Pods-ZauriTests.release.xcconfig"; sourceTree = "<group>"; };
+		045BEA46AA025CCA5B1309F8 /* Pods-Zauri-ZauriUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Zauri-ZauriUITests.debug.xcconfig"; path = "Target Support Files/Pods-Zauri-ZauriUITests/Pods-Zauri-ZauriUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		3AB62B94261AF80D00D93FD8 /* Zauri.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Zauri.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AB62B97261AF80D00D93FD8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3AB62B99261AF80D00D93FD8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		3AB62B9B261AF80D00D93FD8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		3AB62B9D261AF80F00D93FD8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3AB62BA0261AF80F00D93FD8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3AB62BA3261AF80F00D93FD8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +55,16 @@
 		3AB62BB5261AF81000D93FD8 /* ZauriUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZauriUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AB62BB9261AF81000D93FD8 /* ZauriUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZauriUITests.swift; sourceTree = "<group>"; };
 		3AB62BBB261AF81000D93FD8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3AF8461D261AFA4A00BCA1AB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		3AF84626261AFAB500BCA1AB /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		3AF84637261B203300BCA1AB /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		7573C73FF3458AD0F151AA43 /* Pods-Zauri.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Zauri.release.xcconfig"; path = "Target Support Files/Pods-Zauri/Pods-Zauri.release.xcconfig"; sourceTree = "<group>"; };
+		93F3E5FACAB402A3DC9D1941 /* Pods_ZauriTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZauriTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CC104F6A6BE52D200DD50368 /* Pods-Zauri.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Zauri.debug.xcconfig"; path = "Target Support Files/Pods-Zauri/Pods-Zauri.debug.xcconfig"; sourceTree = "<group>"; };
+		CC8D6CF326ABCC1A98117091 /* Pods-Zauri-ZauriUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Zauri-ZauriUITests.release.xcconfig"; path = "Target Support Files/Pods-Zauri-ZauriUITests/Pods-Zauri-ZauriUITests.release.xcconfig"; sourceTree = "<group>"; };
+		D1190E059864A82C71E4DA12 /* Pods_Zauri_ZauriUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Zauri_ZauriUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E46B81CB9985A94FE42A2156 /* Pods_Zauri.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Zauri.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E94AE28448B135193D71EA86 /* Pods-ZauriTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZauriTests.debug.xcconfig"; path = "Target Support Files/Pods-ZauriTests/Pods-ZauriTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4AB5E98BC40CFFB19DA9CD2 /* Pods_Zauri.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B73FDCAD6425B23DF049FBDC /* Pods_ZauriTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,6 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAC16952AD69DB42F5EA2601 /* Pods_Zauri_ZauriUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +102,8 @@
 				3AB62BAD261AF81000D93FD8 /* ZauriTests */,
 				3AB62BB8261AF81000D93FD8 /* ZauriUITests */,
 				3AB62B95261AF80D00D93FD8 /* Products */,
+				48A030BD08206565D133EBC8 /* Pods */,
+				4DFBEF897A351196577C5925 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,12 +120,14 @@
 		3AB62B96261AF80D00D93FD8 /* Zauri */ = {
 			isa = PBXGroup;
 			children = (
+				3AF84636261B202000BCA1AB /* Model */,
+				3AF84625261AFA9600BCA1AB /* Views */,
 				3AB62B97261AF80D00D93FD8 /* AppDelegate.swift */,
 				3AB62B99261AF80D00D93FD8 /* SceneDelegate.swift */,
-				3AB62B9B261AF80D00D93FD8 /* ContentView.swift */,
 				3AB62B9D261AF80F00D93FD8 /* Assets.xcassets */,
 				3AB62BA2261AF80F00D93FD8 /* LaunchScreen.storyboard */,
 				3AB62BA5261AF80F00D93FD8 /* Info.plist */,
+				3AF8461D261AFA4A00BCA1AB /* GoogleService-Info.plist */,
 				3AB62B9F261AF80F00D93FD8 /* Preview Content */,
 			);
 			path = Zauri;
@@ -136,6 +159,45 @@
 			path = ZauriUITests;
 			sourceTree = "<group>";
 		};
+		3AF84625261AFA9600BCA1AB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3AF84626261AFAB500BCA1AB /* LoginView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		3AF84636261B202000BCA1AB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3AF84637261B203300BCA1AB /* User.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		48A030BD08206565D133EBC8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CC104F6A6BE52D200DD50368 /* Pods-Zauri.debug.xcconfig */,
+				7573C73FF3458AD0F151AA43 /* Pods-Zauri.release.xcconfig */,
+				045BEA46AA025CCA5B1309F8 /* Pods-Zauri-ZauriUITests.debug.xcconfig */,
+				CC8D6CF326ABCC1A98117091 /* Pods-Zauri-ZauriUITests.release.xcconfig */,
+				E94AE28448B135193D71EA86 /* Pods-ZauriTests.debug.xcconfig */,
+				00D0C224B986C0659B6B34E5 /* Pods-ZauriTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		4DFBEF897A351196577C5925 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E46B81CB9985A94FE42A2156 /* Pods_Zauri.framework */,
+				D1190E059864A82C71E4DA12 /* Pods_Zauri_ZauriUITests.framework */,
+				93F3E5FACAB402A3DC9D1941 /* Pods_ZauriTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -143,9 +205,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3AB62BBE261AF81000D93FD8 /* Build configuration list for PBXNativeTarget "Zauri" */;
 			buildPhases = (
+				401A771860FF64EF99922AE8 /* [CP] Check Pods Manifest.lock */,
 				3AB62B90261AF80D00D93FD8 /* Sources */,
 				3AB62B91261AF80D00D93FD8 /* Frameworks */,
 				3AB62B92261AF80D00D93FD8 /* Resources */,
+				D6703D44B31B4D2E37ADEFB9 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -160,6 +224,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3AB62BC1261AF81000D93FD8 /* Build configuration list for PBXNativeTarget "ZauriTests" */;
 			buildPhases = (
+				FEC7EC7B34B815F8E4099C03 /* [CP] Check Pods Manifest.lock */,
 				3AB62BA6261AF81000D93FD8 /* Sources */,
 				3AB62BA7261AF81000D93FD8 /* Frameworks */,
 				3AB62BA8261AF81000D93FD8 /* Resources */,
@@ -178,9 +243,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3AB62BC4261AF81000D93FD8 /* Build configuration list for PBXNativeTarget "ZauriUITests" */;
 			buildPhases = (
+				B8FB45198B53D8CD4942A34F /* [CP] Check Pods Manifest.lock */,
 				3AB62BB1261AF81000D93FD8 /* Sources */,
 				3AB62BB2261AF81000D93FD8 /* Frameworks */,
 				3AB62BB3261AF81000D93FD8 /* Resources */,
+				DF831427D9B85C1B73CC1342 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -240,6 +307,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3AB62BA4261AF80F00D93FD8 /* LaunchScreen.storyboard in Resources */,
+				3AF8461E261AFA4B00BCA1AB /* GoogleService-Info.plist in Resources */,
 				3AB62BA1261AF80F00D93FD8 /* Preview Assets.xcassets in Resources */,
 				3AB62B9E261AF80F00D93FD8 /* Assets.xcassets in Resources */,
 			);
@@ -261,14 +329,118 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		401A771860FF64EF99922AE8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Zauri-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B8FB45198B53D8CD4942A34F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Zauri-ZauriUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D6703D44B31B4D2E37ADEFB9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Zauri/Pods-Zauri-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Zauri/Pods-Zauri-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Zauri/Pods-Zauri-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DF831427D9B85C1B73CC1342 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Zauri-ZauriUITests/Pods-Zauri-ZauriUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Zauri-ZauriUITests/Pods-Zauri-ZauriUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Zauri-ZauriUITests/Pods-Zauri-ZauriUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FEC7EC7B34B815F8E4099C03 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ZauriTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		3AB62B90261AF80D00D93FD8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3AF84638261B203300BCA1AB /* User.swift in Sources */,
 				3AB62B98261AF80D00D93FD8 /* AppDelegate.swift in Sources */,
 				3AB62B9A261AF80D00D93FD8 /* SceneDelegate.swift in Sources */,
-				3AB62B9C261AF80D00D93FD8 /* ContentView.swift in Sources */,
+				3AF84627261AFAB500BCA1AB /* LoginView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -433,6 +605,7 @@
 		};
 		3AB62BBF261AF81000D93FD8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CC104F6A6BE52D200DD50368 /* Pods-Zauri.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -454,6 +627,7 @@
 		};
 		3AB62BC0261AF81000D93FD8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7573C73FF3458AD0F151AA43 /* Pods-Zauri.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -475,6 +649,7 @@
 		};
 		3AB62BC2261AF81000D93FD8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E94AE28448B135193D71EA86 /* Pods-ZauriTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -497,6 +672,7 @@
 		};
 		3AB62BC3261AF81000D93FD8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 00D0C224B986C0659B6B34E5 /* Pods-ZauriTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -519,6 +695,7 @@
 		};
 		3AB62BC5261AF81000D93FD8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 045BEA46AA025CCA5B1309F8 /* Pods-Zauri-ZauriUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -539,6 +716,7 @@
 		};
 		3AB62BC6261AF81000D93FD8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CC8D6CF326ABCC1A98117091 /* Pods-Zauri-ZauriUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
