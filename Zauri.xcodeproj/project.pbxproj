@@ -17,6 +17,9 @@
 		3AE5DC7B2620B33F00B890D6 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE5DC7A2620B33F00B890D6 /* LoginViewModel.swift */; };
 		3AE5DC842620D18600B890D6 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE5DC832620D18600B890D6 /* UserService.swift */; };
 		3AE5DC922621AF3B00B890D6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE5DC912621AF3B00B890D6 /* ContentView.swift */; };
+		3AE5DCA22621D86F00B890D6 /* NoPatientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE5DCA12621D86F00B890D6 /* NoPatientView.swift */; };
+		3AE5DCA72621EEC900B890D6 /* NoWoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE5DCA62621EEC900B890D6 /* NoWoundView.swift */; };
+		3AE5DCAC2621EF5A00B890D6 /* NoMeasurementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE5DCAB2621EF5A00B890D6 /* NoMeasurementView.swift */; };
 		3AF3C2E42620317300D8D51F /* Patient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF3C2E32620317300D8D51F /* Patient.swift */; };
 		3AF8461E261AFA4B00BCA1AB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3AF8461D261AFA4A00BCA1AB /* GoogleService-Info.plist */; };
 		3AF84627261AFAB500BCA1AB /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF84626261AFAB500BCA1AB /* LoginView.swift */; };
@@ -68,6 +71,9 @@
 		3AE5DC7A2620B33F00B890D6 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		3AE5DC832620D18600B890D6 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		3AE5DC912621AF3B00B890D6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		3AE5DCA12621D86F00B890D6 /* NoPatientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoPatientView.swift; sourceTree = "<group>"; };
+		3AE5DCA62621EEC900B890D6 /* NoWoundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoWoundView.swift; sourceTree = "<group>"; };
+		3AE5DCAB2621EF5A00B890D6 /* NoMeasurementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoMeasurementView.swift; sourceTree = "<group>"; };
 		3AF3C2E32620317300D8D51F /* Patient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Patient.swift; sourceTree = "<group>"; };
 		3AF8461D261AFA4A00BCA1AB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3AF84626261AFAB500BCA1AB /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -208,6 +214,9 @@
 				3AF8465E261B4A3600BCA1AB /* PatientView.swift */,
 				3AF84651261B489900BCA1AB /* PendingMeasurementsView.swift */,
 				3AF8464C261B2C3300BCA1AB /* SettingsView.swift */,
+				3AE5DCA12621D86F00B890D6 /* NoPatientView.swift */,
+				3AE5DCA62621EEC900B890D6 /* NoWoundView.swift */,
+				3AE5DCAB2621EF5A00B890D6 /* NoMeasurementView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -483,10 +492,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3AE5DCA22621D86F00B890D6 /* NoPatientView.swift in Sources */,
+				3AE5DCA72621EEC900B890D6 /* NoWoundView.swift in Sources */,
 				3AF8465F261B4A3600BCA1AB /* PatientView.swift in Sources */,
 				3AF84664261B4C8A00BCA1AB /* PatientRowView.swift in Sources */,
 				3AE5DC922621AF3B00B890D6 /* ContentView.swift in Sources */,
 				3AF8465A261B49A800BCA1AB /* PatientsView.swift in Sources */,
+				3AE5DCAC2621EF5A00B890D6 /* NoMeasurementView.swift in Sources */,
 				3AF84638261B203300BCA1AB /* User.swift in Sources */,
 				3AB62B98261AF80D00D93FD8 /* AppDelegate.swift in Sources */,
 				3AB62B9A261AF80D00D93FD8 /* SceneDelegate.swift in Sources */,

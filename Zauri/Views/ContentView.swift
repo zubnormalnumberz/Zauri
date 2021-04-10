@@ -17,11 +17,13 @@ struct ContentView: View {
     
     var body: some View {
         Group{
-            if session.session != nil {
-                BottomTabsView()
-            } else {
-                LoginView()
-            }
+            ZStack {
+                if session.session != nil {
+                    BottomTabsView()
+                } else {
+                    LoginView()
+                }
+            }.transition(.slide)
         }.onAppear(perform: getUser)
     }
 }

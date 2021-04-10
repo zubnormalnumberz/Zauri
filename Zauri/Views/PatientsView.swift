@@ -11,9 +11,14 @@ struct PatientsView: View {
     var body: some View {
         NavigationView {
             VStack{
-                
+                NoPatientView()
             }
             .navigationBarTitle("Pacientes")
+            .navigationBarItems(trailing: Button(action: {
+                print("Search")
+            }, label: {
+                Image(systemName: "plus")
+            }))
         }
     }
 }
