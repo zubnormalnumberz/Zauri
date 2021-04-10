@@ -10,12 +10,11 @@ import SwiftUI
 struct LoginView: View {
     
     //MARK: Properties
-    @State var username: String = ""
-    @State var password: String = ""
+    @ObservedObject var loginViewModel = LoginViewModel()
     @State private var editingUsername = false
     @State private var editingPassword = false
     @State private var showPassword = false
-        
+            
     var body: some View {
         NavigationView {
         ZStack{
@@ -28,7 +27,7 @@ struct LoginView: View {
                 HStack{
                     Image(systemName: "person")
                         .foregroundColor(.white)
-                    TextField("Usuario", text: $username, onEditingChanged: { edit in
+                    TextField("Usuario", text: $loginViewModel.username, onEditingChanged: { edit in
                         self.editingUsername = edit
                     })
                     .disableAutocorrection(true)
@@ -44,13 +43,13 @@ struct LoginView: View {
                     Image(systemName: "lock")
                         .foregroundColor(.white)
                     if(showPassword){
-                        TextField("Contraseña", text: $password, onEditingChanged: { edit in
+                        TextField("Contraseña", text: $loginViewModel.password, onEditingChanged: { edit in
                                   self.editingPassword = edit
                               })
                             .accentColor(.white)
                         .disableAutocorrection(true)
                     }else{
-                        SecureField("Contraseña", text: $password).onTapGesture {
+                        SecureField("Contraseña", text: $loginViewModel.password).onTapGesture {
                             self.editingPassword.toggle()
                         }
                             .accentColor(.white)
@@ -64,15 +63,18 @@ struct LoginView: View {
                 .background( editingPassword ? Color.blue : .gray)
                 .border(editingPassword ? Color.white : .gray, width: 2)
                 .cornerRadius(4.0)
-                Button("Iniciar sesión") {
-                    print("Thank you!")
+                Button(action: {loginViewModel.login()}) {
+                    Text("Iniciar sesión")
                 }
-                    .foregroundColor(buttonTextColor)
-                    .padding()
-                    .frame(maxWidth: .infinity)
-                    .background(buttonColor)
-                    .cornerRadius(8)
-                    .disabled(username == "" || password == "")
+                .foregroundColor(buttonTextColor)
+                .padding()
+                .frame(maxWidth: .infinity)
+                .background(buttonColor)
+                .cornerRadius(8)
+                .disabled(loginViewModel.username == "" || loginViewModel.password == "")
+                .alert(isPresented: $loginViewModel.showingAlert) {
+                            Alert(title: Text("Hello SwiftUI!"), message: Text("This is some detail message"), dismissButton: .default(Text("OK")))
+                        }
             }.padding()
         }
     }
@@ -83,26 +85,26 @@ struct LoginView: View {
     }
     
     var buttonColor: Color {
-        return (username == "" || password == "") ? .gray : .white
+        return (loginViewModel.username == "" || loginViewModel.password == "") ? .gray : .white
     }
     
     var buttonTextColor: Color {
-        return (username == "" || password == "") ? .black : .blue
+        return (loginViewModel.username == "" || loginViewModel.password == "") ? .black : .blue
     }
     
     func borderColor(editing: Bool) -> Color {
-        return (username == "" || password == "") ? .black : .blue
+        return (loginViewModel.username == "" || loginViewModel.password == "") ? .black : .blue
     }
 
     func textFieldBackground(editing: Bool) -> Color {
-        return (username == "" || password == "") ? .black : .blue
+        return (loginViewModel.username == "" || loginViewModel.password == "") ? .black : .blue
     }
 }
 
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
         LoginView()
-            .previewDevice("iPhone SE (1st generation)")
+            .previewDevice("iPhone 11")
     }
 }
 
@@ -110,6 +112,6 @@ struct LoginView_Previews: PreviewProvider {
 extension View {
     func hideKeyboard() {
         UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-    }
+    } 
 }
 #endif

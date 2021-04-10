@@ -8,23 +8,32 @@
 import SwiftUI
 
 struct SettingsView: View {
+    
+    @EnvironmentObject var session: UserService
+    
+    func getUser() {
+        session.listen()
+    }
+    
     var body: some View {
-        NavigationView {
-            VStack{
-                Text("klahflh")
-                Spacer()
-                Button("Cerrar sesión") {
-                    
+        Group{
+            NavigationView {
+                VStack{
+                    Text("klahflh")
+                    Spacer()
+                    Button("Cerrar sesión") {
+                        session.signOut()
+                    }
+                        .foregroundColor(.white)
+                        .padding()
+                        .frame(maxWidth: .infinity)
+                        .background(Color.red)
+                        .cornerRadius(8)
+                        .padding()
                 }
-                    .foregroundColor(.white)
-                    .padding()
-                    .frame(maxWidth: .infinity)
-                    .background(Color.red)
-                    .cornerRadius(8)
-                    .padding()
+                .navigationBarTitle("Ajustes")
             }
-            .navigationBarTitle("Ajustes")
-        }
+        }.onAppear(perform: getUser)
     }
 }
 

@@ -7,6 +7,7 @@ target 'Zauri' do
 
   # Pods for Zauri
 	pod 'Firebase'
+  pod 'Firebase/Auth'
 	pod 'Introspect'
 
   target 'ZauriTests' do

@@ -7,8 +7,12 @@
 
 import Foundation
 
-struct User {
-    var userID: Int
-    var name: String
-    var surname: String
+struct User: Codable {
+    var userID: String
+    var email: String?
+    
+    init(userID: String, email: String?) {
+        self.userID = userID
+        self.email = email
+    }
 }

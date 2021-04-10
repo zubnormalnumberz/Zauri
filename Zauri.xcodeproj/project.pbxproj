@@ -14,6 +14,10 @@
 		3AB62BA4261AF80F00D93FD8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AB62BA2261AF80F00D93FD8 /* LaunchScreen.storyboard */; };
 		3AB62BAF261AF81000D93FD8 /* ZauriTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB62BAE261AF81000D93FD8 /* ZauriTests.swift */; };
 		3AB62BBA261AF81000D93FD8 /* ZauriUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB62BB9261AF81000D93FD8 /* ZauriUITests.swift */; };
+		3AE5DC7B2620B33F00B890D6 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE5DC7A2620B33F00B890D6 /* LoginViewModel.swift */; };
+		3AE5DC842620D18600B890D6 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE5DC832620D18600B890D6 /* UserService.swift */; };
+		3AE5DC922621AF3B00B890D6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE5DC912621AF3B00B890D6 /* ContentView.swift */; };
+		3AF3C2E42620317300D8D51F /* Patient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF3C2E32620317300D8D51F /* Patient.swift */; };
 		3AF8461E261AFA4B00BCA1AB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3AF8461D261AFA4A00BCA1AB /* GoogleService-Info.plist */; };
 		3AF84627261AFAB500BCA1AB /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF84626261AFAB500BCA1AB /* LoginView.swift */; };
 		3AF84638261B203300BCA1AB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF84637261B203300BCA1AB /* User.swift */; };
@@ -61,6 +65,10 @@
 		3AB62BB5261AF81000D93FD8 /* ZauriUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZauriUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AB62BB9261AF81000D93FD8 /* ZauriUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZauriUITests.swift; sourceTree = "<group>"; };
 		3AB62BBB261AF81000D93FD8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3AE5DC7A2620B33F00B890D6 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		3AE5DC832620D18600B890D6 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		3AE5DC912621AF3B00B890D6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		3AF3C2E32620317300D8D51F /* Patient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Patient.swift; sourceTree = "<group>"; };
 		3AF8461D261AFA4A00BCA1AB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3AF84626261AFAB500BCA1AB /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		3AF84637261B203300BCA1AB /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -132,6 +140,8 @@
 		3AB62B96261AF80D00D93FD8 /* Zauri */ = {
 			isa = PBXGroup;
 			children = (
+				3AE5DC822620D13C00B890D6 /* Services */,
+				3AE5DC762620B30600B890D6 /* ViewModels */,
 				3AF84636261B202000BCA1AB /* Model */,
 				3AF84625261AFA9600BCA1AB /* Views */,
 				3AB62B97261AF80D00D93FD8 /* AppDelegate.swift */,
@@ -171,16 +181,33 @@
 			path = ZauriUITests;
 			sourceTree = "<group>";
 		};
+		3AE5DC762620B30600B890D6 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				3AE5DC7A2620B33F00B890D6 /* LoginViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		3AE5DC822620D13C00B890D6 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				3AE5DC832620D18600B890D6 /* UserService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		3AF84625261AFA9600BCA1AB /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				3AF84626261AFAB500BCA1AB /* LoginView.swift */,
 				3AF84647261B2A6E00BCA1AB /* BottomTabsView.swift */,
-				3AF8464C261B2C3300BCA1AB /* SettingsView.swift */,
-				3AF84651261B489900BCA1AB /* PendingMeasurementsView.swift */,
+				3AE5DC912621AF3B00B890D6 /* ContentView.swift */,
+				3AF84626261AFAB500BCA1AB /* LoginView.swift */,
+				3AF84663261B4C8A00BCA1AB /* PatientRowView.swift */,
 				3AF84659261B49A800BCA1AB /* PatientsView.swift */,
 				3AF8465E261B4A3600BCA1AB /* PatientView.swift */,
-				3AF84663261B4C8A00BCA1AB /* PatientRowView.swift */,
+				3AF84651261B489900BCA1AB /* PendingMeasurementsView.swift */,
+				3AF8464C261B2C3300BCA1AB /* SettingsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -189,6 +216,7 @@
 			isa = PBXGroup;
 			children = (
 				3AF84637261B203300BCA1AB /* User.swift */,
+				3AF3C2E32620317300D8D51F /* Patient.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -457,14 +485,18 @@
 			files = (
 				3AF8465F261B4A3600BCA1AB /* PatientView.swift in Sources */,
 				3AF84664261B4C8A00BCA1AB /* PatientRowView.swift in Sources */,
+				3AE5DC922621AF3B00B890D6 /* ContentView.swift in Sources */,
 				3AF8465A261B49A800BCA1AB /* PatientsView.swift in Sources */,
 				3AF84638261B203300BCA1AB /* User.swift in Sources */,
 				3AB62B98261AF80D00D93FD8 /* AppDelegate.swift in Sources */,
 				3AB62B9A261AF80D00D93FD8 /* SceneDelegate.swift in Sources */,
+				3AE5DC842620D18600B890D6 /* UserService.swift in Sources */,
 				3AF8464D261B2C3300BCA1AB /* SettingsView.swift in Sources */,
 				3AF84652261B489900BCA1AB /* PendingMeasurementsView.swift in Sources */,
+				3AE5DC7B2620B33F00B890D6 /* LoginViewModel.swift in Sources */,
 				3AF84627261AFAB500BCA1AB /* LoginView.swift in Sources */,
 				3AF84648261B2A6E00BCA1AB /* BottomTabsView.swift in Sources */,
+				3AF3C2E42620317300D8D51F /* Patient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
