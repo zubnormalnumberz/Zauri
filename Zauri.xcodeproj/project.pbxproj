@@ -14,6 +14,13 @@
 		3AB62BA4261AF80F00D93FD8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AB62BA2261AF80F00D93FD8 /* LaunchScreen.storyboard */; };
 		3AB62BAF261AF81000D93FD8 /* ZauriTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB62BAE261AF81000D93FD8 /* ZauriTests.swift */; };
 		3AB62BBA261AF81000D93FD8 /* ZauriUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB62BB9261AF81000D93FD8 /* ZauriUITests.swift */; };
+		3AD040D42622EC2800811FBB /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD040D32622EC2800811FBB /* SettingsViewModel.swift */; };
+		3AD040D92622F99B00811FBB /* WoundRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD040D82622F99B00811FBB /* WoundRowView.swift */; };
+		3AD040DE2623021200811FBB /* AboutUsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD040DD2623021200811FBB /* AboutUsView.swift */; };
+		3AD040E3262305A100811FBB /* PatientsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD040E2262305A100811FBB /* PatientsViewModel.swift */; };
+		3AD040E82623381D00811FBB /* NoPendingMeasurementsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD040E72623381D00811FBB /* NoPendingMeasurementsView.swift */; };
+		3AD040F02623640D00811FBB /* PatientViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD040EF2623640D00811FBB /* PatientViewModel.swift */; };
+		3AD040F52623648800811FBB /* Wound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD040F42623648800811FBB /* Wound.swift */; };
 		3AE5DC7B2620B33F00B890D6 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE5DC7A2620B33F00B890D6 /* LoginViewModel.swift */; };
 		3AE5DC842620D18600B890D6 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE5DC832620D18600B890D6 /* UserService.swift */; };
 		3AE5DC922621AF3B00B890D6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE5DC912621AF3B00B890D6 /* ContentView.swift */; };
@@ -68,6 +75,13 @@
 		3AB62BB5261AF81000D93FD8 /* ZauriUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZauriUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AB62BB9261AF81000D93FD8 /* ZauriUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZauriUITests.swift; sourceTree = "<group>"; };
 		3AB62BBB261AF81000D93FD8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3AD040D32622EC2800811FBB /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		3AD040D82622F99B00811FBB /* WoundRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoundRowView.swift; sourceTree = "<group>"; };
+		3AD040DD2623021200811FBB /* AboutUsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsView.swift; sourceTree = "<group>"; };
+		3AD040E2262305A100811FBB /* PatientsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientsViewModel.swift; sourceTree = "<group>"; };
+		3AD040E72623381D00811FBB /* NoPendingMeasurementsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoPendingMeasurementsView.swift; sourceTree = "<group>"; };
+		3AD040EF2623640D00811FBB /* PatientViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientViewModel.swift; sourceTree = "<group>"; };
+		3AD040F42623648800811FBB /* Wound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wound.swift; sourceTree = "<group>"; };
 		3AE5DC7A2620B33F00B890D6 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		3AE5DC832620D18600B890D6 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		3AE5DC912621AF3B00B890D6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -191,6 +205,9 @@
 			isa = PBXGroup;
 			children = (
 				3AE5DC7A2620B33F00B890D6 /* LoginViewModel.swift */,
+				3AD040D32622EC2800811FBB /* SettingsViewModel.swift */,
+				3AD040E2262305A100811FBB /* PatientsViewModel.swift */,
+				3AD040EF2623640D00811FBB /* PatientViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -215,8 +232,11 @@
 				3AF84651261B489900BCA1AB /* PendingMeasurementsView.swift */,
 				3AF8464C261B2C3300BCA1AB /* SettingsView.swift */,
 				3AE5DCA12621D86F00B890D6 /* NoPatientView.swift */,
+				3AD040E72623381D00811FBB /* NoPendingMeasurementsView.swift */,
 				3AE5DCA62621EEC900B890D6 /* NoWoundView.swift */,
 				3AE5DCAB2621EF5A00B890D6 /* NoMeasurementView.swift */,
+				3AD040D82622F99B00811FBB /* WoundRowView.swift */,
+				3AD040DD2623021200811FBB /* AboutUsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -226,6 +246,7 @@
 			children = (
 				3AF84637261B203300BCA1AB /* User.swift */,
 				3AF3C2E32620317300D8D51F /* Patient.swift */,
+				3AD040F42623648800811FBB /* Wound.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -492,11 +513,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3AD040E82623381D00811FBB /* NoPendingMeasurementsView.swift in Sources */,
 				3AE5DCA22621D86F00B890D6 /* NoPatientView.swift in Sources */,
+				3AD040D92622F99B00811FBB /* WoundRowView.swift in Sources */,
+				3AD040F52623648800811FBB /* Wound.swift in Sources */,
+				3AD040F02623640D00811FBB /* PatientViewModel.swift in Sources */,
 				3AE5DCA72621EEC900B890D6 /* NoWoundView.swift in Sources */,
 				3AF8465F261B4A3600BCA1AB /* PatientView.swift in Sources */,
 				3AF84664261B4C8A00BCA1AB /* PatientRowView.swift in Sources */,
 				3AE5DC922621AF3B00B890D6 /* ContentView.swift in Sources */,
+				3AD040DE2623021200811FBB /* AboutUsView.swift in Sources */,
 				3AF8465A261B49A800BCA1AB /* PatientsView.swift in Sources */,
 				3AE5DCAC2621EF5A00B890D6 /* NoMeasurementView.swift in Sources */,
 				3AF84638261B203300BCA1AB /* User.swift in Sources */,
@@ -509,6 +535,8 @@
 				3AF84627261AFAB500BCA1AB /* LoginView.swift in Sources */,
 				3AF84648261B2A6E00BCA1AB /* BottomTabsView.swift in Sources */,
 				3AF3C2E42620317300D8D51F /* Patient.swift in Sources */,
+				3AD040E3262305A100811FBB /* PatientsViewModel.swift in Sources */,
+				3AD040D42622EC2800811FBB /* SettingsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

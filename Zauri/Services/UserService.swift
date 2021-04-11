@@ -7,6 +7,8 @@
 
 import Combine
 import FirebaseAuth
+import Firebase
+import FirebaseFirestore
 
 class UserService: ObservableObject {
     
@@ -14,10 +16,22 @@ class UserService: ObservableObject {
     @Published var session: User? {didSet {self.didChange.send(self)}}
     var handle: AuthStateDidChangeListenerHandle?
     
+    let db = Firestore.firestore()
+    
     func listen(){
         handle = Auth.auth().addStateDidChangeListener({ (auth, user) in
             if let user = user {
-                self.session = User(userID: user.uid, email: user.email ?? "")
+                let userID = user.uid
+                let docRef = self.db.collection("users").document(userID)
+                docRef.getDocument { (document, error) in
+                    if let document = document, document.exists {
+                        //let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
+                        let data = document.data()
+                        self.session = User(userID: user.uid, email: user.email, name: data?["name"] as? String ?? "nil", surname: data?["surname"] as? String ?? "nil")
+                    } else {
+                        print("Document does not exist")
+                    }
+                }
             } else {
                 self.session = nil
             }

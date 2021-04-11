@@ -11,7 +11,7 @@ struct PendingMeasurementsView: View {
     var body: some View {
         NavigationView {
             VStack{
-                
+               NoPendingMeasurementsView()
             }
             .navigationBarTitle("Mediciones pendientes")
         }

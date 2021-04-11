@@ -9,6 +9,8 @@ target 'Zauri' do
 	pod 'Firebase'
   pod 'Firebase/Auth'
 	pod 'Introspect'
+  pod 'Firebase/Firestore'
+  #pod 'FirebaseFirestoreSwift'
 
   target 'ZauriTests' do
     inherit! :search_paths

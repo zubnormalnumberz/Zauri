@@ -8,14 +8,27 @@
 import SwiftUI
 
 struct PatientsView: View {
+    
+    @ObservedObject private var patientsViewModel = PatientsViewModel()
+    
     var body: some View {
         NavigationView {
             VStack{
-                NoPatientView()
+                if patientsViewModel.patients.count == 0{
+                    NoPatientView()
+                }else{
+                    List(patientsViewModel.patients, id: \.patientID) { patient in
+                        NavigationLink(destination: PatientView(patient: patient)) {
+                            PatientRowView(patient: patient)
+                        }
+                    }
+                }
+            }.onAppear(){
+                self.patientsViewModel.fetchPatientsData()
             }
             .navigationBarTitle("Pacientes")
             .navigationBarItems(trailing: Button(action: {
-                print("Search")
+                print("Buscar paciente")
             }, label: {
                 Image(systemName: "plus")
             }))

@@ -8,13 +8,52 @@
 import SwiftUI
 
 struct PatientView: View {
+    
+    let patient: Patient
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack{
+            VStack{
+                Text(patient.getInitials())
+                    .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                    .frame(width: 45, height: 45, alignment: .center)
+                    .padding()
+                    .overlay(
+                        Circle()
+                        .stroke(Color.blue, lineWidth: 4)
+                    )
+                Text("\(patient.name) \(patient.surname1) \(patient.surname2)")
+                    .font(.title2)
+                    .multilineTextAlignment(.center)
+                Text("\(patient.dateToString()) (\(patient.getAge()))")
+                    .font(.subheadline)
+                    .foregroundColor(.gray)
+                    .padding(.top, 5)
+            }
+            .padding()
+            Divider()
+            Spacer()
+            VStack{
+                Spacer()
+                //NoWoundView()
+                List {
+                        WoundRowView()
+                        WoundRowView()
+                        WoundRowView()
+                    }
+                Spacer()
+            }
+        }.navigationBarItems(trailing: Button(action: {
+            print("Añadir herida")
+        }, label: {
+            Image(systemName: "plus")
+        }))
+        .navigationBarTitle("", displayMode: .inline)
     }
 }
 
 struct PatientView_Previews: PreviewProvider {
     static var previews: some View {
-        PatientView()
+        PatientView(patient: Patient(patientID: "sdgds", name: "Izena", surname1: "Abizena1", surname2: "Abizena2", sex: false, dateBirth: Date(), cic: 1234567, phone: 656772418))
     }
 }

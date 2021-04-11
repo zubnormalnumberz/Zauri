@@ -9,7 +9,12 @@ import SwiftUI
 
 struct SettingsView: View {
     
+    var languages = ["Euskera", "Castellano"]
+    @State private var selectedLanguageIndex = 1
+    var appearance = ["Claro", "Oscuro", "Igual que el sistema"]
+    @State private var selectedAppearanceIndex = 2
     @EnvironmentObject var session: UserService
+    @ObservedObject var settingsViewModel = SettingsViewModel()
     
     func getUser() {
         session.listen()
@@ -19,8 +24,39 @@ struct SettingsView: View {
         Group{
             NavigationView {
                 VStack{
-                    Text("klahflh")
+                    HStack{
+                        Image(systemName: "person.crop.circle")
+                        Text("Kaixo, \(settingsViewModel.userFullName)")
+                        Spacer()
+                    }.padding()
+                    Form {
+                        Section(header: Text("Ajustes generales")) {
+                            Picker(selection: $selectedLanguageIndex, label: Text("Idioma")) {
+                                ForEach(0 ..< languages.count) {
+                                    Text(self.languages[$0])
+                                }
+                            }
+                            Picker(selection: $selectedAppearanceIndex, label: Text("Apariencia")) {
+                                ForEach(0 ..< appearance.count) {
+                                    Text(self.appearance[$0])
+                                }
+                            }
+                        }
+                        Section(header: Text("ABOUT")) {
+                            HStack {
+                                Text("Version")
+                                Spacer()
+                                Text("0.1")
+                            }
+                            NavigationLink(destination : AboutUsView()) {
+                                Text("Acerca de")
+                            }
+                        }
+                    }
                     Spacer()
+                    Text("Desarrollado por ")
+                    + Text("Zubnormal Numberz")
+                        .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
                     Button("Cerrar sesión") {
                         session.signOut()
                     }
@@ -33,6 +69,7 @@ struct SettingsView: View {
                 }
                 .navigationBarTitle("Ajustes")
             }
+        //}
         }.onAppear(perform: getUser)
     }
 }
