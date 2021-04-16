@@ -10,6 +10,8 @@ import SwiftUI
 struct PatientView: View {
     
     let patient: Patient
+    @State var showingSheet = false
+    @Environment(\.presentationMode) private var addWoundPresentation
     
     var body: some View {
         VStack{
@@ -18,10 +20,8 @@ struct PatientView: View {
                     .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                     .frame(width: 45, height: 45, alignment: .center)
                     .padding()
-                    .overlay(
-                        Circle()
-                        .stroke(Color.blue, lineWidth: 4)
-                    )
+                    .background(Color.blue)
+                    .clipShape(Circle())
                 Text("\(patient.name) \(patient.surname1) \(patient.surname2)")
                     .font(.title2)
                     .multilineTextAlignment(.center)
@@ -44,16 +44,20 @@ struct PatientView: View {
                 Spacer()
             }
         }.navigationBarItems(trailing: Button(action: {
-            print("Añadir herida")
+            self.showingSheet.toggle()
         }, label: {
             Image(systemName: "plus")
         }))
         .navigationBarTitle("", displayMode: .inline)
+        .sheet(isPresented: $showingSheet) {
+                    AddWoundView()
+        }
     }
 }
 
 struct PatientView_Previews: PreviewProvider {
     static var previews: some View {
         PatientView(patient: Patient(patientID: "sdgds", name: "Izena", surname1: "Abizena1", surname2: "Abizena2", sex: false, dateBirth: Date(), cic: 1234567, phone: 656772418))
+            .preferredColorScheme(.dark)
     }
 }

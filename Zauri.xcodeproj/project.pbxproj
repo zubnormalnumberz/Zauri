@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A1B92B126288A880070EC3C /* BodyPartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1B92B026288A880070EC3C /* BodyPartView.swift */; };
+		3A1B92BC2628E0360070EC3C /* BodyPartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1B92BB2628E0360070EC3C /* BodyPartViewModel.swift */; };
+		3A1B92C12629D8E80070EC3C /* WoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1B92C02629D8E60070EC3C /* WoundView.swift */; };
+		3A911A412625D5790049733A /* AddWoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A911A402625D5790049733A /* AddWoundView.swift */; };
+		3A911A4626260B040049733A /* AddWoundViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A911A4526260B040049733A /* AddWoundViewModel.swift */; };
+		3A911A51262784900049733A /* BodyParts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A911A50262784900049733A /* BodyParts.swift */; };
 		3AB62B98261AF80D00D93FD8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB62B97261AF80D00D93FD8 /* AppDelegate.swift */; };
 		3AB62B9A261AF80D00D93FD8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB62B99261AF80D00D93FD8 /* SceneDelegate.swift */; };
 		3AB62B9E261AF80F00D93FD8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3AB62B9D261AF80F00D93FD8 /* Assets.xcassets */; };
@@ -62,6 +68,12 @@
 /* Begin PBXFileReference section */
 		00D0C224B986C0659B6B34E5 /* Pods-ZauriTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZauriTests.release.xcconfig"; path = "Target Support Files/Pods-ZauriTests/Pods-ZauriTests.release.xcconfig"; sourceTree = "<group>"; };
 		045BEA46AA025CCA5B1309F8 /* Pods-Zauri-ZauriUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Zauri-ZauriUITests.debug.xcconfig"; path = "Target Support Files/Pods-Zauri-ZauriUITests/Pods-Zauri-ZauriUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		3A1B92B026288A880070EC3C /* BodyPartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyPartView.swift; sourceTree = "<group>"; };
+		3A1B92BB2628E0360070EC3C /* BodyPartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyPartViewModel.swift; sourceTree = "<group>"; };
+		3A1B92C02629D8E60070EC3C /* WoundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoundView.swift; sourceTree = "<group>"; };
+		3A911A402625D5790049733A /* AddWoundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWoundView.swift; sourceTree = "<group>"; };
+		3A911A4526260B040049733A /* AddWoundViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWoundViewModel.swift; sourceTree = "<group>"; };
+		3A911A50262784900049733A /* BodyParts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyParts.swift; sourceTree = "<group>"; };
 		3AB62B94261AF80D00D93FD8 /* Zauri.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Zauri.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AB62B97261AF80D00D93FD8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3AB62B99261AF80D00D93FD8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -135,6 +147,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3A911A4F2627846F0049733A /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				3A911A50262784900049733A /* BodyParts.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		3AB62B8B261AF80D00D93FD8 = {
 			isa = PBXGroup;
 			children = (
@@ -160,6 +180,7 @@
 		3AB62B96261AF80D00D93FD8 /* Zauri */ = {
 			isa = PBXGroup;
 			children = (
+				3A911A4F2627846F0049733A /* Utils */,
 				3AE5DC822620D13C00B890D6 /* Services */,
 				3AE5DC762620B30600B890D6 /* ViewModels */,
 				3AF84636261B202000BCA1AB /* Model */,
@@ -208,6 +229,8 @@
 				3AD040D32622EC2800811FBB /* SettingsViewModel.swift */,
 				3AD040E2262305A100811FBB /* PatientsViewModel.swift */,
 				3AD040EF2623640D00811FBB /* PatientViewModel.swift */,
+				3A911A4526260B040049733A /* AddWoundViewModel.swift */,
+				3A1B92BB2628E0360070EC3C /* BodyPartViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -224,6 +247,7 @@
 			isa = PBXGroup;
 			children = (
 				3AF84647261B2A6E00BCA1AB /* BottomTabsView.swift */,
+				3A1B92B026288A880070EC3C /* BodyPartView.swift */,
 				3AE5DC912621AF3B00B890D6 /* ContentView.swift */,
 				3AF84626261AFAB500BCA1AB /* LoginView.swift */,
 				3AF84663261B4C8A00BCA1AB /* PatientRowView.swift */,
@@ -237,6 +261,8 @@
 				3AE5DCAB2621EF5A00B890D6 /* NoMeasurementView.swift */,
 				3AD040D82622F99B00811FBB /* WoundRowView.swift */,
 				3AD040DD2623021200811FBB /* AboutUsView.swift */,
+				3A911A402625D5790049733A /* AddWoundView.swift */,
+				3A1B92C02629D8E60070EC3C /* WoundView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -516,7 +542,9 @@
 				3AD040E82623381D00811FBB /* NoPendingMeasurementsView.swift in Sources */,
 				3AE5DCA22621D86F00B890D6 /* NoPatientView.swift in Sources */,
 				3AD040D92622F99B00811FBB /* WoundRowView.swift in Sources */,
+				3A1B92B126288A880070EC3C /* BodyPartView.swift in Sources */,
 				3AD040F52623648800811FBB /* Wound.swift in Sources */,
+				3A911A4626260B040049733A /* AddWoundViewModel.swift in Sources */,
 				3AD040F02623640D00811FBB /* PatientViewModel.swift in Sources */,
 				3AE5DCA72621EEC900B890D6 /* NoWoundView.swift in Sources */,
 				3AF8465F261B4A3600BCA1AB /* PatientView.swift in Sources */,
@@ -527,15 +555,19 @@
 				3AE5DCAC2621EF5A00B890D6 /* NoMeasurementView.swift in Sources */,
 				3AF84638261B203300BCA1AB /* User.swift in Sources */,
 				3AB62B98261AF80D00D93FD8 /* AppDelegate.swift in Sources */,
+				3A1B92BC2628E0360070EC3C /* BodyPartViewModel.swift in Sources */,
 				3AB62B9A261AF80D00D93FD8 /* SceneDelegate.swift in Sources */,
 				3AE5DC842620D18600B890D6 /* UserService.swift in Sources */,
 				3AF8464D261B2C3300BCA1AB /* SettingsView.swift in Sources */,
+				3A1B92C12629D8E80070EC3C /* WoundView.swift in Sources */,
 				3AF84652261B489900BCA1AB /* PendingMeasurementsView.swift in Sources */,
 				3AE5DC7B2620B33F00B890D6 /* LoginViewModel.swift in Sources */,
 				3AF84627261AFAB500BCA1AB /* LoginView.swift in Sources */,
 				3AF84648261B2A6E00BCA1AB /* BottomTabsView.swift in Sources */,
+				3A911A412625D5790049733A /* AddWoundView.swift in Sources */,
 				3AF3C2E42620317300D8D51F /* Patient.swift in Sources */,
 				3AD040E3262305A100811FBB /* PatientsViewModel.swift in Sources */,
+				3A911A51262784900049733A /* BodyParts.swift in Sources */,
 				3AD040D42622EC2800811FBB /* SettingsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

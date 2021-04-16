@@ -39,5 +39,6 @@ struct PatientsView: View {
 struct PatientsView_Previews: PreviewProvider {
     static var previews: some View {
         PatientsView()
+            .previewDevice("iPhone 11")
     }
 }

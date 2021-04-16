@@ -25,7 +25,6 @@ class UserService: ObservableObject {
                 let docRef = self.db.collection("users").document(userID)
                 docRef.getDocument { (document, error) in
                     if let document = document, document.exists {
-                        //let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
                         let data = document.data()
                         self.session = User(userID: user.uid, email: user.email, name: data?["name"] as? String ?? "nil", surname: data?["surname"] as? String ?? "nil")
                     } else {
