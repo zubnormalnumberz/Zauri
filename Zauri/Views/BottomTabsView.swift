@@ -6,30 +6,38 @@
 //
 
 import SwiftUI
+import Combine
 
 struct BottomTabsView: View {
+    
+    @State private var selectedItem = 1
+    
     var body: some View {
-        TabView {
+        TabView(selection: $selectedItem) {
             PatientsView()
                 .tabItem {
                     Image(systemName: "person.fill")
                     Text("Pacientes")
                 }
-            Text("Añadir medición")
+                .tag(1)
+            CameraView()
                 .tabItem {
                     Image(systemName: "camera.fill")
                     Text("Añadir medición")
                 }
+                .tag(2)
             PendingMeasurementsView()
                 .tabItem {
                     Image(systemName: "hourglass.tophalf.fill")
                     Text("Mediciones pendientes")
                 }
+                .tag(3)
             SettingsView()
                 .tabItem {
                     Image(systemName: "gear")
                     Text("Ajustes")
                 }
+                .tag(4)
         }
     }
 }

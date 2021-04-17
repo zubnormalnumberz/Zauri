@@ -10,6 +10,9 @@
 		3A1B92B126288A880070EC3C /* BodyPartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1B92B026288A880070EC3C /* BodyPartView.swift */; };
 		3A1B92BC2628E0360070EC3C /* BodyPartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1B92BB2628E0360070EC3C /* BodyPartViewModel.swift */; };
 		3A1B92C12629D8E80070EC3C /* WoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1B92C02629D8E60070EC3C /* WoundView.swift */; };
+		3A1B92C62629EB8D0070EC3C /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1B92C52629EB8D0070EC3C /* CameraView.swift */; };
+		3A1B9367262A31F60070EC3C /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1B9366262A31F40070EC3C /* ImagePickerView.swift */; };
+		3A1B9374262A3BEF0070EC3C /* CaliberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1B9373262A3BEF0070EC3C /* CaliberView.swift */; };
 		3A911A412625D5790049733A /* AddWoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A911A402625D5790049733A /* AddWoundView.swift */; };
 		3A911A4626260B040049733A /* AddWoundViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A911A4526260B040049733A /* AddWoundViewModel.swift */; };
 		3A911A51262784900049733A /* BodyParts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A911A50262784900049733A /* BodyParts.swift */; };
@@ -71,6 +74,9 @@
 		3A1B92B026288A880070EC3C /* BodyPartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyPartView.swift; sourceTree = "<group>"; };
 		3A1B92BB2628E0360070EC3C /* BodyPartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyPartViewModel.swift; sourceTree = "<group>"; };
 		3A1B92C02629D8E60070EC3C /* WoundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoundView.swift; sourceTree = "<group>"; };
+		3A1B92C52629EB8D0070EC3C /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		3A1B9366262A31F40070EC3C /* ImagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerView.swift; sourceTree = "<group>"; };
+		3A1B9373262A3BEF0070EC3C /* CaliberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaliberView.swift; sourceTree = "<group>"; };
 		3A911A402625D5790049733A /* AddWoundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWoundView.swift; sourceTree = "<group>"; };
 		3A911A4526260B040049733A /* AddWoundViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWoundViewModel.swift; sourceTree = "<group>"; };
 		3A911A50262784900049733A /* BodyParts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyParts.swift; sourceTree = "<group>"; };
@@ -263,6 +269,9 @@
 				3AD040DD2623021200811FBB /* AboutUsView.swift */,
 				3A911A402625D5790049733A /* AddWoundView.swift */,
 				3A1B92C02629D8E60070EC3C /* WoundView.swift */,
+				3A1B92C52629EB8D0070EC3C /* CameraView.swift */,
+				3A1B9366262A31F40070EC3C /* ImagePickerView.swift */,
+				3A1B9373262A3BEF0070EC3C /* CaliberView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -546,10 +555,12 @@
 				3AD040F52623648800811FBB /* Wound.swift in Sources */,
 				3A911A4626260B040049733A /* AddWoundViewModel.swift in Sources */,
 				3AD040F02623640D00811FBB /* PatientViewModel.swift in Sources */,
+				3A1B92C62629EB8D0070EC3C /* CameraView.swift in Sources */,
 				3AE5DCA72621EEC900B890D6 /* NoWoundView.swift in Sources */,
 				3AF8465F261B4A3600BCA1AB /* PatientView.swift in Sources */,
 				3AF84664261B4C8A00BCA1AB /* PatientRowView.swift in Sources */,
 				3AE5DC922621AF3B00B890D6 /* ContentView.swift in Sources */,
+				3A1B9367262A31F60070EC3C /* ImagePickerView.swift in Sources */,
 				3AD040DE2623021200811FBB /* AboutUsView.swift in Sources */,
 				3AF8465A261B49A800BCA1AB /* PatientsView.swift in Sources */,
 				3AE5DCAC2621EF5A00B890D6 /* NoMeasurementView.swift in Sources */,
@@ -558,6 +569,7 @@
 				3A1B92BC2628E0360070EC3C /* BodyPartViewModel.swift in Sources */,
 				3AB62B9A261AF80D00D93FD8 /* SceneDelegate.swift in Sources */,
 				3AE5DC842620D18600B890D6 /* UserService.swift in Sources */,
+				3A1B9374262A3BEF0070EC3C /* CaliberView.swift in Sources */,
 				3AF8464D261B2C3300BCA1AB /* SettingsView.swift in Sources */,
 				3A1B92C12629D8E80070EC3C /* WoundView.swift in Sources */,
 				3AF84652261B489900BCA1AB /* PendingMeasurementsView.swift in Sources */,
