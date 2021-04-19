@@ -9,7 +9,6 @@ import SwiftUI
 
 struct CaliberView: View {
     var image: UIImage?
-    @State private var selectedImage: UIImage?
     @State private var startPoint: CGPoint = CGPoint(x: 200, y: 100)
     @State private var endPoint: CGPoint = CGPoint(x: 100, y: 100)
     @State var lastScaleValue: CGFloat = 1.0
@@ -87,16 +86,14 @@ struct CaliberView: View {
             //Text("adskhfl")
         }
         .navigationBarTitle(Text(""), displayMode: .inline)
-        .navigationBarItems(trailing: Button(action: {
-            print("Go to draw view")
-        }) {
-            Text("Seguir")
+        .navigationBarItems(trailing: NavigationLink(destination: DrawView(image: self.image)) {
+            Text("Siguiente")
         })
     }
 }
 
 struct CaliberView_Previews: PreviewProvider {
     static var previews: some View {
-        CaliberView(image: UIImage(contentsOfFile: "logo"))
+        CaliberView(image: UIImage(named: "logo"))
     }
 }

@@ -24,10 +24,7 @@ struct CameraView: View {
                             .aspectRatio(contentMode: .fit)
                             .padding()
                     } else {
-                        Image(systemName: "snow")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .padding()
+                        NoPictureView()
                     }
                 }
                 Spacer()
@@ -69,7 +66,7 @@ struct CameraView: View {
             .navigationBarTitle("Elegir imágen", displayMode: .inline)
             .navigationBarItems(trailing: NavigationLink(destination: CaliberView(image: self.selectedImage)) {
                 Text("Siguiente")
-            })
+            }.disabled(selectedImage == nil))
             .sheet(isPresented: self.$isImagePickerDisplay) {
             ImagePickerView(selectedImage: self.$selectedImage, sourceType: self.sourceType)
             }
