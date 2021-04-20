@@ -7,11 +7,24 @@
 
 import SwiftUI
 
+struct FullScreenModalView: View {
+    @Environment(\.presentationMode) var presentationMode
+
+    var body: some View {
+        NavigationView {
+            Button("Dismiss Modal") {
+                presentationMode.wrappedValue.dismiss()
+            }.navigationBarTitle(Text(""), displayMode: .inline)
+        }
+    }
+}
+
 struct CameraView: View {
     
     @State private var sourceType: UIImagePickerController.SourceType = .camera
     @State private var selectedImage: UIImage?
     @State private var isImagePickerDisplay = false
+    @State private var isPresented = false
     
     var body: some View {
         NavigationView {
@@ -34,39 +47,40 @@ struct CameraView: View {
                         self.isImagePickerDisplay.toggle()
                     }) {
                         HStack {
-                                Image(systemName: "camera.fill")
-                                Text("Cámara")
-                            }
-                        //session.signOut()
+                            Image(systemName: "camera.fill")
+                            Text("Cámara")
+                        }
                     }
-                        .foregroundColor(.white)
-                        .padding()
-                        .frame(maxWidth: .infinity)
-                        .background(Color.blue)
-                        .cornerRadius(8)
-                        .padding()
+                    .foregroundColor(.white)
+                    .padding()
+                    .frame(maxWidth: .infinity)
+                    .background(Color.blue)
+                    .cornerRadius(8)
+                    .padding()
                     Button(action: {
                         self.sourceType = .photoLibrary
                         self.isImagePickerDisplay.toggle()
                     }) {
                         HStack {
-                                Image(systemName: "photo.fill.on.rectangle.fill")
-                                Text("Galería")
-                            }
-                        //session.signOut()
+                            Image(systemName: "photo.fill.on.rectangle.fill")
+                            Text("Galería")
+                        }
                     }
-                        .foregroundColor(.white)
-                        .padding()
-                        .frame(maxWidth: .infinity)
-                        .background(Color.blue)
-                        .cornerRadius(8)
-                        .padding()
+                    .foregroundColor(.white)
+                    .padding()
+                    .frame(maxWidth: .infinity)
+                    .background(Color.blue)
+                    .cornerRadius(8)
+                    .padding()
                 }
             }
             .navigationBarTitle("Elegir imágen", displayMode: .inline)
-            .navigationBarItems(trailing: NavigationLink(destination: CaliberView(image: self.selectedImage)) {
-                Text("Siguiente")
-            }.disabled(selectedImage == nil))
+            .navigationBarItems(trailing: Button("Siguiente") {
+                isPresented.toggle()
+            }.disabled(selectedImage == nil)
+            .fullScreenCover(isPresented: $isPresented){
+                CaliberView(image: self.selectedImage)
+            })
             .sheet(isPresented: self.$isImagePickerDisplay) {
             ImagePickerView(selectedImage: self.$selectedImage, sourceType: self.sourceType)
             }

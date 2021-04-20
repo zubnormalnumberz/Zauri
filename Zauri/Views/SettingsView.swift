@@ -54,9 +54,10 @@ struct SettingsView: View {
                         }
                     }
                     Spacer()
-                    Text("Desarrollado por ")
-                    + Text("Zubnormal Numberz")
-                        .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
+                    HStack{
+                        Text("Desarrollado por ")
+                        Link("Zubnormal Numberz", destination: URL(string: "https://github.com/zubnormalnumberz")!)
+                    }
                     Button("Cerrar sesión") {
                         session.signOut()
                     }

@@ -10,6 +10,7 @@ import SwiftUI
 struct DrawShape: Shape {
 
     var points: [CGPoint]
+    var finished: Bool
 
     func path(in rect: CGRect) -> Path {
         var path = Path()
@@ -18,7 +19,10 @@ struct DrawShape: Shape {
         path.move(to: firstPoint)
         for pointIndex in 1..<points.count {
             path.addLine(to: points[pointIndex])
-
+        }
+        print(finished)
+        if finished{
+            path.closeSubpath()
         }
         return path
     }
