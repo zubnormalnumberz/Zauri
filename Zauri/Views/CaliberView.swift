@@ -15,6 +15,8 @@ struct CaliberView: View {
     
     @Environment(\.presentationMode) var presentationMode
     @State var showingSheet = false
+    
+    @ObservedObject var caliberViewModel = CaliberViewModel()
         
     @State var translation: CGSize = .zero
     
@@ -96,14 +98,14 @@ struct CaliberView: View {
                         HStack{
                             Image(systemName: "pencil")
                                 .font(.system(size: 40))
-                            Text("1 cm")
+                            Text("\(caliberViewModel.unit) \(caliberViewModel.measureUnit)")
                         }
                         .foregroundColor(.white)
                         .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20))
                         .background(Color.blue)
                         .clipShape(Capsule())
                     }.sheet(isPresented: $showingSheet) {
-                        ReferenceMeasure()
+                        ReferenceMeasure(caliberViewModel: self.caliberViewModel)
                     }
                 }
                 .padding(.top, -30)
@@ -112,7 +114,7 @@ struct CaliberView: View {
             .navigationBarTitle(Text("Medida de referencia"), displayMode: .inline)
             .navigationBarItems(leading: Button("Cerrar") {
                 presentationMode.wrappedValue.dismiss()
-            },trailing: NavigationLink(destination: DrawView(image: self.image)) {
+            },trailing: NavigationLink(destination: DrawView(image: self.image, scale: Scale(unit: caliberViewModel.unit, measureUnit: caliberViewModel.measureUnit, scale: [startPoint, endPoint]))) {
                 Text("Siguiente")
             })
             

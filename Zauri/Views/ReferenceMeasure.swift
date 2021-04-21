@@ -10,9 +10,10 @@ import SwiftUI
 struct ReferenceMeasure: View {
     
     var units = ["Centimetro", "Milimetros"]
-    @State private var selectedUnitIndex = 0
-    @State private var unit: String = "1"
+    @State private var selectedUnitIndex: Int = 0
+    @State private var unit: String = ""
     @Environment(\.presentationMode) var referenceMeasureModal
+    @ObservedObject var caliberViewModel = CaliberViewModel()
     
     var body: some View {
         NavigationView {
@@ -20,6 +21,7 @@ struct ReferenceMeasure: View {
                 Form {
                     Section(header: Text("Tamaño de referencia")) {
                         TextField("", text: $unit)
+                            .keyboardType(.numberPad)
                     }
                     Section(header: Text("Tamaño de referencia")){
                         Picker(selection: $selectedUnitIndex, label: Text("Unidad")) {
@@ -36,16 +38,21 @@ struct ReferenceMeasure: View {
             }) {
                 Text("Cancelar")
             }, trailing: Button(action: {
+                caliberViewModel.unit = Int(self.unit) ?? 0
+                self.selectedUnitIndex == 0 ? (caliberViewModel.measureUnit = "cm") : (caliberViewModel.measureUnit = "mm")
                 referenceMeasureModal.wrappedValue.dismiss()
             }) {
                 Text("Guardar")
-            })
+            }.disabled(self.unit == ""))
+        }.onAppear {
+            self.unit = String(caliberViewModel.getUnit())
+            caliberViewModel.getMeasureUnit() == "cm" ? (self.selectedUnitIndex = 0) : (self.selectedUnitIndex = 1)
         }
     }
 }
 
 struct ReferenceMeasure_Previews: PreviewProvider {
     static var previews: some View {
-        ReferenceMeasure()
+        ReferenceMeasure(caliberViewModel: CaliberViewModel())
     }
 }

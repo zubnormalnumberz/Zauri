@@ -20,7 +20,6 @@ struct DrawShape: Shape {
         for pointIndex in 1..<points.count {
             path.addLine(to: points[pointIndex])
         }
-        print(finished)
         if finished{
             path.closeSubpath()
         }

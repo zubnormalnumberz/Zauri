@@ -9,13 +9,16 @@ import SwiftUI
 
 struct DrawView: View {
     var image: UIImage?
+    var scale: Scale
+    
     @State var points: [CGPoint] = []
     @State var lastPoint: CGPoint = .zero
     @State var working: Bool = false
     @State var finished: Bool = false
         
-    init(image: UIImage?) {
+    init(image: UIImage?, scale: Scale) {
         self.image = image
+        self.scale = scale
     }
     
     var body: some View {
@@ -85,7 +88,7 @@ struct DrawView: View {
                     Spacer()
                     HStack {
                         Spacer()
-                        ScaleView()
+                        ScaleView(scale: self.scale)
                             .padding()
                     }
                 }
@@ -103,11 +106,8 @@ struct DrawView: View {
             }
         }
         .navigationBarTitle(Text(""), displayMode: .inline)
-        .navigationBarItems(trailing: Button(action: {
-            print(points)
-            print("Go to add info")
-        }) {
-            Text("Medir")
+        .navigationBarItems(trailing: NavigationLink(destination: DrawResultView(image: self.image, points: points, scale: scale)) {
+            Text("Siguiente")
         })
     }
 
@@ -128,6 +128,6 @@ struct DrawView: View {
 
 struct DrawView_Previews: PreviewProvider {
     static var previews: some View {
-        DrawView(image: UIImage(named: "arm"))
+        DrawView(image: UIImage(named: "arm"), scale: Scale(unit: 1, measureUnit: "cm", scale: [CGPoint(x: 0.0, y: 0.0), CGPoint(x: 5.0, y: 4.0)]))
     }
 }

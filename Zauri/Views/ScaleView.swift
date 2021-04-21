@@ -8,9 +8,16 @@
 import SwiftUI
 
 struct ScaleView: View {
+    
+    var scale: Scale
+  
+    init(scale: Scale) {
+        self.scale = scale
+    }
+    
     var body: some View {
         VStack{
-            Text("0,5cm")
+            Text("\(scale.unit) \(scale.measureUnit)")
             Image(systemName: "ruler")
                 .font(.system(size: 40))
         }
@@ -23,6 +30,6 @@ struct ScaleView: View {
 
 struct ScaleView_Previews: PreviewProvider {
     static var previews: some View {
-        ScaleView()
+        ScaleView(scale: Scale(unit: 1, measureUnit: "cm", scale: [CGPoint(x: 0.0, y: 1.0), CGPoint(x: 4.0, y: 10.0)]))
     }
 }
