@@ -7,15 +7,54 @@
 
 import Foundation
 import FirebaseFirestore
+import SwiftUI
 
 class PatientsViewModel: ObservableObject {
     
     @Published var patients = [Patient]()
-        
+    var woundsIDs = [String]()
+    var patientsIDs = [String]()
+    @Published var userId: String = ""
     private var db = Firestore.firestore()
     
+    func getWoundsData() {
+        db.collection("measurements").whereField("userId", isEqualTo: userId)
+            .getDocuments() { (querySnapshot, err) in
+                if let err = err {
+                    print("Error getting documents: \(err)")
+                } else {
+                    for document in querySnapshot!.documents {
+                        let data = document.data()
+                        let woundId = data["woundId"] as? String ?? ""
+                        self.woundsIDs.append(woundId)
+                    }
+                }
+                if self.woundsIDs.count != 0 {
+                    self.getPatientsId()
+                }
+        }
+    }
+    
+    func getPatientsId() {
+        db.collection("wounds").whereField(FirebaseFirestore.FieldPath.documentID(), in: woundsIDs).whereField("resolve", isEqualTo: false)
+            .getDocuments() { (querySnapshot, err) in
+                if let err = err {
+                    print("Error getting documents: \(err)")
+                } else {
+                    for document in querySnapshot!.documents {
+                        let data = document.data()
+                        let patientId = data["patientId"] as? String ?? ""
+                        self.patientsIDs.append(patientId)
+                    }
+                }
+                if self.patientsIDs.count != 0 {
+                    self.fetchPatientsData()
+                }
+        }
+    }
+    
     func fetchPatientsData() {
-            db.collection("patients").addSnapshotListener { (querySnapshot, error) in
+        db.collection("patients").whereField(FirebaseFirestore.FieldPath.documentID(), in: patientsIDs).addSnapshotListener { (querySnapshot, error) in
                 guard let documents = querySnapshot?.documents else {
                     print("No documents")
                     return

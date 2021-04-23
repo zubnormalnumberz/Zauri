@@ -37,10 +37,16 @@ struct PatientView: View {
                 Spacer()
                 //NoWoundView()
                 List {
-                        WoundRowView()
-                        WoundRowView()
+                    NavigationLink(destination: WoundView()) {
                         WoundRowView()
                     }
+                    NavigationLink(destination: WoundView()) {
+                        WoundRowView()
+                    }
+                    NavigationLink(destination: WoundView()) {
+                        WoundRowView()
+                    }
+                }
                 Spacer()
             }
         }.navigationBarItems(trailing: Button(action: {

@@ -17,7 +17,7 @@ struct LoginView: View {
             
     var body: some View {
         NavigationView {
-        ZStack{
+            ZStack{
             Color.blue.ignoresSafeArea(.all)
             VStack(spacing: 20) {
                 Text("Welcome to Zauri!")
@@ -77,7 +77,7 @@ struct LoginView: View {
                         }
             }.padding()
         }
-    }
+        }
         .onTapGesture {
             self.editingPassword = false
             hideKeyboard()

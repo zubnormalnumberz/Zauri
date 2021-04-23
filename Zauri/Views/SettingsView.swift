@@ -26,7 +26,7 @@ struct SettingsView: View {
                 VStack{
                     HStack{
                         Image(systemName: "person.crop.circle")
-                        Text("Kaixo, \(settingsViewModel.userFullName)")
+                        Text("Kaixo, \(session.self.session?.getFullName() ?? "")")
                         Spacer()
                     }.padding()
                     Form {

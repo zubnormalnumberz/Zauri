@@ -9,7 +9,14 @@ import SwiftUI
 
 struct PatientsView: View {
     
-    @ObservedObject private var patientsViewModel = PatientsViewModel()
+    @StateObject private var patientsViewModel = PatientsViewModel()
+    @State private var isPresented = false
+    @EnvironmentObject var session: UserService
+    
+    func getUser() {
+        session.listen()
+        patientsViewModel.userId = session.self.session?.userID ?? ""
+    }
     
     var body: some View {
         NavigationView {
@@ -23,15 +30,18 @@ struct PatientsView: View {
                         }
                     }
                 }
-            }.onAppear(){
-                self.patientsViewModel.fetchPatientsData()
             }
             .navigationBarTitle("Pacientes")
             .navigationBarItems(trailing: Button(action: {
-                print("Buscar paciente")
+                isPresented.toggle()
             }, label: {
                 Image(systemName: "plus")
             }))
+        }.fullScreenCover(isPresented: $isPresented){
+            SearchPatientView()
+        }.onAppear(){
+            getUser()
+            patientsViewModel.getWoundsData()
         }
     }
 }

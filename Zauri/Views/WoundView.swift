@@ -19,23 +19,34 @@ struct CardView: View{
 }
 
 struct WoundView: View {
-    
+    @State private var showingActionSheet = false
     @State private var offset = CGSize(width: 0, height: UIScreen.main.bounds.height*0.75)
     
     var body: some View {
-        NavigationView {
-            VStack{
-                Text("SwiftUI tutorials")
-                CardView()
-                    .offset(self.offset)
-                    .animation(.spring())
-                    .gesture(DragGesture()
-                    .onChanged { gesture in
-                        self.offset.height = gesture.translation.height
-                    })
-            }
-            .navigationBarTitle("Patient name", displayMode: .inline)
+        VStack{
+            Text("SwiftUI tutorials")
+            CardView()
+                .offset(self.offset)
+                .animation(.spring())
+                .gesture(DragGesture()
+                .onChanged { gesture in
+                    self.offset.height = gesture.translation.height
+                })
         }
+        .actionSheet(isPresented: $showingActionSheet) {
+            ActionSheet(title: Text("Change background"), message: Text("Select a new color"), buttons: [
+                .default(Text("Editar medición")) {},
+                .default(Text("Eliminar medición")) {},
+                .default(Text("Editar herida")) {},
+                .cancel()
+            ])
+        }
+        .navigationBarTitle("Patient name", displayMode: .inline)
+        .navigationBarItems(trailing: Button(action: {
+            self.showingActionSheet = true
+        }) {
+            Text("Editar")
+        })
     }
 }
 

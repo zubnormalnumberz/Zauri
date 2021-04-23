@@ -21,6 +21,6 @@ struct User: Codable {
     }
     
     func getFullName() -> String {
-        name + surname
+        "\(name) \(surname)"
     }
 }
