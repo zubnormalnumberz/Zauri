@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PatientsView: View {
     
-    @StateObject private var patientsViewModel = PatientsViewModel()
+    @State private var patientsViewModel = PatientsViewModel()
     @State private var isPresented = false
     @EnvironmentObject var session: UserService
     

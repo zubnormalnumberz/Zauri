@@ -17,6 +17,8 @@
 		3A1B9379262B20200070EC3C /* NoPictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1B9378262B201A0070EC3C /* NoPictureView.swift */; };
 		3A2D286A2632A0FF00763989 /* SearchPatientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2D28692632A0FF00763989 /* SearchPatientView.swift */; };
 		3A2D286F2632D24D00763989 /* SearchPatientViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2D286E2632D24D00763989 /* SearchPatientViewModel.swift */; };
+		3A2D287F2633668900763989 /* BodyPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2D287E2633668800763989 /* BodyPart.swift */; };
+		3A2D28872635A5F300763989 /* WoundViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2D28862635A5F200763989 /* WoundViewModel.swift */; };
 		3A911A412625D5790049733A /* AddWoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A911A402625D5790049733A /* AddWoundView.swift */; };
 		3A911A4626260B040049733A /* AddWoundViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A911A4526260B040049733A /* AddWoundViewModel.swift */; };
 		3A911A51262784900049733A /* BodyParts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A911A50262784900049733A /* BodyParts.swift */; };
@@ -93,6 +95,8 @@
 		3A1B9378262B201A0070EC3C /* NoPictureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoPictureView.swift; sourceTree = "<group>"; };
 		3A2D28692632A0FF00763989 /* SearchPatientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPatientView.swift; sourceTree = "<group>"; };
 		3A2D286E2632D24D00763989 /* SearchPatientViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPatientViewModel.swift; sourceTree = "<group>"; };
+		3A2D287E2633668800763989 /* BodyPart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyPart.swift; sourceTree = "<group>"; };
+		3A2D28862635A5F200763989 /* WoundViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoundViewModel.swift; sourceTree = "<group>"; };
 		3A911A402625D5790049733A /* AddWoundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWoundView.swift; sourceTree = "<group>"; };
 		3A911A4526260B040049733A /* AddWoundViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWoundViewModel.swift; sourceTree = "<group>"; };
 		3A911A50262784900049733A /* BodyParts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyParts.swift; sourceTree = "<group>"; };
@@ -263,6 +267,7 @@
 				3A1B92BB2628E0360070EC3C /* BodyPartViewModel.swift */,
 				3AB4D0FC262EA976000775DA /* CaliberViewModel.swift */,
 				3A2D286E2632D24D00763989 /* SearchPatientViewModel.swift */,
+				3A2D28862635A5F200763989 /* WoundViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -318,6 +323,7 @@
 				3AF3C2E32620317300D8D51F /* Patient.swift */,
 				3AD040F42623648800811FBB /* Wound.swift */,
 				3AB4D10B262EDFB1000775DA /* Scale.swift */,
+				3A2D287E2633668800763989 /* BodyPart.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -611,6 +617,7 @@
 				3AE5DCAC2621EF5A00B890D6 /* NoMeasurementView.swift in Sources */,
 				3AF84638261B203300BCA1AB /* User.swift in Sources */,
 				3AB62B98261AF80D00D93FD8 /* AppDelegate.swift in Sources */,
+				3A2D28872635A5F300763989 /* WoundViewModel.swift in Sources */,
 				3A1B92BC2628E0360070EC3C /* BodyPartViewModel.swift in Sources */,
 				3AB62B9A261AF80D00D93FD8 /* SceneDelegate.swift in Sources */,
 				3AE5DC842620D18600B890D6 /* UserService.swift in Sources */,
@@ -628,6 +635,7 @@
 				3AF3C2E42620317300D8D51F /* Patient.swift in Sources */,
 				3AD040E3262305A100811FBB /* PatientsViewModel.swift in Sources */,
 				3A911A51262784900049733A /* BodyParts.swift in Sources */,
+				3A2D287F2633668900763989 /* BodyPart.swift in Sources */,
 				3AD040D42622EC2800811FBB /* SettingsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

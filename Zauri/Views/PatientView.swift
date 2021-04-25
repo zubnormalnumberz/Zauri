@@ -10,6 +10,7 @@ import SwiftUI
 struct PatientView: View {
     
     let patient: Patient
+    @State private var patientViewModel = PatientViewModel()
     @State var showingSheet = false
     @Environment(\.presentationMode) private var addWoundPresentation
     
@@ -34,22 +35,21 @@ struct PatientView: View {
             Divider()
             Spacer()
             VStack{
-                Spacer()
-                //NoWoundView()
-                List {
-                    NavigationLink(destination: WoundView()) {
-                        WoundRowView()
-                    }
-                    NavigationLink(destination: WoundView()) {
-                        WoundRowView()
-                    }
-                    NavigationLink(destination: WoundView()) {
-                        WoundRowView()
+                if patientViewModel.wounds.count == 0{
+                    Spacer()
+                    NoWoundView()
+                    Spacer()
+                }else{
+                    List(patientViewModel.wounds, id: \.woundID) { wound in
+                        WoundRowView(wound: wound)
                     }
                 }
-                Spacer()
             }
-        }.navigationBarItems(trailing: Button(action: {
+        }
+        .onAppear(perform: {
+            patientViewModel.fetchWoundsData(patient: self.patient)
+        })
+        .navigationBarItems(trailing: Button(action: {
             self.showingSheet.toggle()
         }, label: {
             Image(systemName: "plus")

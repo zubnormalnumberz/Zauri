@@ -15,11 +15,11 @@ struct Wound: Codable {
     var comment: String
     var commentEdited: String
     var creationDate: Date
-    var woundType: String
-    var bodyPart: String
+    var woundType: Int
+    var bodyPart: Int
     var commentIntroDate: Date
     
-    init(woundID: String, pacientID: String, createdBy: String, resolved: Bool, comment: String, commentEdited: String, creationDate: Date, woundType: String, bodyPart: String, commentIntroDate: Date) {
+    init(woundID: String, pacientID: String, createdBy: String, resolved: Bool, comment: String, commentEdited: String, creationDate: Date, woundType: Int, bodyPart: Int, commentIntroDate: Date) {
         self.woundID = woundID
         self.pacientID = pacientID
         self.createdBy = createdBy
