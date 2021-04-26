@@ -7,18 +7,6 @@
 
 import SwiftUI
 
-struct FullScreenModalView: View {
-    @Environment(\.presentationMode) var presentationMode
-
-    var body: some View {
-        NavigationView {
-            Button("Dismiss Modal") {
-                presentationMode.wrappedValue.dismiss()
-            }.navigationBarTitle(Text(""), displayMode: .inline)
-        }
-    }
-}
-
 struct CameraView: View {
     
     @State private var sourceType: UIImagePickerController.SourceType = .camera
@@ -41,6 +29,7 @@ struct CameraView: View {
                     }
                 }
                 Spacer()
+                if sourceType == .camera{}
                 HStack{
                     Button(action: {
                         self.sourceType = .camera
