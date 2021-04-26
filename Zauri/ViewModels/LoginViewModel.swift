@@ -21,7 +21,7 @@ class LoginViewModel: ObservableObject {
     func login() {
         let completeEmail = username + "@osakidetza.net"
         userService.signIn(email: completeEmail, password: password) { (result, err) in
-            if let err = err {
+            if err != nil {
                 self.showingAlert = true
             }
         }
