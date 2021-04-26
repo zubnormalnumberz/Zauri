@@ -23,8 +23,9 @@ struct WoundView: View {
                             TabView(selection: $currentIndex) {
                                 ForEach(0..<30) { i in
                                     ZStack {
-                                        Color.black
-                                        Text("Row: \(i)").foregroundColor(.white)
+                                        Image("arm")
+                                            .resizable()
+                                            .aspectRatio(contentMode: .fit)
                                     }.tag(i).clipShape(RoundedRectangle(cornerRadius: 10.0, style: .continuous))
                                 }
                                 .padding(.horizontal, 10)
@@ -90,7 +91,7 @@ struct WoundView: View {
                     })
                 }
             }
-            .navigationBarTitle(Text("Medida de referencia"), displayMode: .inline)
+            .navigationBarTitle(Text("Patient name"), displayMode: .inline)
             .navigationBarItems(leading: Button("Cerrar") {
                 presentationMode.wrappedValue.dismiss()
             },trailing: Button("Action") {
@@ -111,6 +112,9 @@ struct WoundView: View {
 struct BottomSheet: View {
     
     @Binding var index: Int
+    var colors = ["Red", "Green", "Blue", "Yellow", "Orange", "sdgds", "sdg"]
+    @State private var scrollTarget: Int?
+    @State private var infoSelect = 0
         
     var body: some View{
         VStack{
@@ -119,30 +123,137 @@ struct BottomSheet: View {
                 .frame(width: 95, height: 5)
                 .padding(.top)
                 .padding(.bottom, 25)
-            ScrollView(.vertical, showsIndicators: false, content: {
+            ScrollView(.vertical, showsIndicators: false){
                 LazyVStack{
                     Text("Quemadura")
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(.leading, 25)
                         .font(.title)
-                    Text("Torax")
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding(.leading, 25)
-                        .font(.callout)
-                        .foregroundColor(.gray)
-                    Picker(selection: $index, label: Text("What is your favorite color?")) {
-                                    Text("Red").tag(0)
-                                    Text("Green").tag(1)
-                                    Text("Blue").tag(2)
+                    HStack{
+                        Text("Torax")
+                        Text(String(self.index)).hidden().onChange(of: self.index, perform: { value in
+                            self.scrollTarget = value
+                        })
+                    }
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.leading, 25)
+                    .font(.callout)
+                    .foregroundColor(.gray)
+                    ScrollView(.horizontal) {
+                        ScrollViewReader { proxy in
+                            HStack(spacing: 20) {
+                                ForEach(0..<colors.count) { i in
+                                    Button(action: {
+                                        withAnimation(.easeInOut(duration: 0)) {
+                                            self.index = i
+                                        }
+                                    }) {
+                                        if self.index == i {
+                                            VStack{
+                                                Text("25/12/2022")
+                                                    .font(.footnote)
+                                                    .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                                                Text("12:36")
+                                                    .font(.footnote)
+                                            }
+                                            .padding(5.0)
+                                                .foregroundColor(.primary)
+                                                .background(Color((UIColor.systemBackground)))
+                                                .cornerRadius(8)
+                                        }else{
+                                            VStack{
+                                                Text("22/12/2022")
+                                                    .font(.footnote)
+                                                    .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                                                Text("12:36")
+                                                    .font(.footnote)
+                                            }
+                                            .foregroundColor(.primary)
+                                            .padding(5.0)
+                                        }
+                                    }.id(i).padding(7)
                                 }
-                                .pickerStyle(SegmentedPickerStyle())
-                    .padding()
+                            }.background(Color.gray.opacity(0.75))
+                            .cornerRadius(8)
+                            .onChange(of: scrollTarget) { target in
+                                                    if let target = target {
+                                                        scrollTarget = nil
+                                                        print(target)
+                                                        withAnimation {
+                                                            proxy.scrollTo(target, anchor: .center)
+                                                        }
+                                                    }
+                                                }
+                        }
+                    }.cornerRadius(8).padding()
+                    HStack{
+                        VStack{
+                            Text("Área")
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .font(.caption)
+                                .foregroundColor(.gray)
+                            Text("1,25 cm2")
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .font(.title)
+                        }.frame(maxWidth: .infinity)
+                        VStack{
+                            Text("Circunferencia")
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .font(.caption)
+                                .foregroundColor(.gray)
+                            Text("2,25 cm")
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .font(.title)
+                        }.frame(maxWidth: .infinity)
+                    }.padding()
+                    HStack{
+                        VStack{
+                            Text("Longitud")
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .font(.caption)
+                                .foregroundColor(.gray)
+                            Text("1,25 cm2")
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .font(.title)
+                        }.frame(maxWidth: .infinity)
+                        VStack{
+                            Text("Anchura")
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .font(.caption)
+                                .foregroundColor(.gray)
+                            Text("1,25 cm2")
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .font(.title)
+                        }.frame(maxWidth: .infinity)
+                    }.padding()
+                    VStack{
+                        LineChartSwiftUI(dates: [638371302.0, 639922902.0,   641132502.0], areas: [2.4, 1.9, 0.7])
+                            .frame(maxWidth: .infinity,
+                                   minHeight: 250,
+                                   maxHeight: 250)
+                    }.padding(.horizontal)
+                    VStack {
+                        Picker(selection: $infoSelect, label: Text("What is your favorite color?")) {
+                            Text("Tratamiento").tag(0)
+                            Text("Información").tag(1)
+                        }
+                        .pickerStyle(SegmentedPickerStyle())
+                        .padding()
+                        if infoSelect == 0 {
+                            Text("Tipo de apósito")
+                            Text("Tratamiento")
+                        }else{
+                            Text("Fecha de creación")
+                            Text("Creado por: ")
+                        }
+                    }
                 }
-            })
+            }
         }
         .background(BlurView(style: .systemMaterial))
         .cornerRadius(15)
     }
+    
 }
 
 struct WoundView_Previews: PreviewProvider {

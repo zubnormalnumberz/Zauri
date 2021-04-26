@@ -19,6 +19,10 @@
 		3A2D286F2632D24D00763989 /* SearchPatientViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2D286E2632D24D00763989 /* SearchPatientViewModel.swift */; };
 		3A2D287F2633668900763989 /* BodyPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2D287E2633668800763989 /* BodyPart.swift */; };
 		3A2D28872635A5F300763989 /* WoundViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2D28862635A5F200763989 /* WoundViewModel.swift */; };
+		3A7B4CA52636B4C3002804EE /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A7B4CA02636B48B002804EE /* Charts.framework */; };
+		3A7B4CA62636B4C3002804EE /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3A7B4CA02636B48B002804EE /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3A7B4CAA2636B52D002804EE /* LineChartSwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7B4CA92636B52D002804EE /* LineChartSwiftUI.swift */; };
+		3A7B4CB42636D1A1002804EE /* DateAxisValueFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7B4CB32636D1A1002804EE /* DateAxisValueFormatter.swift */; };
 		3A911A412625D5790049733A /* AddWoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A911A402625D5790049733A /* AddWoundView.swift */; };
 		3A911A4626260B040049733A /* AddWoundViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A911A4526260B040049733A /* AddWoundViewModel.swift */; };
 		3A911A51262784900049733A /* BodyParts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A911A50262784900049733A /* BodyParts.swift */; };
@@ -66,6 +70,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		3A7B4C9F2636B48B002804EE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3A7B4C9A2636B48B002804EE /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 65AD9E95D9ED4DC0BD73A743;
+			remoteInfo = Charts;
+		};
+		3A7B4CA12636B48B002804EE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3A7B4C9A2636B48B002804EE /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1CBBC58C6CE1EBEE9852CE41;
+			remoteInfo = ChartsTests;
+		};
 		3AB62BAB261AF81000D93FD8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 3AB62B8C261AF80D00D93FD8 /* Project object */;
@@ -82,6 +100,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		3A2D28A32636A45B00763989 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				3A7B4CA62636B4C3002804EE /* Charts.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		00D0C224B986C0659B6B34E5 /* Pods-ZauriTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZauriTests.release.xcconfig"; path = "Target Support Files/Pods-ZauriTests/Pods-ZauriTests.release.xcconfig"; sourceTree = "<group>"; };
 		045BEA46AA025CCA5B1309F8 /* Pods-Zauri-ZauriUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Zauri-ZauriUITests.debug.xcconfig"; path = "Target Support Files/Pods-Zauri-ZauriUITests/Pods-Zauri-ZauriUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -97,6 +129,9 @@
 		3A2D286E2632D24D00763989 /* SearchPatientViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPatientViewModel.swift; sourceTree = "<group>"; };
 		3A2D287E2633668800763989 /* BodyPart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyPart.swift; sourceTree = "<group>"; };
 		3A2D28862635A5F200763989 /* WoundViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoundViewModel.swift; sourceTree = "<group>"; };
+		3A7B4C9A2636B48B002804EE /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = "../Charts-master/Charts.xcodeproj"; sourceTree = "<group>"; };
+		3A7B4CA92636B52D002804EE /* LineChartSwiftUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChartSwiftUI.swift; sourceTree = "<group>"; };
+		3A7B4CB32636D1A1002804EE /* DateAxisValueFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateAxisValueFormatter.swift; sourceTree = "<group>"; };
 		3A911A402625D5790049733A /* AddWoundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWoundView.swift; sourceTree = "<group>"; };
 		3A911A4526260B040049733A /* AddWoundViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWoundViewModel.swift; sourceTree = "<group>"; };
 		3A911A50262784900049733A /* BodyParts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyParts.swift; sourceTree = "<group>"; };
@@ -159,6 +194,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4AB5E98BC40CFFB19DA9CD2 /* Pods_Zauri.framework in Frameworks */,
+				3A7B4CA52636B4C3002804EE /* Charts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -181,10 +217,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3A7B4C9B2636B48B002804EE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3A7B4CA02636B48B002804EE /* Charts.framework */,
+				3A7B4CA22636B48B002804EE /* ChartsTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		3A911A4F2627846F0049733A /* Utils */ = {
 			isa = PBXGroup;
 			children = (
 				3A911A50262784900049733A /* BodyParts.swift */,
+				3A7B4CA92636B52D002804EE /* LineChartSwiftUI.swift */,
+				3A7B4CB32636D1A1002804EE /* DateAxisValueFormatter.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -344,6 +391,7 @@
 		4DFBEF897A351196577C5925 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3A7B4C9A2636B48B002804EE /* Charts.xcodeproj */,
 				E46B81CB9985A94FE42A2156 /* Pods_Zauri.framework */,
 				D1190E059864A82C71E4DA12 /* Pods_Zauri_ZauriUITests.framework */,
 				93F3E5FACAB402A3DC9D1941 /* Pods_ZauriTests.framework */,
@@ -363,12 +411,15 @@
 				3AB62B91261AF80D00D93FD8 /* Frameworks */,
 				3AB62B92261AF80D00D93FD8 /* Resources */,
 				D6703D44B31B4D2E37ADEFB9 /* [CP] Embed Pods Frameworks */,
+				3A2D28A32636A45B00763989 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = Zauri;
+			packageProductDependencies = (
+			);
 			productName = Zauri;
 			productReference = 3AB62B94261AF80D00D93FD8 /* Zauri.app */;
 			productType = "com.apple.product-type.application";
@@ -443,8 +494,16 @@
 				Base,
 			);
 			mainGroup = 3AB62B8B261AF80D00D93FD8;
+			packageReferences = (
+			);
 			productRefGroup = 3AB62B95261AF80D00D93FD8 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 3A7B4C9B2636B48B002804EE /* Products */;
+					ProjectRef = 3A7B4C9A2636B48B002804EE /* Charts.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				3AB62B93261AF80D00D93FD8 /* Zauri */,
@@ -453,6 +512,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		3A7B4CA02636B48B002804EE /* Charts.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Charts.framework;
+			remoteRef = 3A7B4C9F2636B48B002804EE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3A7B4CA22636B48B002804EE /* ChartsTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ChartsTests.xctest;
+			remoteRef = 3A7B4CA12636B48B002804EE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		3AB62B92261AF80D00D93FD8 /* Resources */ = {
@@ -596,7 +672,9 @@
 				3AB4D0E2262DFB21000775DA /* ReferenceMeasure.swift in Sources */,
 				3AD040D92622F99B00811FBB /* WoundRowView.swift in Sources */,
 				3AB4D10C262EDFB1000775DA /* Scale.swift in Sources */,
+				3A7B4CAA2636B52D002804EE /* LineChartSwiftUI.swift in Sources */,
 				3AB4D0DD262DF029000775DA /* ScaleView.swift in Sources */,
+				3A7B4CB42636D1A1002804EE /* DateAxisValueFormatter.swift in Sources */,
 				3A1B92B126288A880070EC3C /* BodyPartView.swift in Sources */,
 				3AD040F52623648800811FBB /* Wound.swift in Sources */,
 				3A911A4626260B040049733A /* AddWoundViewModel.swift in Sources */,
