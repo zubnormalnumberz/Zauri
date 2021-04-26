@@ -41,6 +41,7 @@ struct SearchPatientView: View {
                         .padding(.horizontal, 10)
                         if searchPatientViewModel.searchText != "" {
                             Button(action: {
+                                hideKeyboard()
                                 searchPatientViewModel.fetchPatientsData()
                             }) {
                                 Text("Buscar")
@@ -52,18 +53,22 @@ struct SearchPatientView: View {
                 }
                 .padding(.top, 15)
                 .padding(.horizontal, 10)
-                if !searchPatientViewModel.searched {
-                    Spacer()
-                    Text("Puedes buscar un paciente por nombre, apellido o CIC").multilineTextAlignment(.center).padding()
-                    Spacer()
-                }else if searchPatientViewModel.searched && searchPatientViewModel.patients.count == 0{
-                    Spacer()
-                    Text("No hay resultados para esta busqueda").multilineTextAlignment(.center).padding()
-                    Spacer()
+                if searchPatientViewModel.searching {
+                    ProgressView("Buscando…")
                 }else{
-                    List(searchPatientViewModel.patients, id: \.patientID) { patient in
-                        NavigationLink(destination: PatientView(patient: patient)) {
-                            PatientRowView(patient: patient)
+                    if !searchPatientViewModel.searched {
+                        Spacer()
+                        Text("Puedes buscar un paciente por nombre, apellido o CIC").multilineTextAlignment(.center).padding()
+                        Spacer()
+                    }else if searchPatientViewModel.searched && searchPatientViewModel.patients.count == 0{
+                        Spacer()
+                        Text("No hay resultados para esta busqueda").multilineTextAlignment(.center).padding()
+                        Spacer()
+                    }else{
+                        List(searchPatientViewModel.patients, id: \.patientID) { patient in
+                            NavigationLink(destination: PatientView(patient: patient)) {
+                                PatientRowView(patient: patient)
+                            }
                         }
                     }
                 }

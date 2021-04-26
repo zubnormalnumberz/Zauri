@@ -21,12 +21,16 @@ struct PatientsView: View {
     var body: some View {
         NavigationView {
             VStack{
-                if patientsViewModel.patients.count == 0{
-                    NoPatientView()
+                if patientsViewModel.downloading {
+                    ProgressView("Downloading…")
                 }else{
-                    List(patientsViewModel.patients, id: \.patientID) { patient in
-                        NavigationLink(destination: PatientView(patient: patient)) {
-                            PatientRowView(patient: patient)
+                    if patientsViewModel.patients.count == 0{
+                        NoPatientView()
+                    }else{
+                        List(patientsViewModel.patients, id: \.patientID) { patient in
+                            NavigationLink(destination: PatientView(patient: patient)) {
+                                PatientRowView(patient: patient)
+                            }
                         }
                     }
                 }

@@ -12,22 +12,25 @@ import SwiftUI
 class PatientsViewModel: ObservableObject {
     
     @Published var patients = [Patient]()
+    @Published var downloading: Bool = false
     var woundsIDs = [String]()
     var patientsIDs = [String]()
     @Published var userId: String = ""
     private var db = Firestore.firestore()
     
     func getWoundsData() {
-        db.collection("measurements").whereField("userId", isEqualTo: userId)
-            .getDocuments() { (querySnapshot, err) in
-                if let err = err {
-                    print("Error getting documents: \(err)")
-                } else {
-                    for document in querySnapshot!.documents {
-                        let data = document.data()
-                        let woundId = data["woundId"] as? String ?? ""
-                        self.woundsIDs.append(woundId)
-                    }
+        downloading = true
+        db.collection("measurements").whereField("userId", isEqualTo: userId).addSnapshotListener() { (querySnapshot, err) in
+                
+                guard let documents = querySnapshot?.documents else {
+                    print("No documents")
+                    return
+                }
+                
+                for document in documents {
+                    let data = document.data()
+                    let woundId = data["woundId"] as? String ?? ""
+                    self.woundsIDs.append(woundId)
                 }
                 if self.woundsIDs.count != 0 {
                     self.getPatientsId()
@@ -36,20 +39,22 @@ class PatientsViewModel: ObservableObject {
     }
     
     func getPatientsId() {
-        db.collection("wounds").whereField(FirebaseFirestore.FieldPath.documentID(), in: woundsIDs).whereField("resolve", isEqualTo: false)
-            .getDocuments() { (querySnapshot, err) in
-                if let err = err {
-                    print("Error getting documents: \(err)")
-                } else {
-                    for document in querySnapshot!.documents {
-                        let data = document.data()
-                        let patientId = data["patientId"] as? String ?? ""
-                        self.patientsIDs.append(patientId)
-                    }
-                }
-                if self.patientsIDs.count != 0 {
-                    self.fetchPatientsData()
-                }
+        db.collection("wounds").whereField(FirebaseFirestore.FieldPath.documentID(), in: woundsIDs).whereField("resolve", isEqualTo: false).addSnapshotListener() { (querySnapshot, err) in
+            
+            guard let documents = querySnapshot?.documents else {
+                print("No documents")
+                return
+            }
+            
+            for document in documents {
+                let data = document.data()
+                let patientId = data["patientId"] as? String ?? ""
+                self.patientsIDs.append(patientId)
+            }
+            
+            if self.patientsIDs.count != 0 {
+                self.fetchPatientsData()
+            }
         }
     }
     
@@ -76,6 +81,7 @@ class PatientsViewModel: ObservableObject {
                     return Patient(patientID: patientID, name: name, surname1: surname1, surname2: surname2, sex: sex, dateBirth: date, cic: cic, phone: phone)
                 }
             }
+        downloading = false
         }
     
 }
