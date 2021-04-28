@@ -17,9 +17,9 @@ struct Wound: Codable {
     var creationDate: Date
     var woundType: Int
     var bodyPart: Int
-    var commentIntroDate: Date
+    var measurementQuantity: Int
     
-    init(woundID: String, pacientID: String, createdBy: String, resolved: Bool, comment: String, commentEdited: String, creationDate: Date, woundType: Int, bodyPart: Int, commentIntroDate: Date) {
+    init(woundID: String, pacientID: String, createdBy: String, resolved: Bool, comment: String, commentEdited: String, creationDate: Date, woundType: Int, bodyPart: Int, measurementQuantity: Int) {
         self.woundID = woundID
         self.pacientID = pacientID
         self.createdBy = createdBy
@@ -29,7 +29,13 @@ struct Wound: Codable {
         self.creationDate = creationDate
         self.woundType = woundType
         self.bodyPart = bodyPart
-        self.commentIntroDate = commentIntroDate
+        self.measurementQuantity = measurementQuantity
+    }
+    
+    func getDateFormat() -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd-MM-yyyy"
+        return formatter.string(from: creationDate)
     }
     
 }

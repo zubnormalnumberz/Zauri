@@ -18,7 +18,7 @@ class PatientViewModel: ObservableObject {
     
     func fetchWoundsData(patient: Patient) {
         downloading = true
-        db.collection("wounds").whereField("patientId", isEqualTo: patient.patientID).addSnapshotListener { (querySnapshot, error) in
+        db.collection("wounds").whereField("patientId", isEqualTo: patient.patientID).order(by: "creationDate", descending: true).addSnapshotListener { (querySnapshot, error) in
             guard let documents = querySnapshot?.documents else {
                 print("No documents")
                 return
@@ -36,10 +36,10 @@ class PatientViewModel: ObservableObject {
                 let resolved = data["resolve"] as? Bool ?? false
                 let createdBy = data["createdBy"] as? String ?? ""
                 let bodyPart = data["bodyPart"] as? Int ?? 0
-                let woundType = data["wountType"] as? Int ?? 0
-                let commentIntroDate = Date()
+                let woundType = data["woundType"] as? Int ?? 0
+                let measurementQ = data["measurementQ"] as? Int ?? 0
                     
-                return Wound(woundID: woundID, pacientID: patientId, createdBy: createdBy, resolved: resolved, comment: comment, commentEdited: commentEdited, creationDate: creationDate, woundType: woundType, bodyPart: bodyPart, commentIntroDate: commentIntroDate)
+                return Wound(woundID: woundID, pacientID: patientId, createdBy: createdBy, resolved: resolved, comment: comment, commentEdited: commentEdited, creationDate: creationDate, woundType: woundType, bodyPart: bodyPart, measurementQuantity: measurementQ)
             }
             self.downloading = false
         }

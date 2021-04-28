@@ -64,7 +64,6 @@ struct AddWoundView: View {
                         self.showToast.toggle()
                     }else{
                         self.addWoundViewModel.saveWound()
-                        //Zaurixe gorde
                     }
                 }) {
                     Text("Guardar")

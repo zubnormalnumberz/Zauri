@@ -35,7 +35,8 @@ class AddWoundViewModel: ObservableObject {
             "createdBy": userId,
             "resolve": false,
             "woundType": selectedWoundTypeIndex,
-            "creationDate": Timestamp(date: Date())
+            "creationDate": Timestamp(date: Date()),
+            "measuremenetQuantity": 0
         ]
         
         var ref: DocumentReference? = nil
