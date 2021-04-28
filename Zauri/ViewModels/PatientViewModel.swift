@@ -11,10 +11,12 @@ import FirebaseFirestore
 class PatientViewModel: ObservableObject {
     
     @Published var wounds = [Wound]()
+    @Published var downloading = false
     
     private var db = Firestore.firestore()
     
     func fetchWoundsData(patient: Patient) {
+        downloading = true
         db.collection("wounds").whereField("patientId", isEqualTo: patient.patientID).addSnapshotListener { (querySnapshot, error) in
             guard let documents = querySnapshot?.documents else {
                 print("No documents")
@@ -38,6 +40,7 @@ class PatientViewModel: ObservableObject {
                     
                 return Wound(woundID: woundID, pacientID: patientId, createdBy: createdBy, resolved: resolved, comment: comment, commentEdited: commentEdited, creationDate: creationDate, woundType: woundType, bodyPart: bodyPart, commentIntroDate: commentIntroDate)
             }
+            self.downloading = false
         }
     }
 }

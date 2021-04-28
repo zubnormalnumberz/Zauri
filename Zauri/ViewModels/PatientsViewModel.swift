@@ -51,7 +51,6 @@ class PatientsViewModel: ObservableObject {
                 let patientId = data["patientId"] as? String ?? ""
                 self.patientsIDs.append(patientId)
             }
-            
             if self.patientsIDs.count != 0 {
                 self.fetchPatientsData()
             }
@@ -66,7 +65,6 @@ class PatientsViewModel: ObservableObject {
                 }
                 
                 self.patients = documents.map { (queryDocumentSnapshot) -> Patient in
-                    
                     let data = queryDocumentSnapshot.data()
                     let patientID = queryDocumentSnapshot.documentID
                     let name = data["name"] as? String ?? ""
@@ -80,8 +78,8 @@ class PatientsViewModel: ObservableObject {
                     
                     return Patient(patientID: patientID, name: name, surname1: surname1, surname2: surname2, sex: sex, dateBirth: date, cic: cic, phone: phone)
                 }
+            self.downloading = false
             }
-        downloading = false
         }
     
 }

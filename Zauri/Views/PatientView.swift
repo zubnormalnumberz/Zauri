@@ -10,38 +10,42 @@ import SwiftUI
 struct PatientView: View {
     
     let patient: Patient
-    @State private var patientViewModel = PatientViewModel()
+    @ObservedObject private var patientViewModel = PatientViewModel()
     @State var showingSheet = false
     @Environment(\.presentationMode) private var addWoundPresentation
     
     var body: some View {
         VStack{
-            VStack{
-                Text(patient.getInitials())
-                    .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
-                    .frame(width: 45, height: 45, alignment: .center)
-                    .padding()
-                    .background(Color.blue)
-                    .clipShape(Circle())
-                Text("\(patient.name) \(patient.surname1) \(patient.surname2)")
-                    .font(.title2)
-                    .multilineTextAlignment(.center)
-                Text("\(patient.dateToString()) (\(patient.getAge()))")
-                    .font(.subheadline)
-                    .foregroundColor(.gray)
-                    .padding(.top, 5)
-            }
-            .padding()
-            Divider()
-            Spacer()
-            VStack{
-                if patientViewModel.wounds.count == 0{
-                    Spacer()
-                    NoWoundView()
-                    Spacer()
-                }else{
-                    List(patientViewModel.wounds, id: \.woundID) { wound in
-                        WoundRowView(wound: wound)
+            if patientViewModel.downloading {
+                ProgressView("Downloading…")
+            }else{
+                VStack{
+                    Text(patient.getInitials())
+                        .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                        .frame(width: 45, height: 45, alignment: .center)
+                        .padding()
+                        .background(Color.blue)
+                        .clipShape(Circle())
+                    Text("\(patient.name) \(patient.surname1) \(patient.surname2)")
+                        .font(.title2)
+                        .multilineTextAlignment(.center)
+                    Text("\(patient.dateToString()) (\(patient.getAge()))")
+                        .font(.subheadline)
+                        .foregroundColor(.gray)
+                        .padding(.top, 5)
+                }
+                .padding()
+                Divider()
+                Spacer()
+                VStack{
+                    if patientViewModel.wounds.count == 0{
+                        Spacer()
+                        NoWoundView()
+                        Spacer()
+                    }else{
+                        List(patientViewModel.wounds, id: \.woundID) { wound in
+                            WoundRowView(wound: wound)
+                        }
                     }
                 }
             }

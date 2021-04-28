@@ -44,11 +44,11 @@ struct AddWoundView: View {
             }
                 .navigationBarTitle(Text("Añadir herida"), displayMode: .inline)
                 .navigationBarItems(leading: Button(action: {
-                    print("Dismissing sheet view...")
                     self.addWoundPresentation.wrappedValue.dismiss()
                 }) {
                     Text("Cancelar")
                 }, trailing: Button(action: {
+                    //Zaurixe gorde
                     print("Dismissing sheet view...")
                 }) {
                     Text("Guardar")
