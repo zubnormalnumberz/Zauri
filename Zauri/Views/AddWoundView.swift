@@ -6,12 +6,21 @@
 //
 
 import SwiftUI
+import AlertToast
 
 struct AddWoundView: View {
     
+    @State private var showToast = false
+    var patient: Patient
     @ObservedObject var addWoundViewModel = AddWoundViewModel()
-    @State var selectedLanguageIndex = 0
+    @ObservedObject var patientViewModel: PatientViewModel
     @Environment(\.presentationMode) private var addWoundPresentation
+    @EnvironmentObject var session: UserService
+    
+    func getUser() {
+        session.listen()
+        addWoundViewModel.userId = session.self.session?.userID ?? ""
+    }
     
     var body: some View {
         NavigationView {
@@ -25,10 +34,10 @@ struct AddWoundView: View {
                                 .disabled(true)
                         }
                     }
-                    Picker(selection: self.$selectedLanguageIndex, label: Text("Tipo de herida")) {
-                        ForEach(0 ..< self.addWoundViewModel.woundTypes.count) {
-                            Text(self.addWoundViewModel.woundTypes[$0])
-                                    }
+                    Picker(selection: self.$addWoundViewModel.selectedWoundTypeIndex, label: Text("Tipo de herida")) {
+                        ForEach(WoundType.allCases) { (woundType) in
+                            Text(woundType.string)
+                        }
                     }
                     TextEditor(text: $addWoundViewModel.comment)
                         .background(
@@ -40,25 +49,43 @@ struct AddWoundView: View {
                             .padding(EdgeInsets(top: 0, leading: 4, bottom: 7, trailing: 0))
                         )
                 }
-                Spacer()
             }
+                .onAppear(){
+                    getUser()
+                    addWoundViewModel.patientId = self.patient.patientID
+                }
                 .navigationBarTitle(Text("Añadir herida"), displayMode: .inline)
                 .navigationBarItems(leading: Button(action: {
                     self.addWoundPresentation.wrappedValue.dismiss()
                 }) {
                     Text("Cancelar")
                 }, trailing: Button(action: {
-                    //Zaurixe gorde
-                    print("Dismissing sheet view...")
+                    if addWoundViewModel.comment.isEmpty{
+                        self.showToast.toggle()
+                    }else{
+                        self.addWoundViewModel.saveWound()
+                        //Zaurixe gorde
+                    }
                 }) {
                     Text("Guardar")
+                        .foregroundColor(addWoundViewModel.comment.isEmpty ? .gray : .blue)
                 })
+                .onReceive(addWoundViewModel .viewDismissalModePublisher) { shouldDismiss in
+                    if shouldDismiss {
+                        self.patientViewModel.createdWound = true
+                        self.addWoundPresentation.wrappedValue.dismiss()
+                    }
+                }
+            .toast(isPresenting: $showToast, duration: 3){
+
+                AlertToast(type: .error(Color.red), title: "Error!", subTitle: "La descripción de la herida es obligatoria")
+                    }
         }
     }
 }
 
 struct AddWoundView_Previews: PreviewProvider {
     static var previews: some View {
-        AddWoundView()
+        AddWoundView(patient: Patient(patientID: "sdgds", name: "Izena", surname1: "Abizena1", surname2: "Abizena2", sex: false, dateBirth: Date(), cic: 1234567, phone: 656772418), patientViewModel: PatientViewModel())
     }
 }

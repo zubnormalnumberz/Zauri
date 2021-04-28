@@ -12,6 +12,7 @@ class PatientViewModel: ObservableObject {
     
     @Published var wounds = [Wound]()
     @Published var downloading = false
+    @Published var createdWound: Bool = false
     
     private var db = Firestore.firestore()
     

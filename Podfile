@@ -9,6 +9,7 @@ target 'Zauri' do
 	pod 'Firebase'
   pod 'Firebase/Auth'
 	pod 'Introspect'
+  pod 'AlertToast'
   pod 'Firebase/Firestore'
   #pod 'FirebaseFirestoreSwift'
 

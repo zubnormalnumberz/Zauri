@@ -26,6 +26,7 @@
 		3A911A412625D5790049733A /* AddWoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A911A402625D5790049733A /* AddWoundView.swift */; };
 		3A911A4626260B040049733A /* AddWoundViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A911A4526260B040049733A /* AddWoundViewModel.swift */; };
 		3A911A51262784900049733A /* BodyParts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A911A50262784900049733A /* BodyParts.swift */; };
+		3A92CB7E26394AF80089C3C1 /* WoundType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A92CB7D26394AF70089C3C1 /* WoundType.swift */; };
 		3AB4D0C2262D5F4B000775DA /* DrawShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB4D0C1262D5F4B000775DA /* DrawShape.swift */; };
 		3AB4D0D8262D6737000775DA /* DrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB4D0D7262D6737000775DA /* DrawView.swift */; };
 		3AB4D0DD262DF029000775DA /* ScaleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB4D0DC262DF029000775DA /* ScaleView.swift */; };
@@ -135,6 +136,7 @@
 		3A911A402625D5790049733A /* AddWoundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWoundView.swift; sourceTree = "<group>"; };
 		3A911A4526260B040049733A /* AddWoundViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWoundViewModel.swift; sourceTree = "<group>"; };
 		3A911A50262784900049733A /* BodyParts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyParts.swift; sourceTree = "<group>"; };
+		3A92CB7D26394AF70089C3C1 /* WoundType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoundType.swift; sourceTree = "<group>"; };
 		3AB4D0C1262D5F4B000775DA /* DrawShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawShape.swift; sourceTree = "<group>"; };
 		3AB4D0D7262D6737000775DA /* DrawView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawView.swift; sourceTree = "<group>"; };
 		3AB4D0DC262DF029000775DA /* ScaleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaleView.swift; sourceTree = "<group>"; };
@@ -371,6 +373,7 @@
 				3AD040F42623648800811FBB /* Wound.swift */,
 				3AB4D10B262EDFB1000775DA /* Scale.swift */,
 				3A2D287E2633668800763989 /* BodyPart.swift */,
+				3A92CB7D26394AF70089C3C1 /* WoundType.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -713,6 +716,7 @@
 				3AF3C2E42620317300D8D51F /* Patient.swift in Sources */,
 				3AD040E3262305A100811FBB /* PatientsViewModel.swift in Sources */,
 				3A911A51262784900049733A /* BodyParts.swift in Sources */,
+				3A92CB7E26394AF80089C3C1 /* WoundType.swift in Sources */,
 				3A2D287F2633668900763989 /* BodyPart.swift in Sources */,
 				3AD040D42622EC2800811FBB /* SettingsViewModel.swift in Sources */,
 			);

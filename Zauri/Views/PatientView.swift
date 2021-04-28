@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AlertToast
 
 struct PatientView: View {
     
@@ -60,8 +61,11 @@ struct PatientView: View {
         }))
         .navigationBarTitle("", displayMode: .inline)
         .sheet(isPresented: $showingSheet) {
-                    AddWoundView()
-        }
+            AddWoundView(patient: patient, patientViewModel: self.patientViewModel)
+        }.toast(isPresenting: $patientViewModel.createdWound, duration: 3){
+            
+            AlertToast(type: .complete(Color.green), title: "La herida se ha creado correctamente")
+                }
     }
 }
 
