@@ -8,12 +8,19 @@
 import SwiftUI
 
 struct CaliberView: View {
+    
+    @ObservedObject var modalState: ModalState
+    
     var image: UIImage?
+    
+    var woundID: String
+    var patientID: String
+    var userID: String
+    
     @State private var startPoint: CGPoint = CGPoint(x: 200, y: 100)
     @State private var endPoint: CGPoint = CGPoint(x: 100, y: 100)
     @State var lastScaleValue: CGFloat = 1.0
     
-    @Environment(\.presentationMode) var presentationMode
     @State var showingSheet = false
     
     @ObservedObject var caliberViewModel = CaliberViewModel()
@@ -23,10 +30,6 @@ struct CaliberView: View {
     
     @State var magScale: CGFloat = 1
     @State var progressingScale: CGFloat = 1
-    
-    init(image: UIImage?) {
-        self.image = image
-    }
     
     var body: some View {
         
@@ -161,8 +164,9 @@ struct CaliberView: View {
             }
             .navigationBarTitle(Text("Medida de referencia"), displayMode: .inline)
             .navigationBarItems(leading: Button("Cerrar") {
-                presentationMode.wrappedValue.dismiss()
-            },trailing: NavigationLink(destination: DrawView(image: self.image, scale: Scale(unit: caliberViewModel.unit, measureUnit: caliberViewModel.measureUnit, scale: [startPoint, endPoint]))) {
+                self.modalState.isCamera2ViewModalPresented = false
+                self.modalState.isCaliberViewModalPresented = false
+            },trailing: NavigationLink(destination: DrawView(modalState: self.modalState, image: self.image, scale: Scale(unit: caliberViewModel.unit, measureUnit: caliberViewModel.measureUnit, scale: [startPoint, endPoint]), woundID: self.woundID, patientID: patientID, userID: userID)) {
                 Text("Siguiente")
             })
             
@@ -170,8 +174,8 @@ struct CaliberView: View {
     }
 }
 
-struct CaliberView_Previews: PreviewProvider {
-    static var previews: some View {
-        CaliberView(image: UIImage(named: "arm"))
-    }
-}
+//struct CaliberView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        CaliberView(modalState: ModalState(), image: UIImage(named: "arm"), woundID: "String", patientID: "String", userID: "String")
+//    }
+//}

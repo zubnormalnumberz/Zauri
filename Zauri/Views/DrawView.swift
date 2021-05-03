@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct DrawView: View {
+    
+    @ObservedObject var modalState: ModalState
+    
     var image: UIImage?
     var scale: Scale
     
@@ -15,11 +18,10 @@ struct DrawView: View {
     @State var lastPoint: CGPoint = .zero
     @State var working: Bool = false
     @State var finished: Bool = false
-        
-    init(image: UIImage?, scale: Scale) {
-        self.image = image
-        self.scale = scale
-    }
+    
+    var woundID: String
+    var patientID: String
+    var userID: String
     
     var body: some View {
         VStack{
@@ -106,9 +108,9 @@ struct DrawView: View {
             }
         }
         .navigationBarTitle(Text(""), displayMode: .inline)
-        .navigationBarItems(trailing: NavigationLink(destination: DrawResultView(image: self.image, points: points, scale: scale)) {
-            Text("Siguiente")
-        })
+        .navigationBarItems(trailing: NavigationLink(destination: DrawResultView(modalState: self.modalState, image: self.image, points: points, scale: scale, woundID: self.woundID, patientID: self.patientID, userID: self.userID)) {
+            Text("Medir")
+        }.disabled(!finished))
     }
 
     private func CGPointDistanceSquared(from: CGPoint, to: CGPoint) -> CGFloat {
@@ -128,6 +130,6 @@ struct DrawView: View {
 
 struct DrawView_Previews: PreviewProvider {
     static var previews: some View {
-        DrawView(image: UIImage(named: "arm"), scale: Scale(unit: 1, measureUnit: "cm", scale: [CGPoint(x: 0.0, y: 0.0), CGPoint(x: 5.0, y: 4.0)]))
+        DrawView(modalState: ModalState(), image: UIImage(named: "arm"), scale: Scale(unit: 1, measureUnit: "cm", scale: [CGPoint(x: 0.0, y: 0.0), CGPoint(x: 5.0, y: 4.0)]), woundID: "String", patientID: "String", userID: "String")
     }
 }

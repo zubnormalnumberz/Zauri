@@ -10,6 +10,7 @@ import SwiftUI
 struct WoundRowView: View {
     
     let wound: Wound
+    let patient: Patient
     @State private var isPresented = false
     
     var body: some View {
@@ -41,7 +42,7 @@ struct WoundRowView: View {
             }
             .padding()
             .fullScreenCover(isPresented: $isPresented){
-                WoundView()
+                WoundView(wound: wound, patient: patient)
             }
         }
     }
@@ -49,6 +50,6 @@ struct WoundRowView: View {
 
 struct WoundRowView_Previews: PreviewProvider {
     static var previews: some View {
-        WoundRowView(wound: Wound(woundID: "String", pacientID: "String", createdBy: "String", resolved: true, comment: "String", commentEdited: "String", creationDate: Date(), woundType: 1, bodyPart: 1, measurementQuantity: 0))
+        WoundRowView(wound: Wound(woundID: "String", pacientID: "String", createdBy: "String", resolved: true, comment: "String", commentEdited: "String", creationDate: Date(), woundType: 1, bodyPart: 1, measurementQuantity: 0), patient: Patient(patientID: "String", name: "String", surname1: "String", surname2: "String", sex: false, dateBirth: Date(), cic: 1, phone: 1))
     }
 }

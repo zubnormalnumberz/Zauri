@@ -45,7 +45,7 @@ struct PatientView: View {
                         Spacer()
                     }else{
                         List(patientViewModel.wounds, id: \.woundID) { wound in
-                            WoundRowView(wound: wound)
+                            WoundRowView(wound: wound, patient: patient)
                         }
                     }
                 }
@@ -65,7 +65,7 @@ struct PatientView: View {
         }.toast(isPresenting: $patientViewModel.createdWound, duration: 3){
             
             AlertToast(type: .complete(Color.green), title: "La herida se ha creado correctamente")
-                }
+        }
     }
 }
 

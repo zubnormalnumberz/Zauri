@@ -68,7 +68,7 @@ struct CameraView: View {
                 isPresented.toggle()
             }.disabled(selectedImage == nil)
             .fullScreenCover(isPresented: $isPresented){
-                CaliberView(image: self.selectedImage)
+                CaliberView(modalState: ModalState(), image: self.selectedImage, woundID: "", patientID: "", userID: "")
             })
             .sheet(isPresented: self.$isImagePickerDisplay) {
             ImagePickerView(selectedImage: self.$selectedImage, sourceType: self.sourceType)

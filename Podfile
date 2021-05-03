@@ -11,6 +11,8 @@ target 'Zauri' do
 	pod 'Introspect'
   pod 'AlertToast'
   pod 'Firebase/Firestore'
+  pod 'Firebase/Storage'
+  pod 'SDWebImageSwiftUI'
   #pod 'FirebaseFirestoreSwift'
 
   target 'ZauriTests' do

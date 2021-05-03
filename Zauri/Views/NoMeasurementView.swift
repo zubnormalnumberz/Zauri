@@ -16,7 +16,7 @@ struct NoMeasurementView: View {
                 .multilineTextAlignment(.center)
                 .font(.title2)
                 .padding()
-            Text("Toca en el botón + para añadir la primera")
+            Text("Toca en 'Acciones -> Añadir medición' para añadir la primera")
                 .multilineTextAlignment(.center)
                 //.padding()
         }.padding()

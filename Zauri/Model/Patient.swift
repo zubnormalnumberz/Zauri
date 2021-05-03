@@ -32,6 +32,10 @@ struct Patient: Codable {
         return String(self.name.prefix(1)+self.surname1.prefix(1)+self.surname2.prefix(1))
     }
     
+    func getShortName() -> String {
+        return "\(self.name) \(self.surname1)"
+    }
+    
     func dateToString() -> String {
         let df = DateFormatter()
         df.dateFormat = "yyyy/MM/dd"

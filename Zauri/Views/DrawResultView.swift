@@ -8,18 +8,18 @@
 import SwiftUI
 
 struct DrawResultView: View {
+    
+    @ObservedObject var modalState: ModalState
+    
     var image: UIImage?
     var points: [CGPoint]
     var scale: Scale
-        
-    init(image: UIImage?, points: [CGPoint], scale: Scale) {
-        self.image = image
-        self.points = points
-        self.scale = scale
-    }
+    
+    var woundID: String
+    var patientID: String
+    var userID: String
     
     var body: some View {
-        
         VStack{
             ZStack{
                 Image(uiImage: image!)
@@ -53,19 +53,19 @@ struct DrawResultView: View {
                     Text("Perimetro: \(scale.getPerimeter(points: self.points)) \(scale.measureUnit)")
                 }.padding()
             }.background(RoundedRectangle(cornerRadius: 16).fill(Color.blue))
+            NavigationLink(
+                destination: TreatmentView(modalState: self.modalState, image: self.image, points: points, woundID: self.woundID, patientID: self.patientID, userID: self.userID, scale: scale),
+                label: {
+                    Text("Confirmar medidas")
+                }).padding()
         }
-        .navigationBarTitle(Text("Resultado de la medición"), displayMode: .inline)
-        .navigationBarItems(trailing: Button(action: {
-            print("Go to add info")
-        }) {
-            Text("Seguir")
-        })
+        .navigationBarTitle(Text("Resultado"), displayMode: .inline)
     }
 }
 
 struct DrawResultView_Previews: PreviewProvider {
     
     static var previews: some View {
-        DrawResultView(image: UIImage(named: "arm"), points: [CGPoint(x: 172.5, y: 252.0), CGPoint(x: 148.0, y: 266.0), CGPoint(x: 131.0, y: 290.5), CGPoint(x: 120.5, y: 316.5), CGPoint(x: 118.5, y: 340.0), CGPoint(x: 121.0, y: 364.0), CGPoint(x: 133.5, y: 383.5), CGPoint(x: 152.0, y: 404.5)], scale: Scale(unit: 1, measureUnit: "cm", scale: [CGPoint(x: 1.0, y: 2.0), CGPoint(x: 5.0, y: 10.0)]))
+        DrawResultView(modalState: ModalState(), image: UIImage(named: "arm"), points: [CGPoint(x: 172.5, y: 252.0), CGPoint(x: 148.0, y: 266.0), CGPoint(x: 131.0, y: 290.5), CGPoint(x: 120.5, y: 316.5), CGPoint(x: 118.5, y: 340.0), CGPoint(x: 121.0, y: 364.0), CGPoint(x: 133.5, y: 383.5), CGPoint(x: 152.0, y: 404.5)], scale: Scale(unit: 1, measureUnit: "cm", scale: [CGPoint(x: 1.0, y: 2.0), CGPoint(x: 5.0, y: 10.0)]), woundID: "String", patientID: "String", userID: "String")
     }
 }
