@@ -12,6 +12,8 @@ import FirebaseStorage
 
 class WoundViewModel: ObservableObject{
     @Published var measurements = [WoundMeasurement]()
+    @Published var dates = [Double]()
+    @Published var areas = [Double]()
     @Published var downloading: Bool = false
     private var db = Firestore.firestore()
     private let storage = Storage.storage().reference()
@@ -43,12 +45,26 @@ class WoundViewModel: ObservableObject{
                 let yPoints = data["drawY"] as? [Double] ?? [0]
                 var points = [CGPoint]()
                 for (index, _) in xPoints.enumerated(){
-                    points.append(CGPoint(x: xPoints[index], y: yPoints[index]))
+                    points.append(CGPoint(x: (xPoints[index]*0.75)+40, y: (yPoints[index]*0.75)+15))
                 }
 
                 return WoundMeasurement(measurementID: measurementID, woundID: woundId, patientID: patientId, userID: userId, width: 0, height: 0, area: area, perimeter: perimeter, imageURL: imageURL, points: points, treatment: treatment, dressingType: dressingType, creationDate: creationDate, treatmentEdit: "", editDate: Date())
             }
             self.downloading = false
+            self.getChartDateData()
+            self.getChartAreaData()
+        }
+    }
+    
+    func getChartDateData() {
+        for item in self.measurements {
+            self.dates.append(item.creationDate.timeIntervalSinceReferenceDate)
+        }
+    }
+    
+    func getChartAreaData() {
+        for item in self.measurements {
+            self.areas.append(item.area)
         }
     }
 }

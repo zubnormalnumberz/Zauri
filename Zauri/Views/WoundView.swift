@@ -38,11 +38,30 @@ struct WoundView: View {
                             VStack{
                                 TabView(selection: $currentIndex) {
                                     ForEach(0..<woundViewModel.measurements.count) { i in
-                                        ZStack {
-                                            WebImage(url: URL(string: woundViewModel.measurements[i].imageURL))
-                                                .resizable()
-                                                .scaledToFit()
-                                        }.tag(i).clipShape(RoundedRectangle(cornerRadius: 10.0, style: .continuous))
+                                        GeometryReader{ geometryreader in
+                                            ZStack {
+                                                WebImage(url: URL(string: woundViewModel.measurements[i].imageURL))
+                                                    .resizable()
+                                                    .scaledToFit()
+                                                DrawShapeEnd(points: woundViewModel.measurements[i].points)
+                                                    .stroke(lineWidth: 2)
+                                                    .foregroundColor(.green)
+                                                VStack{
+                                                    HStack {
+                                                        Text("\(String(format: "%.2f", woundViewModel.measurements[i].area)) cm") + Text("2")
+                                                            .baselineOffset(6.0)
+                                                    }.padding(5.0)
+                                                    .foregroundColor(.white)
+                                                    .overlay(
+                                                        RoundedRectangle(cornerRadius: 10.0)
+                                                            .stroke(Color.green, lineWidth: 2.0)
+                                                    ).background(RoundedRectangle(cornerRadius: 10.0).fill(Color.green))
+                                                }.position(x: woundViewModel.measurements[i].points[0].x-35, y: woundViewModel.measurements[i].points[0].y-25)
+                                            }
+                                            .tag(i)
+                                            .clipShape(RoundedRectangle(cornerRadius: 10.0, style: .continuous))
+                                            .frame(width: geometryreader.size.width, height: geometryreader.size.height)
+                                        }
                                     }
                                     .padding(.horizontal, 10)
                                 }
@@ -55,7 +74,7 @@ struct WoundView: View {
                         ZStack(alignment: Alignment(horizontal: .center, vertical: .bottom), content: {
                             GeometryReader{ reader in
                                 VStack {
-                                    BottomSheet(index: $currentIndex, measurements: $woundViewModel.measurements)
+                                    BottomSheet(index: $currentIndex, measurements: $woundViewModel.measurements, dates: $woundViewModel.dates, areas: $woundViewModel.areas, wound: .constant(wound))
                                         .offset(y: reader.frame(in: .global).height-340)
                                         .offset(y: offset)
                                         .gesture(
@@ -135,9 +154,9 @@ struct WoundView: View {
     }
 }
 
-//struct WoundView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        WoundView(wound: Wound(woundID: "String", pacientID: "String", createdBy: "String", resolved: true, comment: "String", commentEdited: "String", creationDate: Date(), woundType: 1, bodyPart: 1, measurementQuantity: 0), patient: Patient(patientID: "String", name: "Jose Luis", surname1: "Zubibitarte", surname2: "Bilbao", sex: false, dateBirth: Date(), cic: 1, phone: 1))
-//            
-//    }
-//}
+struct WoundView_Previews: PreviewProvider {
+    static var previews: some View {
+        WoundView(wound: Wound(woundID: "String", pacientID: "String", createdBy: "String", resolved: true, comment: "String", commentEdited: "String", creationDate: Date(), woundType: 1, bodyPart: 1, measurementQuantity: 0), patient: Patient(patientID: "String", name: "Jose Luis", surname1: "Zubibitarte", surname2: "Bilbao", sex: false, dateBirth: Date(), cic: 1, phone: 1))
+            
+    }
+}

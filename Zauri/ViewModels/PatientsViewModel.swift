@@ -34,6 +34,8 @@ class PatientsViewModel: ObservableObject {
                 }
                 if self.woundsIDs.count != 0 {
                     self.getPatientsId()
+                }else{
+                    self.downloading = false
                 }
         }
     }
@@ -53,6 +55,8 @@ class PatientsViewModel: ObservableObject {
             }
             if self.patientsIDs.count != 0 {
                 self.fetchPatientsData()
+            }else{
+                self.downloading = false
             }
         }
     }

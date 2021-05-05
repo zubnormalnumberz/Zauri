@@ -11,6 +11,9 @@ struct BottomSheet: View {
     
     @Binding var index: Int
     @Binding var measurements: [WoundMeasurement]
+    @Binding var dates: [Double]
+    @Binding var areas: [Double]
+    @Binding var wound: Wound
     @State private var scrollTarget: Int?
     @State private var infoSelect = 0
         
@@ -23,12 +26,12 @@ struct BottomSheet: View {
                 .padding(.bottom, 25)
             ScrollView(.vertical, showsIndicators: false){
                 LazyVStack{
-                    Text("Quemadura")
+                    Text(WoundType(rawValue: wound.woundType)!.string)
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(.leading, 25)
                         .font(.title)
                     HStack{
-                        Text("Torax")
+                        Text(BodyPart(rawValue: wound.bodyPart)!.string)
                         Text(String(self.index)).hidden().onChange(of: self.index, perform: { value in
                             self.scrollTarget = value
                         })
@@ -89,16 +92,21 @@ struct BottomSheet: View {
                                 .frame(maxWidth: .infinity, alignment: .leading)
                                 .font(.caption)
                                 .foregroundColor(.gray)
-                            Text("\(measurements[index].area) cm2")
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                .font(.title)
+                            HStack{
+                                Text("\(String(format: "%.2f", measurements[index].area)) cm")
+                                    .font(.title)
+                                + Text("2")
+                                    .font(.title)
+                                    .baselineOffset(6.0)
+                            }
+                            .frame(maxWidth: .infinity, alignment: .leading)
                         }.frame(maxWidth: .infinity)
                         VStack{
                             Text("Perimetro")
                                 .frame(maxWidth: .infinity, alignment: .leading)
                                 .font(.caption)
                                 .foregroundColor(.gray)
-                            Text("\(measurements[index].perimeter) cm")
+                            Text("\(String(format: "%.2f", measurements[index].perimeter)) cm")
                                 .frame(maxWidth: .infinity, alignment: .leading)
                                 .font(.title)
                         }.frame(maxWidth: .infinity)
@@ -109,7 +117,7 @@ struct BottomSheet: View {
                                 .frame(maxWidth: .infinity, alignment: .leading)
                                 .font(.caption)
                                 .foregroundColor(.gray)
-                            Text("1,25 cm2")
+                            Text("1,25 cm")
                                 .frame(maxWidth: .infinity, alignment: .leading)
                                 .font(.title)
                         }.frame(maxWidth: .infinity)
@@ -118,17 +126,19 @@ struct BottomSheet: View {
                                 .frame(maxWidth: .infinity, alignment: .leading)
                                 .font(.caption)
                                 .foregroundColor(.gray)
-                            Text("1,25 cm2")
+                            Text("1,25 cm")
                                 .frame(maxWidth: .infinity, alignment: .leading)
                                 .font(.title)
                         }.frame(maxWidth: .infinity)
                     }.padding()
-                    VStack{
-                        LineChartSwiftUI(dates: [638371302.0, 639922902.0,   641132502.0], areas: [2.4, 1.9, 0.7])
-                            .frame(maxWidth: .infinity,
-                                   minHeight: 250,
-                                   maxHeight: 250)
-                    }.padding(.horizontal)
+                    if measurements.count > 1{
+                        VStack{
+                            LineChartSwiftUI(dates: dates, areas: areas)
+                                .frame(maxWidth: .infinity,
+                                       minHeight: 250,
+                                       maxHeight: 250)
+                        }.padding(.horizontal)
+                    }
                     VStack {
                         Picker(selection: $infoSelect, label: Text("What is your favorite color?")) {
                             Text("Tratamiento").tag(0)
@@ -137,10 +147,30 @@ struct BottomSheet: View {
                         .pickerStyle(SegmentedPickerStyle())
                         .padding()
                         if infoSelect == 0 {
-                            Text("Tipo de apósito")
-                            Text("Tratamiento")
+                            HStack{
+                                VStack{
+                                    Text("Tipo de apósito")
+                                        .frame(maxWidth: .infinity, alignment: .leading)
+                                }.frame(maxWidth: .infinity)
+                                VStack{
+                                    Text(DressingType(rawValue: measurements[index].dressingType)!.string)
+                                        .frame(maxWidth: .infinity, alignment: .leading)
+                                }.frame(maxWidth: .infinity)
+                            }.padding()
+                            Text("Tratamiento: \(measurements[index].treatment)")
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .padding()
                         }else{
-                            Text("Fecha de creación")
+                            HStack{
+                                VStack{
+                                    Text("Fecha de creación")
+                                        .frame(maxWidth: .infinity, alignment: .leading)
+                                }.frame(maxWidth: .infinity)
+                                VStack{
+                                    Text(measurements[index].getDateLongFormat())
+                                        .frame(maxWidth: .infinity, alignment: .leading)
+                                }.frame(maxWidth: .infinity)
+                            }.padding()
                             Text("Creado por: ")
                         }
                     }
@@ -170,6 +200,6 @@ struct BlurView: UIViewRepresentable {
 
 struct BottomSheet_Previews: PreviewProvider {
     static var previews: some View {
-        BottomSheet(index: .constant(1), measurements: .constant([WoundMeasurement(measurementID: "String", woundID: "String", patientID: "String", userID: "String", width: 1, height: 1, area: 1, perimeter: 1, imageURL: "String", points: [], treatment: "String", dressingType: 1, creationDate: Date(), treatmentEdit: "String", editDate: Date())]))
+        BottomSheet(index: .constant(1), measurements: .constant([WoundMeasurement(measurementID: "String", woundID: "String", patientID: "String", userID: "String", width: 1, height: 1, area: 1, perimeter: 1, imageURL: "String", points: [], treatment: "String", dressingType: 1, creationDate: Date(), treatmentEdit: "String", editDate: Date())]), dates: .constant([]), areas: .constant([]), wound: .constant(Wound(woundID: "String", pacientID: "String", createdBy: "String", resolved: false, comment: "String", commentEdited: "String", creationDate: Date(), woundType: 1, bodyPart: 1, measurementQuantity: 1)))
     }
 }

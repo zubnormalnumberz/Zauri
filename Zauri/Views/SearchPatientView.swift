@@ -11,7 +11,6 @@ struct SearchPatientView: View {
     
     @Environment(\.presentationMode) var presentationMode
     @ObservedObject var searchPatientViewModel = SearchPatientViewModel()
-    private var onePatient = Patient(patientID: "String", name: "String", surname1: "String", surname2: "String", sex: false, dateBirth: Date(), cic: 1234567, phone: 653159847)
     
     var body: some View {
         NavigationView {
@@ -31,6 +30,7 @@ struct SearchPatientView: View {
                                 if searchPatientViewModel.searchText != "" {
                                     Button(action: {
                                         searchPatientViewModel.searchText = ""
+                                        searchPatientViewModel.searched = false
                                     }) {
                                         Image(systemName: "multiply.circle.fill")
                                             .padding(.trailing, 8)
@@ -60,9 +60,9 @@ struct SearchPatientView: View {
                         Spacer()
                         Text("Puedes buscar un paciente por nombre, apellido o CIC").multilineTextAlignment(.center).padding()
                         Spacer()
-                    }else if searchPatientViewModel.searched && searchPatientViewModel.patients.count == 0{
+                    }else if searchPatientViewModel.searched && searchPatientViewModel.patients.count == 0 {
                         Spacer()
-                        Text("No hay resultados para esta busqueda").multilineTextAlignment(.center).padding()
+                        NoResultsView(text: searchPatientViewModel.searchText)
                         Spacer()
                     }else{
                         List(searchPatientViewModel.patients, id: \.patientID) { patient in

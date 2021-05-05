@@ -54,4 +54,12 @@ struct WoundMeasurement: Codable {
         formatter.dateFormat = "HH:mm"
         return formatter.string(from: creationDate)
     }
+    
+    func getDateLongFormat() -> String {
+        let df = DateFormatter()
+        df.dateFormat = "dd-MM-yyyy HH:mm"
+        let now = df.string(from: self.creationDate)
+        return now
+
+    }
 }

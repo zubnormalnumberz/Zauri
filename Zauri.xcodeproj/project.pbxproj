@@ -55,6 +55,12 @@
 		3AD040E82623381D00811FBB /* NoPendingMeasurementsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD040E72623381D00811FBB /* NoPendingMeasurementsView.swift */; };
 		3AD040F02623640D00811FBB /* PatientViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD040EF2623640D00811FBB /* PatientViewModel.swift */; };
 		3AD040F52623648800811FBB /* Wound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD040F42623648800811FBB /* Wound.swift */; };
+		3AD3B4E92641B0AF00C10E28 /* NoResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD3B4E82641B0AF00C10E28 /* NoResultsView.swift */; };
+		3AD3B4ED2641B86100C10E28 /* SearchPatientForMeasurementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD3B4EC2641B86100C10E28 /* SearchPatientForMeasurementView.swift */; };
+		3AD3B4FD2641BD4B00C10E28 /* SearchPatientForMeasurementViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD3B4FC2641BD4B00C10E28 /* SearchPatientForMeasurementViewModel.swift */; };
+		3AD3B5092641CD5A00C10E28 /* WoundsOfPatientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD3B5082641CD5A00C10E28 /* WoundsOfPatientView.swift */; };
+		3AD3B50D2641CFA500C10E28 /* WoundRowSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD3B50C2641CFA500C10E28 /* WoundRowSelectView.swift */; };
+		3AD3B51126426E9B00C10E28 /* WoundsOfPatientViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD3B51026426E9B00C10E28 /* WoundsOfPatientViewModel.swift */; };
 		3AE5DC7B2620B33F00B890D6 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE5DC7A2620B33F00B890D6 /* LoginViewModel.swift */; };
 		3AE5DC842620D18600B890D6 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE5DC832620D18600B890D6 /* UserService.swift */; };
 		3AE5DC922621AF3B00B890D6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE5DC912621AF3B00B890D6 /* ContentView.swift */; };
@@ -177,6 +183,12 @@
 		3AD040E72623381D00811FBB /* NoPendingMeasurementsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoPendingMeasurementsView.swift; sourceTree = "<group>"; };
 		3AD040EF2623640D00811FBB /* PatientViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientViewModel.swift; sourceTree = "<group>"; };
 		3AD040F42623648800811FBB /* Wound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wound.swift; sourceTree = "<group>"; };
+		3AD3B4E82641B0AF00C10E28 /* NoResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoResultsView.swift; sourceTree = "<group>"; };
+		3AD3B4EC2641B86100C10E28 /* SearchPatientForMeasurementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPatientForMeasurementView.swift; sourceTree = "<group>"; };
+		3AD3B4FC2641BD4B00C10E28 /* SearchPatientForMeasurementViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPatientForMeasurementViewModel.swift; sourceTree = "<group>"; };
+		3AD3B5082641CD5A00C10E28 /* WoundsOfPatientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoundsOfPatientView.swift; sourceTree = "<group>"; };
+		3AD3B50C2641CFA500C10E28 /* WoundRowSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoundRowSelectView.swift; sourceTree = "<group>"; };
+		3AD3B51026426E9B00C10E28 /* WoundsOfPatientViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoundsOfPatientViewModel.swift; sourceTree = "<group>"; };
 		3AE5DC7A2620B33F00B890D6 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		3AE5DC832620D18600B890D6 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		3AE5DC912621AF3B00B890D6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -331,6 +343,8 @@
 				3AD040D32622EC2800811FBB /* SettingsViewModel.swift */,
 				3A3EDC38263F0A760046A8A2 /* WoundViewModel.swift */,
 				3A37D3CA263FFAF3002EA537 /* TreatmentViewModel.swift */,
+				3AD3B4FC2641BD4B00C10E28 /* SearchPatientForMeasurementViewModel.swift */,
+				3AD3B51026426E9B00C10E28 /* WoundsOfPatientViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -365,6 +379,7 @@
 				3AE5DCA12621D86F00B890D6 /* NoPatientView.swift */,
 				3AD040E72623381D00811FBB /* NoPendingMeasurementsView.swift */,
 				3A1B9378262B201A0070EC3C /* NoPictureView.swift */,
+				3AD3B4E82641B0AF00C10E28 /* NoResultsView.swift */,
 				3AE5DCA62621EEC900B890D6 /* NoWoundView.swift */,
 				3AF84663261B4C8A00BCA1AB /* PatientRowView.swift */,
 				3AF84659261B49A800BCA1AB /* PatientsView.swift */,
@@ -372,11 +387,14 @@
 				3AF84651261B489900BCA1AB /* PendingMeasurementsView.swift */,
 				3AB4D0E1262DFB21000775DA /* ReferenceMeasure.swift */,
 				3AB4D0DC262DF029000775DA /* ScaleView.swift */,
+				3AD3B4EC2641B86100C10E28 /* SearchPatientForMeasurementView.swift */,
 				3A2D28692632A0FF00763989 /* SearchPatientView.swift */,
 				3AF8464C261B2C3300BCA1AB /* SettingsView.swift */,
 				3A0527EC263209F7001DB79A /* TreatmentView.swift */,
 				3AD040D82622F99B00811FBB /* WoundRowView.swift */,
 				3A1B92C02629D8E60070EC3C /* WoundView.swift */,
+				3AD3B5082641CD5A00C10E28 /* WoundsOfPatientView.swift */,
+				3AD3B50C2641CFA500C10E28 /* WoundRowSelectView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -690,6 +708,7 @@
 				3AD040E82623381D00811FBB /* NoPendingMeasurementsView.swift in Sources */,
 				3A2D286F2632D24D00763989 /* SearchPatientViewModel.swift in Sources */,
 				3AE5DCA22621D86F00B890D6 /* NoPatientView.swift in Sources */,
+				3AD3B4ED2641B86100C10E28 /* SearchPatientForMeasurementView.swift in Sources */,
 				3AB4D0E2262DFB21000775DA /* ReferenceMeasure.swift in Sources */,
 				3AD040D92622F99B00811FBB /* WoundRowView.swift in Sources */,
 				3AB4D10C262EDFB1000775DA /* Scale.swift in Sources */,
@@ -699,6 +718,8 @@
 				3A7B4CB42636D1A1002804EE /* DateAxisValueFormatter.swift in Sources */,
 				3A1B92B126288A880070EC3C /* BodyPartView.swift in Sources */,
 				3AD040F52623648800811FBB /* Wound.swift in Sources */,
+				3AD3B5092641CD5A00C10E28 /* WoundsOfPatientView.swift in Sources */,
+				3AD3B50D2641CFA500C10E28 /* WoundRowSelectView.swift in Sources */,
 				3A911A4626260B040049733A /* AddWoundViewModel.swift in Sources */,
 				3AD040F02623640D00811FBB /* PatientViewModel.swift in Sources */,
 				3A1B92C62629EB8D0070EC3C /* CameraView.swift in Sources */,
@@ -721,6 +742,7 @@
 				3AF84638261B203300BCA1AB /* User.swift in Sources */,
 				3AB62B98261AF80D00D93FD8 /* AppDelegate.swift in Sources */,
 				3A37D3CF264015E2002EA537 /* ModalState.swift in Sources */,
+				3AD3B51126426E9B00C10E28 /* WoundsOfPatientViewModel.swift in Sources */,
 				3A1B92BC2628E0360070EC3C /* BodyPartViewModel.swift in Sources */,
 				3AB62B9A261AF80D00D93FD8 /* SceneDelegate.swift in Sources */,
 				3AE5DC842620D18600B890D6 /* UserService.swift in Sources */,
@@ -729,6 +751,7 @@
 				3A1B92C12629D8E80070EC3C /* WoundView.swift in Sources */,
 				3A37D3CB263FFAF3002EA537 /* TreatmentViewModel.swift in Sources */,
 				3A1B9379262B20200070EC3C /* NoPictureView.swift in Sources */,
+				3AD3B4E92641B0AF00C10E28 /* NoResultsView.swift in Sources */,
 				3AF84652261B489900BCA1AB /* PendingMeasurementsView.swift in Sources */,
 				3AB4D102262EB3BE000775DA /* DrawResultView.swift in Sources */,
 				3AB4D107262EB6A5000775DA /* DrawShapeEnd.swift in Sources */,
@@ -740,6 +763,7 @@
 				3AD040E3262305A100811FBB /* PatientsViewModel.swift in Sources */,
 				3A911A51262784900049733A /* BodyParts.swift in Sources */,
 				3A3EDC45263F19470046A8A2 /* BottomSheet.swift in Sources */,
+				3AD3B4FD2641BD4B00C10E28 /* SearchPatientForMeasurementViewModel.swift in Sources */,
 				3A92CB7E26394AF80089C3C1 /* WoundType.swift in Sources */,
 				3A2D287F2633668900763989 /* BodyPart.swift in Sources */,
 				3AD040D42622EC2800811FBB /* SettingsViewModel.swift in Sources */,

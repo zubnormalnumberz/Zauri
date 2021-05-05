@@ -61,7 +61,7 @@ struct TreatmentView: View {
     
     var selectUserNavigationLink: some View {
       NavigationLink(
-        destination: Text("Destination"),
+        destination: SearchPatientForMeasurementView(),
         label: {
             Text("Seleccionar paciente")
         })
