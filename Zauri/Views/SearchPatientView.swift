@@ -62,7 +62,7 @@ struct SearchPatientView: View {
                         Spacer()
                     }else if searchPatientViewModel.searched && searchPatientViewModel.patients.count == 0 {
                         Spacer()
-                        NoResultsView(text: searchPatientViewModel.searchText)
+                        NoResultsView(text: searchPatientViewModel.searchedText)
                         Spacer()
                     }else{
                         List(searchPatientViewModel.patients, id: \.patientID) { patient in
@@ -80,9 +80,6 @@ struct SearchPatientView: View {
                 Text("Cerrar")
             }))
         }
-        /*.onTapGesture {
-            hideKeyboard()
-        }*/
     }
 }
 

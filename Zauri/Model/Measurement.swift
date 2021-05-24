@@ -18,6 +18,7 @@ struct WoundMeasurement: Codable {
     var area: Double
     var perimeter: Double
     var imageURL: String
+    var points_small: [CGPoint]
     var points: [CGPoint]
     var treatment: String
     var dressingType: Int
@@ -25,7 +26,7 @@ struct WoundMeasurement: Codable {
     var treatmentEdit: String
     var editDate: Date
     
-    init(measurementID: String, woundID: String, patientID: String, userID: String, width: Double, height: Double, area: Double, perimeter: Double, imageURL: String, points: [CGPoint], treatment: String, dressingType: Int, creationDate: Date, treatmentEdit: String, editDate: Date) {
+    init(measurementID: String, woundID: String, patientID: String, userID: String, width: Double, height: Double, area: Double, perimeter: Double, imageURL: String, points_small: [CGPoint], points: [CGPoint], treatment: String, dressingType: Int, creationDate: Date, treatmentEdit: String, editDate: Date) {
         self.measurementID = measurementID
         self.woundID = woundID
         self.patientID = patientID
@@ -35,6 +36,7 @@ struct WoundMeasurement: Codable {
         self.area = area
         self.perimeter = perimeter
         self.imageURL = imageURL
+        self.points_small = points_small
         self.points = points
         self.treatment = treatment
         self.dressingType = dressingType
@@ -61,5 +63,20 @@ struct WoundMeasurement: Codable {
         let now = df.string(from: self.creationDate)
         return now
 
+    }
+    
+    func calculateDateDifference() -> Bool {
+        let now = Date()
+        let numberOfHours = Calendar.current.dateComponents([.hour], from: creationDate, to: now)
+        return numberOfHours.hour! > 24
+    }
+    
+    func getImageURLFormatted() -> String {
+        let basePath = "https://firebasestorage.googleapis.com/v0/b/zauri-e0160.appspot.com/o/"
+        let path = imageURL.replacingOccurrences(of: basePath, with: "")
+        let components = path.components(separatedBy: "?")
+        var text = components[0]
+        text = text.replacingOccurrences(of: "%2F", with: "/")
+        return text
     }
 }

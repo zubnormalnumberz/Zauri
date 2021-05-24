@@ -11,11 +11,11 @@ struct WoundRowView: View {
     
     let wound: Wound
     let patient: Patient
-    @State private var isPresented = false
+    @StateObject var modalState = ModalState()
     
     var body: some View {
         Button(action: {
-                self.isPresented.toggle()
+            self.modalState.isWoundViewModalPresented = true
         }) {
             HStack {
                 
@@ -41,9 +41,9 @@ struct WoundRowView: View {
                     .font(.title2)
             }
             .padding()
-            .fullScreenCover(isPresented: $isPresented){
-                WoundView(wound: wound, patient: patient)
-            }
+        }
+        .fullScreenCover(isPresented: $modalState.isWoundViewModalPresented){
+            WoundView(wound: wound, patient: patient, modalState: self.modalState)
         }
     }
 }

@@ -7,22 +7,27 @@
 
 import SwiftUI
 import SDWebImageSwiftUI
+import AlertToast
 
 struct WoundView: View {
     
     let wound: Wound
     let patient: Patient
     @State var offset: CGFloat = 0
-    @Environment(\.presentationMode) var presentationMode
     @State private var showingActionSheet = false
     @State private var currentIndex = 0
-    @ObservedObject private var woundViewModel = WoundViewModel()
+    @State private var showAlertWrongUserID = false
+    @State private var showAlertOutOfTime = false
+    @State private var showAlertConfirmDeleteMeasurement = false
+    
+    @StateObject private var woundViewModel = WoundViewModel()
     @EnvironmentObject var session: UserService
     
-    @StateObject var modalState = ModalState()
+    @ObservedObject var modalState: ModalState
     
     func getUser() {
         session.listen()
+        woundViewModel.userId = session.self.session?.userID ?? ""
     }
     
     var body: some View {
@@ -36,14 +41,18 @@ struct WoundView: View {
                     ZStack {
                         ZStack{
                             VStack{
-                                TabView(selection: $currentIndex) {
+                                TabView(selection: $woundViewModel.currentIndex) {
                                     ForEach(0..<woundViewModel.measurements.count) { i in
-                                        GeometryReader{ geometryreader in
+                                        NavigationLink(destination: BigImageView(measurement: woundViewModel.measurements[i])){
+                                            GeometryReader{ geometryreader in
                                             ZStack {
                                                 WebImage(url: URL(string: woundViewModel.measurements[i].imageURL))
                                                     .resizable()
+                                                    .placeholder(Image(systemName: "photo"))
+                                                    .indicator(.activity)
+                                                    .transition(.fade(duration: 0.5))
                                                     .scaledToFit()
-                                                DrawShapeEnd(points: woundViewModel.measurements[i].points)
+                                                DrawShapeEnd(points: woundViewModel.measurements[i].points_small)
                                                     .stroke(lineWidth: 2)
                                                     .foregroundColor(.green)
                                                 VStack{
@@ -56,11 +65,12 @@ struct WoundView: View {
                                                         RoundedRectangle(cornerRadius: 10.0)
                                                             .stroke(Color.green, lineWidth: 2.0)
                                                     ).background(RoundedRectangle(cornerRadius: 10.0).fill(Color.green))
-                                                }.position(x: woundViewModel.measurements[i].points[0].x-35, y: woundViewModel.measurements[i].points[0].y-25)
+                                                }.position(x: woundViewModel.measurements[i].points_small[0].x-35, y: woundViewModel.measurements[i].points_small[0].y-25)
                                             }
                                             .tag(i)
                                             .clipShape(RoundedRectangle(cornerRadius: 10.0, style: .continuous))
                                             .frame(width: geometryreader.size.width, height: geometryreader.size.height)
+                                        }
                                         }
                                     }
                                     .padding(.horizontal, 10)
@@ -74,7 +84,7 @@ struct WoundView: View {
                         ZStack(alignment: Alignment(horizontal: .center, vertical: .bottom), content: {
                             GeometryReader{ reader in
                                 VStack {
-                                    BottomSheet(index: $currentIndex, measurements: $woundViewModel.measurements, dates: $woundViewModel.dates, areas: $woundViewModel.areas, wound: .constant(wound))
+                                    BottomSheet(index: $woundViewModel.currentIndex, measurements: $woundViewModel.measurements, dates: $woundViewModel.dates, areas: $woundViewModel.areas, wound: .constant(wound))
                                         .offset(y: reader.frame(in: .global).height-340)
                                         .offset(y: offset)
                                         .gesture(
@@ -129,13 +139,27 @@ struct WoundView: View {
             }
             .navigationBarTitle(Text(patient.getShortName()), displayMode: .inline)
             .navigationBarItems(leading: Button("Cerrar") {
-                presentationMode.wrappedValue.dismiss()
+                self.modalState.isWoundViewModalPresented = false
             },trailing: Button("Acciones") {
                 self.showingActionSheet = true
             })
             .fullScreenCover(isPresented: $modalState.isCamera2ViewModalPresented){
                 Camera2View(modalState: self.modalState, woundID: wound.woundID, patientID: patient.patientID, userID: self.session.self.session?.userID ?? "")
             }
+            .alert(isPresented: $showAlertConfirmDeleteMeasurement) {
+                Alert(
+                    title: Text("¿Estas seguro?"),
+                    message: Text("Si eliminas esta medición no podras recuperar los datos"),
+                    primaryButton: .destructive(Text("Si")) {
+                        woundViewModel.deleteMeasurement()
+                    },
+                    secondaryButton: .cancel(Text("No"))
+                  )
+            }
+            .toast(isPresenting: $woundViewModel.showDeleteMsgToast, duration: 3) {
+                AlertToast(type: .complete(Color.green), title: "La medición se ha borrado correctamente")
+            }
+
         }
         .actionSheet(isPresented: $showingActionSheet) {
             ActionSheet(title: Text("¿Que acción desea realizar?"), buttons: [
@@ -144,19 +168,40 @@ struct WoundView: View {
                 },
                 .default(Text("Editar herida")) {},
                 .default(Text("Editar medición")) {},
+                .destructive(Text("Eliminar medición")){
+                    if woundViewModel.measurements[woundViewModel.currentIndex].userID != self.session.self.session?.userID ?? "" {
+                        showAlertWrongUserID = true
+                    } else if(woundViewModel.measurements[woundViewModel.currentIndex].calculateDateDifference()) {
+                        showAlertOutOfTime = true
+                    } else {
+                        showAlertConfirmDeleteMeasurement = true
+                    }
+                },
                 .cancel()
             ])
+        }
+
+        .alert(isPresented: $showAlertWrongUserID) {
+            Alert(title: Text("WRONG USER"), message: Text("jsbd"), dismissButton: .cancel())
+        }
+        .alert(isPresented: $showAlertOutOfTime) {
+            Alert(title: Text("OUT OF TIME"), message: Text("Wear sunscreen"), dismissButton: .default(Text("Got it!")))
         }
         .onAppear(){
             getUser()
             woundViewModel.fetchMeasurementsData(wound: self.wound)
+        }
+        .onReceive(woundViewModel .viewDismissalModePublisher) { shouldDismiss in
+            if shouldDismiss {
+                self.modalState.isWoundViewModalPresented = false
+            }
         }
     }
 }
 
 struct WoundView_Previews: PreviewProvider {
     static var previews: some View {
-        WoundView(wound: Wound(woundID: "String", pacientID: "String", createdBy: "String", resolved: true, comment: "String", commentEdited: "String", creationDate: Date(), woundType: 1, bodyPart: 1, measurementQuantity: 0), patient: Patient(patientID: "String", name: "Jose Luis", surname1: "Zubibitarte", surname2: "Bilbao", sex: false, dateBirth: Date(), cic: 1, phone: 1))
+        WoundView(wound: Wound(woundID: "String", pacientID: "String", createdBy: "String", resolved: true, comment: "String", commentEdited: "String", creationDate: Date(), woundType: 1, bodyPart: 1, measurementQuantity: 0), patient: Patient(patientID: "String", name: "Jose Luis", surname1: "Zubibitarte", surname2: "Bilbao", sex: false, dateBirth: Date(), cic: 1, phone: 1), modalState: ModalState())
             
     }
 }

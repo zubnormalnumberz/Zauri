@@ -12,6 +12,7 @@ class SearchPatientViewModel: ObservableObject {
     
     @Published var patients = [Patient]()
     @Published var searchText: String = ""
+    @Published var searchedText: String = ""
     @Published var searched: Bool = false
     @Published var searching: Bool = false
     let db = Firestore.firestore()
@@ -44,6 +45,7 @@ class SearchPatientViewModel: ObservableObject {
                 }
                 self.searched = true
                 self.searching = false
+                self.searchedText = self.searchText
         }
     }
 }

@@ -20,7 +20,7 @@ class PatientsViewModel: ObservableObject {
     
     func getWoundsData() {
         downloading = true
-        db.collection("measurements").whereField("userId", isEqualTo: userId).addSnapshotListener() { (querySnapshot, err) in
+        db.collection("measurements").whereField("userId", isEqualTo: userId).getDocuments() { (querySnapshot, err) in
                 
                 guard let documents = querySnapshot?.documents else {
                     print("No documents")
@@ -30,7 +30,9 @@ class PatientsViewModel: ObservableObject {
                 for document in documents {
                     let data = document.data()
                     let woundId = data["woundId"] as? String ?? ""
-                    self.woundsIDs.append(woundId)
+                    if !self.woundsIDs.contains(woundId){
+                        self.woundsIDs.append(woundId)
+                    }
                 }
                 if self.woundsIDs.count != 0 {
                     self.getPatientsId()
@@ -41,18 +43,29 @@ class PatientsViewModel: ObservableObject {
     }
     
     func getPatientsId() {
-        db.collection("wounds").whereField(FirebaseFirestore.FieldPath.documentID(), in: woundsIDs).whereField("resolve", isEqualTo: false).addSnapshotListener() { (querySnapshot, err) in
+        
+        let myGroup = DispatchGroup()
+        
+        for item in woundsIDs {
             
-            guard let documents = querySnapshot?.documents else {
-                print("No documents")
-                return
-            }
+            myGroup.enter()
             
-            for document in documents {
-                let data = document.data()
-                let patientId = data["patientId"] as? String ?? ""
-                self.patientsIDs.append(patientId)
+            db.collection("wounds").whereField(FirebaseFirestore.FieldPath.documentID(), isEqualTo: item).whereField("resolve", isEqualTo: false).getDocuments() { (querySnapshot, err) in
+                guard let documents = querySnapshot?.documents else {
+                    print("No documents")
+                    return
+                }
+                for document in documents {
+                    let data = document.data()
+                    let patientId = data["patientId"] as? String ?? ""
+                    if !self.patientsIDs.contains(patientId){
+                        self.patientsIDs.append(patientId)
+                    }
+                }
+                myGroup.leave()
             }
+        }
+        myGroup.notify(queue: .main) {
             if self.patientsIDs.count != 0 {
                 self.fetchPatientsData()
             }else{
@@ -62,7 +75,7 @@ class PatientsViewModel: ObservableObject {
     }
     
     func fetchPatientsData() {
-        db.collection("patients").whereField(FirebaseFirestore.FieldPath.documentID(), in: patientsIDs).addSnapshotListener { (querySnapshot, error) in
+        db.collection("patients").whereField(FirebaseFirestore.FieldPath.documentID(), in: patientsIDs).getDocuments() { (querySnapshot, error) in
                 guard let documents = querySnapshot?.documents else {
                     print("No documents")
                     return

@@ -30,11 +30,12 @@ struct Scale: Codable {
     func getArea(points: [CGPoint]) -> String {
         var area: Double = 0
         let N: Int = points.count;
-        for i in 0..<N - 1 {
-            let term = (points[i].x * points[i+1 % N].y) - (points[i+1 % N].x * points[i].y);
+        for i in 0..<N {
+            let term = (points[i].x * points[(i+1) % N].y) - (points[(i+1) % N].x * points[i].y);
+            print("Term: \(term)")
             area += Double(term)
         }
-//        print("Area: \(area)")
+        print("Area: \(area)")
         let scaledArea = 0.5*abs(area)*pow(Double(unit), Double(2))/pow(Double(CGPointDistance(from: scale[0], to: scale[1])), Double(2))
         return String(format: "%.2f", (measureUnit == "cm" ? scaledArea : scaledArea/1000))
     }

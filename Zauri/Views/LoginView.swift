@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AlertToast
 
 struct LoginView: View {
     
@@ -72,9 +73,15 @@ struct LoginView: View {
                 .background(buttonColor)
                 .cornerRadius(8)
                 .disabled(loginViewModel.username == "" || loginViewModel.password == "")
-                .alert(isPresented: $loginViewModel.showingAlert) {
-                            Alert(title: Text("Hello SwiftUI!"), message: Text("This is some detail message"), dismissButton: .default(Text("OK")))
-                        }
+                .toast(isPresenting: $loginViewModel.showingAlert){
+                    AlertToast(type: .error(Color.red), title: "Error!", subTitle: "Este usuario no existe o la contraseña es incorrecta")
+                }
+                .toast(isPresenting: $loginViewModel.loading, duration:3){
+                    AlertToast(type: .loading, title: "Iniciando sesión...")
+                }
+//                .alert(isPresented: $loginViewModel.showingAlert) {
+//                            Alert(title: Text("Hello SwiftUI!"), message: Text("This is some detail message"), dismissButton: .default(Text("OK")))
+//                        }
             }.padding()
         }
         }

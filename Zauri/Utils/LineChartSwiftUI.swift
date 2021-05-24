@@ -18,7 +18,7 @@ struct LineChartSwiftUI: UIViewRepresentable {
         let lineChart = LineChartView()
         lineChart.noDataText = "No Data Available"
         lineChart.xAxis.valueFormatter = DateAxisValueFormatter()
-        lineChart.xAxis.labelCount = dates.count+2
+        lineChart.xAxis.labelCount = 4
         lineChart.data = addData()
         return lineChart
     }

@@ -10,4 +10,6 @@ import Foundation
 class ModalState: ObservableObject {
     @Published var isCamera2ViewModalPresented: Bool = false
     @Published var isCaliberViewModalPresented: Bool = false
+    @Published var isCameraViewModalPresented: Bool = false
+    @Published var isWoundViewModalPresented: Bool = false
 }

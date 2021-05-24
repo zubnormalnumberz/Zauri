@@ -11,7 +11,7 @@ import AlertToast
 struct PatientView: View {
     
     let patient: Patient
-    @ObservedObject private var patientViewModel = PatientViewModel()
+    @StateObject private var patientViewModel = PatientViewModel()
     @State var showingSheet = false
     @Environment(\.presentationMode) private var addWoundPresentation
     

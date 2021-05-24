@@ -9,10 +9,17 @@ import SwiftUI
 
 struct CameraView: View {
     
+    @StateObject var modalState = ModalState()
+    
     @State private var sourceType: UIImagePickerController.SourceType = .camera
     @State private var selectedImage: UIImage?
     @State private var isImagePickerDisplay = false
     @State private var isPresented = false
+    @EnvironmentObject var session: UserService
+        
+    func getUser() {
+        session.listen()
+    }
     
     var body: some View {
         NavigationView {
@@ -63,15 +70,19 @@ struct CameraView: View {
                     .padding()
                 }
             }
+            .onAppear(){
+                getUser()
+            }
             .navigationBarTitle("Elegir imágen", displayMode: .inline)
             .navigationBarItems(trailing: Button("Siguiente") {
-                isPresented.toggle()
-            }.disabled(selectedImage == nil)
-            .fullScreenCover(isPresented: $isPresented){
-                CaliberView(modalState: ModalState(), image: self.selectedImage, woundID: "", patientID: "", userID: "")
-            })
+                modalState.isCaliberViewModalPresented = true
+                //isPresented.toggle()
+            }.disabled(selectedImage == nil))
+            .fullScreenCover(isPresented: $modalState.isCaliberViewModalPresented){
+                CaliberView(modalState: modalState, image: self.selectedImage, woundID: "", patientID: "", userID: self.session.self.session?.userID ?? "")
+            }
             .sheet(isPresented: self.$isImagePickerDisplay) {
-            ImagePickerView(selectedImage: self.$selectedImage, sourceType: self.sourceType)
+                ImagePickerView(selectedImage: self.$selectedImage, sourceType: self.sourceType)
             }
         }
     }

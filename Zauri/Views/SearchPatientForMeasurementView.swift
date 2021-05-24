@@ -6,10 +6,28 @@
 //
 
 import SwiftUI
+import AlertToast
 
 struct SearchPatientForMeasurementView: View {
     
     @ObservedObject var searchPatientForMeasurementViewModel = SearchPatientForMeasurementViewModel()
+    @State private var showToast = false
+    @ObservedObject var modalState: ModalState
+    var userID: String
+    var image: UIImage?
+    var points: [CGPoint]
+    var scale: Scale
+    var treatment: String
+    var dressingType: Int
+    
+    func handleData(){
+        searchPatientForMeasurementViewModel.image = image
+        searchPatientForMeasurementViewModel.points = points
+        searchPatientForMeasurementViewModel.scale = scale
+        searchPatientForMeasurementViewModel.userID = userID
+        searchPatientForMeasurementViewModel.treatment = treatment
+        searchPatientForMeasurementViewModel.dressingType = dressingType
+    }
     
     var body: some View {
         VStack{
@@ -100,6 +118,18 @@ struct SearchPatientForMeasurementView: View {
                     }
                 }
             }
+            .onAppear(perform: handleData)
+            .onReceive(searchPatientForMeasurementViewModel.viewDismissalModePublisher) { shouldDismiss in
+                if shouldDismiss {
+                    self.showToast = false
+                    self.modalState.isCamera2ViewModalPresented = false
+                    self.modalState.isCaliberViewModalPresented = false
+                    self.modalState.isCameraViewModalPresented = false
+                }
+            }
+            .toast(isPresenting: $showToast){
+                AlertToast(type: .loading, title: "Guardando herida...")
+            }
             .navigationBarTitle("Buscar paciente", displayMode: .inline)
             .navigationBarItems(trailing: searchPatientForMeasurementViewModel.getSelectedWound().woundID == "" ?
                                     AnyView(self.savePendingMeasurementButton) : AnyView(self.saveMeasurementButton))
@@ -108,7 +138,8 @@ struct SearchPatientForMeasurementView: View {
     
     var savePendingMeasurementButton: some View {
         Button(action: {
-            print("Guardar medición pendiente")
+            self.showToast = true
+            searchPatientForMeasurementViewModel.saveMeasurement(flagIsPendingMeasurement: true)
         }){
            Text("Saltar")
         }
@@ -116,7 +147,8 @@ struct SearchPatientForMeasurementView: View {
     
     var saveMeasurementButton: some View {
         Button(action: {
-            print("Guardar medición")
+            self.showToast = true
+            searchPatientForMeasurementViewModel.saveMeasurement(flagIsPendingMeasurement: false)
         }){
            Text("Guardar medición")
         }
@@ -125,6 +157,6 @@ struct SearchPatientForMeasurementView: View {
 
 struct SearchPatientForMeasurementView_Previews: PreviewProvider {
     static var previews: some View {
-        SearchPatientForMeasurementView()
+        SearchPatientForMeasurementView(modalState: ModalState(), userID: "String", image: UIImage(named: "arm"), points: [CGPoint(x: 172.5, y: 252.0), CGPoint(x: 148.0, y: 266.0), CGPoint(x: 131.0, y: 290.5), CGPoint(x: 120.5, y: 316.5), CGPoint(x: 118.5, y: 340.0), CGPoint(x: 121.0, y: 364.0), CGPoint(x: 133.5, y: 383.5), CGPoint(x: 152.0, y: 404.5)], scale: Scale(unit: 1, measureUnit: "cm", scale: []), treatment: "String", dressingType: 1)
     }
 }

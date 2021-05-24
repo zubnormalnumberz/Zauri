@@ -171,9 +171,11 @@ struct BottomSheet: View {
                                         .frame(maxWidth: .infinity, alignment: .leading)
                                 }.frame(maxWidth: .infinity)
                             }.padding()
-                            Text("Creado por: ")
+                            Text("Creado por: \(measurements[index].userID)")
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .padding()
                         }
-                    }
+                    }.padding(.bottom, 50)
                 }
             }
         }
@@ -200,6 +202,6 @@ struct BlurView: UIViewRepresentable {
 
 struct BottomSheet_Previews: PreviewProvider {
     static var previews: some View {
-        BottomSheet(index: .constant(1), measurements: .constant([WoundMeasurement(measurementID: "String", woundID: "String", patientID: "String", userID: "String", width: 1, height: 1, area: 1, perimeter: 1, imageURL: "String", points: [], treatment: "String", dressingType: 1, creationDate: Date(), treatmentEdit: "String", editDate: Date())]), dates: .constant([]), areas: .constant([]), wound: .constant(Wound(woundID: "String", pacientID: "String", createdBy: "String", resolved: false, comment: "String", commentEdited: "String", creationDate: Date(), woundType: 1, bodyPart: 1, measurementQuantity: 1)))
+        BottomSheet(index: .constant(1), measurements: .constant([WoundMeasurement(measurementID: "String", woundID: "String", patientID: "String", userID: "String", width: 1, height: 1, area: 1, perimeter: 1, imageURL: "String", points_small: [], points: [], treatment: "String", dressingType: 1, creationDate: Date(), treatmentEdit: "String", editDate: Date())]), dates: .constant([]), areas: .constant([]), wound: .constant(Wound(woundID: "String", pacientID: "String", createdBy: "String", resolved: false, comment: "String", commentEdited: "String", creationDate: Date(), woundType: 1, bodyPart: 1, measurementQuantity: 1)))
     }
 }

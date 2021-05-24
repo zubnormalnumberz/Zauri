@@ -22,7 +22,6 @@ struct CaliberView: View {
     @State var lastScaleValue: CGFloat = 1.0
     
     @State var showingSheet = false
-    @Environment(\.presentationMode) var presentationMode
     
     @ObservedObject var caliberViewModel = CaliberViewModel()
             
@@ -165,9 +164,7 @@ struct CaliberView: View {
             }
             .navigationBarTitle(Text("Medida de referencia"), displayMode: .inline)
             .navigationBarItems(leading: Button("Cerrar") {
-                //self.modalState.isCamera2ViewModalPresented = false
-                presentationMode.wrappedValue.dismiss()
-                self.modalState.isCaliberViewModalPresented = false
+                modalState.isCaliberViewModalPresented = false
             },trailing: NavigationLink(destination: DrawView(modalState: self.modalState, image: self.image, scale: Scale(unit: caliberViewModel.unit, measureUnit: caliberViewModel.measureUnit, scale: [startPoint, endPoint]), woundID: self.woundID, patientID: patientID, userID: userID)) {
                 Text("Siguiente")
             })

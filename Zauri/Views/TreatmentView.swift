@@ -39,18 +39,27 @@ struct TreatmentView: View {
                         Text(dressingType.string)
                     }
                 }
-                TextField("Comentario", text: $treatmentViewModel.comment)
+                TextEditor(text: $treatmentViewModel.comment)
+                    .background(
+                        HStack(alignment: .top) {
+                            treatmentViewModel.comment == "" ? Text("Descripción del tratamiento aplicado") : Text("")
+                            Spacer()
+                        }
+                        .foregroundColor(Color.primary.opacity(0.25))
+                        .padding(EdgeInsets(top: 0, leading: 4, bottom: 7, trailing: 0))
+                    )
             }
             Spacer()
         }
         .navigationBarTitle(Text("Tratamiento"), displayMode: .inline)
-        .navigationBarItems(trailing: treatmentViewModel.userID == "" ?
+        .navigationBarItems(trailing: treatmentViewModel.woundID == "" ?
                                 AnyView(self.selectUserNavigationLink) : AnyView(self.saveWoundButton))
         .onAppear(perform: handleData)
-        .onReceive(treatmentViewModel .viewDismissalModePublisher) { shouldDismiss in
+        .onReceive(treatmentViewModel.viewDismissalModePublisher) { shouldDismiss in
             if shouldDismiss {
                 self.showToast = false
                 self.modalState.isCamera2ViewModalPresented = false
+                //self.modalState.isCameraViewModalPresented = false
                 self.modalState.isCaliberViewModalPresented = false
             }
         }
@@ -61,7 +70,7 @@ struct TreatmentView: View {
     
     var selectUserNavigationLink: some View {
       NavigationLink(
-        destination: SearchPatientForMeasurementView(),
+        destination: SearchPatientForMeasurementView(modalState: self.modalState, userID: self.userID, image: self.image, points: self.points, scale: self.scale, treatment: treatmentViewModel.comment, dressingType: treatmentViewModel.selectedDressingType),
         label: {
             Text("Seleccionar paciente")
         })
