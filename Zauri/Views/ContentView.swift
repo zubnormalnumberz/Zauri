@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
     
     @EnvironmentObject var session: UserService
+    @EnvironmentObject var modal: ModalState
     
     func getUser(){
         session.listen()
@@ -30,6 +31,8 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView().environmentObject(UserService())
+        ContentView()
+            .environmentObject(UserService())
+            .environmentObject(ModalState())
     }
 }

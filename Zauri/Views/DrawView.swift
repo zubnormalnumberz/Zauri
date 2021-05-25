@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DrawView: View {
     
-    @ObservedObject var modalState: ModalState
+    @EnvironmentObject var modalState: ModalState
     
     var image: UIImage?
     var scale: Scale
@@ -108,7 +108,7 @@ struct DrawView: View {
             }
         }
         .navigationBarTitle(Text(""), displayMode: .inline)
-        .navigationBarItems(trailing: NavigationLink(destination: DrawResultView(modalState: self.modalState, image: self.image, points: points, scale: scale, woundID: self.woundID, patientID: self.patientID, userID: self.userID)) {
+        .navigationBarItems(trailing: NavigationLink(destination: DrawResultView(image: self.image, points: points, scale: scale, woundID: self.woundID, patientID: self.patientID, userID: self.userID)) {
             Text("Medir")
         }.disabled(!finished))
     }
@@ -130,6 +130,6 @@ struct DrawView: View {
 
 struct DrawView_Previews: PreviewProvider {
     static var previews: some View {
-        DrawView(modalState: ModalState(), image: UIImage(named: "arm"), scale: Scale(unit: 1, measureUnit: "cm", scale: [CGPoint(x: 0.0, y: 0.0), CGPoint(x: 5.0, y: 4.0)]), woundID: "String", patientID: "String", userID: "String")
+        DrawView(image: UIImage(named: "arm"), scale: Scale(unit: 1, measureUnit: "cm", scale: [CGPoint(x: 0.0, y: 0.0), CGPoint(x: 5.0, y: 4.0)]), woundID: "String", patientID: "String", userID: "String")
     }
 }

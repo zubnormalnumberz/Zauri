@@ -13,17 +13,16 @@ struct WoundView: View {
     
     let wound: Wound
     let patient: Patient
+    
     @State var offset: CGFloat = 0
     @State private var showingActionSheet = false
-    @State private var currentIndex = 0
     @State private var showAlertWrongUserID = false
     @State private var showAlertOutOfTime = false
     @State private var showAlertConfirmDeleteMeasurement = false
     
     @StateObject private var woundViewModel = WoundViewModel()
     @EnvironmentObject var session: UserService
-    
-    @ObservedObject var modalState: ModalState
+    @EnvironmentObject var modalState: ModalState
     
     func getUser() {
         session.listen()
@@ -143,8 +142,8 @@ struct WoundView: View {
             },trailing: Button("Acciones") {
                 self.showingActionSheet = true
             })
-            .fullScreenCover(isPresented: $modalState.isCamera2ViewModalPresented){
-                Camera2View(modalState: self.modalState, woundID: wound.woundID, patientID: patient.patientID, userID: self.session.self.session?.userID ?? "")
+            .fullScreenCover(isPresented: $modalState.isCameraViewModalPresented){
+                CameraView(woundID: wound.woundID, patientID: patient.patientID, userID: self.session.self.session?.userID ?? "").environmentObject(modalState)
             }
             .alert(isPresented: $showAlertConfirmDeleteMeasurement) {
                 Alert(
@@ -164,7 +163,7 @@ struct WoundView: View {
         .actionSheet(isPresented: $showingActionSheet) {
             ActionSheet(title: Text("¿Que acción desea realizar?"), buttons: [
                 .default(Text("Añadir medición")) {
-                    self.modalState.isCamera2ViewModalPresented = true
+                    self.modalState.isCameraViewModalPresented = true
                 },
                 .default(Text("Editar herida")) {},
                 .default(Text("Editar medición")) {},
@@ -201,7 +200,7 @@ struct WoundView: View {
 
 struct WoundView_Previews: PreviewProvider {
     static var previews: some View {
-        WoundView(wound: Wound(woundID: "String", pacientID: "String", createdBy: "String", resolved: true, comment: "String", commentEdited: "String", creationDate: Date(), woundType: 1, bodyPart: 1, measurementQuantity: 0), patient: Patient(patientID: "String", name: "Jose Luis", surname1: "Zubibitarte", surname2: "Bilbao", sex: false, dateBirth: Date(), cic: 1, phone: 1), modalState: ModalState())
+        WoundView(wound: Wound(woundID: "String", pacientID: "String", createdBy: "String", resolved: true, comment: "String", commentEdited: "String", creationDate: Date(), woundType: 1, bodyPart: 1, measurementQuantity: 0), patient: Patient(patientID: "String", name: "Jose Luis", surname1: "Zubibitarte", surname2: "Bilbao", sex: false, dateBirth: Date(), cic: 1, phone: 1))
             
     }
 }

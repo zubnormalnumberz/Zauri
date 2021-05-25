@@ -10,7 +10,7 @@ import AlertToast
 
 struct TreatmentView: View {
     
-    @ObservedObject var modalState: ModalState
+    @EnvironmentObject var modalState: ModalState
 
     @ObservedObject var treatmentViewModel = TreatmentViewModel()
     @State private var showToast = false
@@ -70,7 +70,7 @@ struct TreatmentView: View {
     
     var selectUserNavigationLink: some View {
       NavigationLink(
-        destination: SearchPatientForMeasurementView(modalState: self.modalState, userID: self.userID, image: self.image, points: self.points, scale: self.scale, treatment: treatmentViewModel.comment, dressingType: treatmentViewModel.selectedDressingType),
+        destination: SearchPatientForMeasurementView(userID: self.userID, image: self.image, points: self.points, scale: self.scale, treatment: treatmentViewModel.comment, dressingType: treatmentViewModel.selectedDressingType),
         label: {
             Text("Seleccionar paciente")
         })
@@ -88,6 +88,6 @@ struct TreatmentView: View {
 
 struct TreatmentView_Previews: PreviewProvider {
     static var previews: some View {
-        TreatmentView(modalState: ModalState(), image: UIImage(named: "arm"), points: [CGPoint(x: 172.5, y: 252.0), CGPoint(x: 148.0, y: 266.0), CGPoint(x: 131.0, y: 290.5), CGPoint(x: 120.5, y: 316.5), CGPoint(x: 118.5, y: 340.0), CGPoint(x: 121.0, y: 364.0), CGPoint(x: 133.5, y: 383.5), CGPoint(x: 152.0, y: 404.5)], woundID: "String", patientID: "String", userID: "String", scale: Scale(unit: 1, measureUnit: "cm", scale: []))
+        TreatmentView(image: UIImage(named: "arm"), points: [CGPoint(x: 172.5, y: 252.0), CGPoint(x: 148.0, y: 266.0), CGPoint(x: 131.0, y: 290.5), CGPoint(x: 120.5, y: 316.5), CGPoint(x: 118.5, y: 340.0), CGPoint(x: 121.0, y: 364.0), CGPoint(x: 133.5, y: 383.5), CGPoint(x: 152.0, y: 404.5)], woundID: "String", patientID: "String", userID: "String", scale: Scale(unit: 1, measureUnit: "cm", scale: []))
     }
 }

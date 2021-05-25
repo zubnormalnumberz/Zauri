@@ -12,7 +12,7 @@ struct SearchPatientForMeasurementView: View {
     
     @ObservedObject var searchPatientForMeasurementViewModel = SearchPatientForMeasurementViewModel()
     @State private var showToast = false
-    @ObservedObject var modalState: ModalState
+    @EnvironmentObject var modalState: ModalState
     var userID: String
     var image: UIImage?
     var points: [CGPoint]
@@ -157,6 +157,6 @@ struct SearchPatientForMeasurementView: View {
 
 struct SearchPatientForMeasurementView_Previews: PreviewProvider {
     static var previews: some View {
-        SearchPatientForMeasurementView(modalState: ModalState(), userID: "String", image: UIImage(named: "arm"), points: [CGPoint(x: 172.5, y: 252.0), CGPoint(x: 148.0, y: 266.0), CGPoint(x: 131.0, y: 290.5), CGPoint(x: 120.5, y: 316.5), CGPoint(x: 118.5, y: 340.0), CGPoint(x: 121.0, y: 364.0), CGPoint(x: 133.5, y: 383.5), CGPoint(x: 152.0, y: 404.5)], scale: Scale(unit: 1, measureUnit: "cm", scale: []), treatment: "String", dressingType: 1)
+        SearchPatientForMeasurementView(userID: "String", image: UIImage(named: "arm"), points: [CGPoint(x: 172.5, y: 252.0), CGPoint(x: 148.0, y: 266.0), CGPoint(x: 131.0, y: 290.5), CGPoint(x: 120.5, y: 316.5), CGPoint(x: 118.5, y: 340.0), CGPoint(x: 121.0, y: 364.0), CGPoint(x: 133.5, y: 383.5), CGPoint(x: 152.0, y: 404.5)], scale: Scale(unit: 1, measureUnit: "cm", scale: []), treatment: "String", dressingType: 1)
     }
 }

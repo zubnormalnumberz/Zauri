@@ -11,6 +11,11 @@ import Combine
 struct BottomTabsView: View {
     
     @State private var selectedItem = 1
+    @EnvironmentObject var session: UserService
+    
+    func getUser() {
+        session.listen()
+    }
     
     var body: some View {
         TabView(selection: $selectedItem) {
@@ -20,7 +25,7 @@ struct BottomTabsView: View {
                     Text("Pacientes")
                 }
                 .tag(1)
-            CameraView()
+            CameraView(woundID: "", patientID: "", userID: self.session.self.session?.userID ?? "")
                 .tabItem {
                     Image(systemName: "camera.fill")
                     Text("Añadir medición")
@@ -38,6 +43,8 @@ struct BottomTabsView: View {
                     Text("Ajustes")
                 }
                 .tag(4)
+        }.onAppear(){
+            getUser()
         }
     }
 }

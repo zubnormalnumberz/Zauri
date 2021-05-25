@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CaliberView: View {
     
-    @ObservedObject var modalState: ModalState
+    @EnvironmentObject var modalState: ModalState
     
     var image: UIImage?
     
@@ -164,8 +164,8 @@ struct CaliberView: View {
             }
             .navigationBarTitle(Text("Medida de referencia"), displayMode: .inline)
             .navigationBarItems(leading: Button("Cerrar") {
-                modalState.isCaliberViewModalPresented = false
-            },trailing: NavigationLink(destination: DrawView(modalState: self.modalState, image: self.image, scale: Scale(unit: caliberViewModel.unit, measureUnit: caliberViewModel.measureUnit, scale: [startPoint, endPoint]), woundID: self.woundID, patientID: patientID, userID: userID)) {
+                self.modalState.isCaliberViewModalPresented = false
+            },trailing: NavigationLink(destination: DrawView(image: self.image, scale: Scale(unit: caliberViewModel.unit, measureUnit: caliberViewModel.measureUnit, scale: [startPoint, endPoint]), woundID: self.woundID, patientID: patientID, userID: userID)) {
                 Text("Siguiente")
             })
             
