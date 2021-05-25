@@ -31,6 +31,7 @@ class WoundViewModel: ObservableObject{
     
     
     func fetchMeasurementsData(wound: Wound) {
+        print("WOUND: \(wound.woundID)")
         downloading = true
         db.collection("measurements").whereField("woundId", isEqualTo: wound.woundID).order(by: "creationDate", descending: false).getDocuments() { (querySnapshot, error) in
             guard let documents = querySnapshot?.documents else {
@@ -39,9 +40,9 @@ class WoundViewModel: ObservableObject{
             }
                 
             self.measurements = documents.map { (queryDocumentSnapshot) -> WoundMeasurement in
-                    
                 let data = queryDocumentSnapshot.data()
                 let measurementID = queryDocumentSnapshot.documentID
+                print("Measurement: \(measurementID)")
                 let patientId = data["patientId"] as? String ?? ""
                 let userId = data["userId"] as? String ?? ""
                 let woundId = data["woundId"] as? String ?? ""

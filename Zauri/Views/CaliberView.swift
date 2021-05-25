@@ -9,13 +9,15 @@ import SwiftUI
 
 struct CaliberView: View {
     
-    @EnvironmentObject var modalState: ModalState
+    @ObservedObject var modalState: ModalState
     
     var image: UIImage?
     
     var woundID: String
     var patientID: String
     var userID: String
+    
+    @Binding var rootIsActive : Bool
     
     @State private var startPoint: CGPoint = CGPoint(x: 200, y: 100)
     @State private var endPoint: CGPoint = CGPoint(x: 100, y: 100)
@@ -33,7 +35,7 @@ struct CaliberView: View {
     
     var body: some View {
         
-        NavigationView {
+        //NavigationView {
             VStack{
                 Spacer()
                     .frame(height: 125)
@@ -163,13 +165,11 @@ struct CaliberView: View {
                     .padding()
             }
             .navigationBarTitle(Text("Medida de referencia"), displayMode: .inline)
-            .navigationBarItems(leading: Button("Cerrar") {
-                self.modalState.isCaliberViewModalPresented = false
-            },trailing: NavigationLink(destination: DrawView(image: self.image, scale: Scale(unit: caliberViewModel.unit, measureUnit: caliberViewModel.measureUnit, scale: [startPoint, endPoint]), woundID: self.woundID, patientID: patientID, userID: userID)) {
+            .navigationBarItems(trailing: NavigationLink(destination: DrawView(modalState: self.modalState, image: self.image, scale: Scale(unit: caliberViewModel.unit, measureUnit: caliberViewModel.measureUnit, scale: [startPoint, endPoint]), woundID: self.woundID, patientID: patientID, userID: userID, rootIsActive: self.$rootIsActive)) {
                 Text("Siguiente")
             })
             
-        }
+        //}
     }
 }
 

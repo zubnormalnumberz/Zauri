@@ -10,6 +10,7 @@ target 'Zauri' do
   pod 'Firebase/Auth'
 	pod 'Introspect'
   pod 'AlertToast'
+  pod 'Charts'
   pod 'Firebase/Firestore'
   pod 'Firebase/Storage'
   pod 'SDWebImageSwiftUI'

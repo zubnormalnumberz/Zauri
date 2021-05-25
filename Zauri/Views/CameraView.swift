@@ -14,9 +14,13 @@ struct CameraView: View {
     @State private var sourceType: UIImagePickerController.SourceType = .camera
     @State private var selectedImage: UIImage?
     @State private var isImagePickerDisplay = false
-    @State private var isPresented = false
     @EnvironmentObject var session: UserService
-        
+    
+    @State var isActive : Bool = false
+    
+    var woundID: String
+    var patientID: String
+            
     func getUser() {
         session.listen()
     }
@@ -25,6 +29,10 @@ struct CameraView: View {
         NavigationView {
             VStack {
                 Spacer()
+                NavigationLink(destination: CaliberView(modalState: self.modalState, image: self.selectedImage, woundID: self.woundID, patientID: self.patientID, userID: self.session.self.session?.userID ?? "", rootIsActive: self.$isActive), isActive: $isActive) {
+                    EmptyView()
+                }
+                .isDetailLink(false)
                 VStack{
                     if selectedImage != nil {
                         Image(uiImage: selectedImage!)
@@ -74,13 +82,12 @@ struct CameraView: View {
                 getUser()
             }
             .navigationBarTitle("Elegir imágen", displayMode: .inline)
-            .navigationBarItems(trailing: Button("Siguiente") {
-                modalState.isCaliberViewModalPresented = true
-                //isPresented.toggle()
-            }.disabled(selectedImage == nil))
-            .fullScreenCover(isPresented: $modalState.isCaliberViewModalPresented){
-                CaliberView(modalState: modalState, image: self.selectedImage, woundID: "", patientID: "", userID: self.session.self.session?.userID ?? "")
-            }
+            .navigationBarItems(trailing: Button(action: {
+                self.isActive.toggle()
+            }, label: {
+                Text("Siguiente")
+            })
+            .disabled(selectedImage == nil))
             .sheet(isPresented: self.$isImagePickerDisplay) {
                 ImagePickerView(selectedImage: self.$selectedImage, sourceType: self.sourceType)
             }
@@ -90,6 +97,6 @@ struct CameraView: View {
 
 struct CameraView_Previews: PreviewProvider {
     static var previews: some View {
-        CameraView()
+        CameraView(modalState: ModalState(), woundID: "", patientID: "")
     }
 }

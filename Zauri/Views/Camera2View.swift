@@ -10,7 +10,7 @@ import AlertToast
 
 struct Camera2View: View {
     
-    @EnvironmentObject var modalState: ModalState
+    @ObservedObject var modalState: ModalState
     
     @State private var sourceType: UIImagePickerController.SourceType = .camera
     @State private var selectedImage: UIImage?
@@ -72,13 +72,14 @@ struct Camera2View: View {
             .navigationBarTitle("Elegir imágen", displayMode: .inline)
             .navigationBarItems(leading: Button("Cerrar") {
                 modalState.isCamera2ViewModalPresented = false
-            }, trailing: Button("Siguiente") {
-                modalState.isCaliberViewModalPresented = true
-                //isPresented.toggle()
+            }, trailing: NavigationLink(
+                destination: CaliberView(modalState: self.modalState, image: self.selectedImage, woundID: self.woundID, patientID: self.patientID, userID: self.userID, rootIsActive: .constant(false))
+            ) {
+                Text("Siguiente")
             }.disabled(selectedImage == nil))
-            .fullScreenCover(isPresented: $modalState.isCaliberViewModalPresented){
-                CaliberView(image: self.selectedImage, woundID: self.woundID, patientID: self.patientID, userID: self.userID)
-            }
+//            .fullScreenCover(isPresented: $modalState.isCaliberViewModalPresented){
+//                CaliberView(modalState: self.modalState, image: self.selectedImage, woundID: self.woundID, patientID: self.patientID, userID: self.userID)
+//            }
             .sheet(isPresented: self.$isImagePickerDisplay) {
                 ImagePickerView(selectedImage: self.$selectedImage, sourceType: self.sourceType)
             }

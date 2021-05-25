@@ -12,7 +12,7 @@ struct WoundRowView: View {
     let wound: Wound
     let patient: Patient
     
-    @EnvironmentObject var modalState: ModalState
+    @StateObject var modalState = ModalState()
     
     var body: some View {
         Button(action: {
@@ -44,8 +44,7 @@ struct WoundRowView: View {
             .padding()
         }
         .fullScreenCover(isPresented: $modalState.isWoundViewModalPresented){
-            WoundView(wound: wound, patient: patient)
-                //.environmentObject(modalState)
+            WoundView(wound: self.wound, patient: self.patient, modalState: self.modalState)
         }
     }
 }
