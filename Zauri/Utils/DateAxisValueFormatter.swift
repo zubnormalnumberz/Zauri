@@ -8,7 +8,7 @@
 import Foundation
 import Charts
 
-class DateAxisValueFormatter : NSObject, IAxisValueFormatter{
+class DateAxisValueFormatter : NSObject, AxisValueFormatter{
     let dateFormatter = DateFormatter()
     let secondsPerDay = 24.0 * 3600.0
 

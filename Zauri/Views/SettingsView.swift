@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AlertToast
 
 struct SettingsView: View {
     
@@ -15,6 +16,7 @@ struct SettingsView: View {
     @State private var selectedAppearanceIndex = 2
     @EnvironmentObject var session: UserService
     @ObservedObject var settingsViewModel = SettingsViewModel()
+    @State private var showLogOutToast = false
     
     func getUser() {
         session.listen()
@@ -59,19 +61,24 @@ struct SettingsView: View {
                         Link("Zubnormal Numberz", destination: URL(string: "https://github.com/zubnormalnumberz")!)
                     }
                     Button("Cerrar sesión") {
-                        session.signOut()
+                        showLogOutToast = true
                     }
-                        .foregroundColor(.white)
-                        .padding()
-                        .frame(maxWidth: .infinity)
-                        .background(Color.red)
-                        .cornerRadius(8)
-                        .padding()
+                    .foregroundColor(.white)
+                    .padding()
+                    .frame(maxWidth: .infinity)
+                    .background(Color.red)
+                    .cornerRadius(8)
+                    .padding()
                 }
                 .navigationBarTitle("Ajustes")
             }
-        //}
+            //}
         }.onAppear(perform: getUser)
+        .toast(isPresenting: $showLogOutToast, duration: 2, alert: {
+            AlertToast(type: .regular, title: "Cerrando sesión...")
+        }, completion: { dismissed in
+            session.signOut()
+        })
     }
 }
 

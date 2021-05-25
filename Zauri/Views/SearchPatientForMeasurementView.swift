@@ -12,6 +12,7 @@ struct SearchPatientForMeasurementView: View {
     
     @ObservedObject var searchPatientForMeasurementViewModel = SearchPatientForMeasurementViewModel()
     @State private var showToast = false
+    @State private var showToast2 = false
     @ObservedObject var modalState: ModalState
     var userID: String
     var image: UIImage?
@@ -123,15 +124,19 @@ struct SearchPatientForMeasurementView: View {
             .onReceive(searchPatientForMeasurementViewModel.viewDismissalModePublisher) { shouldDismiss in
                 if shouldDismiss {
                     self.showToast = false
-                    self.shouldPopToRootView = false
-                    //self.modalState.isCamera2ViewModalPresented = false
-                    //self.modalState.isCaliberViewModalPresented = false
-                    //self.modalState.isCameraViewModalPresented = false
+                    self.showToast2 = true
                 }
             }
             .toast(isPresenting: $showToast){
-                AlertToast(type: .loading, title: "Guardando herida...")
+                AlertToast(type: .loading, title: "Guardando medición...")
             }
+            .toast(isPresenting: ($showToast2), duration: 2.5, alert: {
+               
+                AlertToast(type: .complete(Color.green), title: "La medición se ha guardado correctamente")
+               
+            }, completion: { dismissed in
+                self.shouldPopToRootView = false
+            })
             .navigationBarTitle("Buscar paciente", displayMode: .inline)
             .navigationBarItems(trailing: searchPatientForMeasurementViewModel.getSelectedWound().woundID == "" ?
                                     AnyView(self.savePendingMeasurementButton) : AnyView(self.saveMeasurementButton))

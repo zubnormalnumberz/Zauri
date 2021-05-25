@@ -14,6 +14,7 @@ struct TreatmentView: View {
 
     @ObservedObject var treatmentViewModel = TreatmentViewModel()
     @State private var showToast = false
+    @State private var showToast2 = false
     
     var image: UIImage?
     var points: [CGPoint]
@@ -59,15 +60,21 @@ struct TreatmentView: View {
         .onReceive(treatmentViewModel.viewDismissalModePublisher) { shouldDismiss in
             if shouldDismiss {
                 self.showToast = false
-                self.modalState.isWoundViewModalPresented = false
-                self.modalState.isCamera2ViewModalPresented = false
-                //self.modalState.isCameraViewModalPresented = false
-                self.modalState.isCaliberViewModalPresented = false
+                self.showToast2 = true
             }
         }
         .toast(isPresenting: $showToast){
-            AlertToast(type: .loading, title: "Guardando herida...")
+            AlertToast(type: .loading, title: "Guardando medición...")
         }
+        .toast(isPresenting: ($showToast2), duration: 2.5, alert: {
+           
+            AlertToast(type: .complete(Color.green), title: "La medición se ha guardado correctamente")
+           
+        }, completion: { dismissed in
+            self.modalState.isWoundViewModalPresented = false
+            self.modalState.isCamera2ViewModalPresented = false
+            self.modalState.isCaliberViewModalPresented = false
+        })
     }
     
     var selectUserNavigationLink: some View {
