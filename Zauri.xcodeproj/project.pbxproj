@@ -27,7 +27,6 @@
 		3A3EDC41263F109F0046A8A2 /* DressingType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3EDC40263F109F0046A8A2 /* DressingType.swift */; };
 		3A3EDC45263F19470046A8A2 /* BottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3EDC44263F19470046A8A2 /* BottomSheet.swift */; };
 		3A3EDC49263F202B0046A8A2 /* Camera2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3EDC48263F202B0046A8A2 /* Camera2View.swift */; };
-		3A503DB6265CE3D300909095 /* WoundPruebaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A503DB5265CE3D300909095 /* WoundPruebaView.swift */; };
 		3A7B4CAA2636B52D002804EE /* LineChartSwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7B4CA92636B52D002804EE /* LineChartSwiftUI.swift */; };
 		3A7B4CB42636D1A1002804EE /* DateAxisValueFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7B4CB32636D1A1002804EE /* DateAxisValueFormatter.swift */; };
 		3A81F56F26481E340068B887 /* PendingMeasurementsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A81F56E26481E340068B887 /* PendingMeasurementsViewModel.swift */; };
@@ -145,7 +144,6 @@
 		3A3EDC40263F109F0046A8A2 /* DressingType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DressingType.swift; sourceTree = "<group>"; };
 		3A3EDC44263F19470046A8A2 /* BottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheet.swift; sourceTree = "<group>"; };
 		3A3EDC48263F202B0046A8A2 /* Camera2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera2View.swift; sourceTree = "<group>"; };
-		3A503DB5265CE3D300909095 /* WoundPruebaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoundPruebaView.swift; sourceTree = "<group>"; };
 		3A7B4C9A2636B48B002804EE /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = "../Charts-master/Charts.xcodeproj"; sourceTree = "<group>"; };
 		3A7B4CA92636B52D002804EE /* LineChartSwiftUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChartSwiftUI.swift; sourceTree = "<group>"; };
 		3A7B4CB32636D1A1002804EE /* DateAxisValueFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateAxisValueFormatter.swift; sourceTree = "<group>"; };
@@ -409,7 +407,6 @@
 				3A81F58E264862720068B887 /* WoundsOfPatientView2.swift */,
 				3A81F592264863110068B887 /* WoundRowSelectView2.swift */,
 				3A028BA2265BA0820091D17B /* BigImageView.swift */,
-				3A503DB5265CE3D300909095 /* WoundPruebaView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -783,7 +780,6 @@
 				3AF84648261B2A6E00BCA1AB /* BottomTabsView.swift in Sources */,
 				3A911A412625D5790049733A /* AddWoundView.swift in Sources */,
 				3AF3C2E42620317300D8D51F /* Patient.swift in Sources */,
-				3A503DB6265CE3D300909095 /* WoundPruebaView.swift in Sources */,
 				3AD040E3262305A100811FBB /* PatientsViewModel.swift in Sources */,
 				3A911A51262784900049733A /* BodyParts.swift in Sources */,
 				3A3EDC45263F19470046A8A2 /* BottomSheet.swift in Sources */,

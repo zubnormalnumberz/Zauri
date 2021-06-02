@@ -44,13 +44,13 @@ struct DrawResultView: View {
             }.aspectRatio(contentMode: .fit)
             HStack{
                 VStack(alignment: .leading){
-                    Text("Longitud (L): 24 \(scale.measureUnit)")
+                    Text("Longitud (L): - \(scale.measureUnit)")
                         .padding(.bottom, 10)
                     Text("Area: \(scale.getArea(points: self.points)) \(scale.measureUnit)") + Text("2")
                         .baselineOffset(6.0)
                 }.padding()
                 VStack(alignment: .leading){
-                    Text("Anchura (A): 14 \(scale.measureUnit)")
+                    Text("Anchura (A): - \(scale.measureUnit)")
                         .padding(.bottom, 10)
                     Text("Perimetro: \(scale.getPerimeter(points: self.points)) \(scale.measureUnit)")
                 }.padding()

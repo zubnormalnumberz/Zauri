@@ -68,7 +68,7 @@ enum BodyPart: Int {
         .LowerBack : "Espalda inferior",
         .RightShoulderBack : "Hombro derecho posterior",
         .RightForearmBack : "Antebrazo derecho posterior",
-        .RightHandBack : "Mano derecha anterior",
+        .RightHandBack : "Mano derecha posterior",
         .LeftShoulderBack : "Hombro izquierdo posterior",
         .LeftForearmBack : "Antebrazo izquierdo posterior",
         .LeftHandBack : "Mano izquierda posterior",
